@@ -128,6 +128,41 @@
   .tile h3{font-size:16px;margin-bottom:5px}
   .tile p{font-size:13.5px;color:var(--text2)}
 
+  /* ================= So funktioniert's (System-Diagramm) ================= */
+  .system-diagramm{background:var(--karte);border-radius:var(--radius);padding:28px 28px 20px;margin-top:6px}
+  .system-svg{width:100%;height:auto;display:block}
+  .system-svg text{font-family:var(--font)}
+  .system-legende{text-align:center;color:var(--text2);font-size:13.5px;margin:10px 0 4px}
+  .system-punkte{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .system-punkte span{display:flex;align-items:center;gap:9px;border:1px solid var(--linie);border-radius:9px;padding:10px 16px;font-size:14.5px;font-weight:600}
+  .system-punkte svg{width:17px;height:17px;stroke:var(--orange-hell);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  @media (prefers-reduced-motion: reduce){.puls{display:none}}
+  .system-mobil{display:none}
+  @media(max-width:719px){
+    .system-svg,.system-legende{display:none}
+    .system-mobil{display:block}
+    .system-mobil .zentrum{background:#14161a;border:1.5px solid var(--orange);border-radius:12px;padding:18px;text-align:center;margin-bottom:14px}
+    .system-mobil .zentrum b{font-size:17px}
+    .system-mobil .zentrum small{display:block;color:var(--text2);margin-top:3px;font-size:13px}
+    .system-mobil .werkzeuge{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .system-mobil .werkzeug{background:#24272d;border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600}
+    .system-mobil .werkzeug svg{width:20px;height:20px;stroke:var(--orange-hell);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+    .system-mobil .werkzeug em{font-style:normal;margin-left:auto;font-size:10px;letter-spacing:.08em;color:var(--orange-hell);border:1px solid #3a4048;border-radius:5px;padding:2px 6px}
+  }
+
+  /* ================= Gründer ================= */
+  .gruender-karte{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;background:var(--karte);border-radius:var(--radius);padding:40px 42px}
+  @media(max-width:760px){.gruender-karte{grid-template-columns:1fr;gap:26px;padding:30px 26px}}
+  .gruender-foto{text-align:center}
+  .monogramm{width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,var(--orange),#b85708);display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:800;color:#14161a;margin:0 auto}
+  .gruender-foto img{width:150px;height:150px;border-radius:50%;object-fit:cover;margin:0 auto}
+  .gruender-foto .wer{margin-top:14px;font-size:14px;font-weight:700}
+  .gruender-foto .rolle{font-size:12.5px;color:var(--text2)}
+  .gruender-zitat{font-size:clamp(19px,2.3vw,26px);font-weight:700;line-height:1.4;margin-bottom:16px}
+  .gruender-zitat span{color:var(--orange-hell)}
+  .gruender-text p{color:var(--text2);font-size:15.5px;margin-bottom:10px}
+  .gruender-text p b{color:#fff}
+
   /* ================= Ansatz + kurze Geschichte ================= */
   .split{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:stretch}
   @media(max-width:900px){.split{grid-template-columns:1fr}}
@@ -206,7 +241,8 @@
       <a class="aktiv" href="#start">Start</a>
       <a href="#projekte">Projekte</a>
       <a href="#leistungen">Leistungen</a>
-      <a href="#ansatz">Über uns</a>
+      <a href="#system">So funktioniert's</a>
+      <a href="#gruender">Über uns</a>
       <a href="#zukunft">Zukunft</a>
       <a href="#beratung">Kontakt</a>
     </nav>
@@ -331,12 +367,95 @@
   </div>
 </section>
 
+<!-- ================= SO FUNKTIONIERT'S ================= -->
+<section class="reihe" id="system">
+  <div class="wrap">
+    <div class="reihe-kopf rv">
+      <div>
+        <p class="kicker">Transparent erklärt</p>
+        <h2>Ein Programm. Alle Verbindungen. Alle Daten an einem Ort.</h2>
+      </div>
+    </div>
+    <div class="system-diagramm rv">
+      <svg class="system-svg" viewBox="0 0 960 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagramm: Ihr zentrales KI-System, per Schnittstellen verbunden mit WhatsApp, E-Mail, Kalender, Homepage, Autovermietung, Rechnungen, Lieferanten sowie Aufträgen und Werkstatt">
+        <!-- Verbindungen -->
+        <g stroke="#3a4048" stroke-width="1.6" fill="none">
+          <path id="vb1" d="M480 275 Q300 170 150 95"/>
+          <path id="vb2" d="M480 275 L480 70"/>
+          <path id="vb3" d="M480 275 Q660 170 810 95"/>
+          <path id="vb4" d="M480 275 L105 275"/>
+          <path id="vb5" d="M480 275 L855 275"/>
+          <path id="vb6" d="M480 275 Q300 380 150 455"/>
+          <path id="vb7" d="M480 275 L480 490"/>
+          <path id="vb8" d="M480 275 Q660 380 810 455"/>
+        </g>
+        <!-- API-Chips auf den Linien -->
+        <g font-size="11" font-weight="700">
+          <rect x="253" y="261" width="36" height="19" rx="5" fill="#24272d" stroke="#3a4048"/>
+          <text x="271" y="274.5" fill="#ffa04d" text-anchor="middle">API</text>
+          <rect x="671" y="261" width="36" height="19" rx="5" fill="#24272d" stroke="#3a4048"/>
+          <text x="689" y="274.5" fill="#ffa04d" text-anchor="middle">API</text>
+        </g>
+        <!-- Datenpunkte (animiert) -->
+        <g class="puls">
+          <circle r="4.5" fill="#fa7d19"><animateMotion dur="3.0s" begin="0s" repeatCount="indefinite"><mpath href="#vb1"/></animateMotion></circle>
+          <circle r="4.5" fill="#fa7d19"><animateMotion dur="3.4s" begin="0.4s" repeatCount="indefinite"><mpath href="#vb2"/></animateMotion></circle>
+          <circle r="4.5" fill="#fa7d19"><animateMotion dur="3.8s" begin="0.8s" repeatCount="indefinite"><mpath href="#vb3"/></animateMotion></circle>
+          <circle r="4.5" fill="#fa7d19"><animateMotion dur="3.2s" begin="1.2s" repeatCount="indefinite"><mpath href="#vb4"/></animateMotion></circle>
+          <circle r="4.5" fill="#fa7d19"><animateMotion dur="3.6s" begin="1.6s" repeatCount="indefinite"><mpath href="#vb5"/></animateMotion></circle>
+          <circle r="4.5" fill="#fa7d19"><animateMotion dur="4.0s" begin="2.0s" repeatCount="indefinite"><mpath href="#vb6"/></animateMotion></circle>
+          <circle r="4.5" fill="#fa7d19"><animateMotion dur="3.3s" begin="2.4s" repeatCount="indefinite"><mpath href="#vb7"/></animateMotion></circle>
+          <circle r="4.5" fill="#fa7d19"><animateMotion dur="3.7s" begin="2.8s" repeatCount="indefinite"><mpath href="#vb8"/></animateMotion></circle>
+          <circle r="3.2" fill="#ffffff" opacity=".85"><animateMotion dur="3.5s" begin="1s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#vb2"/></animateMotion></circle>
+          <circle r="3.2" fill="#ffffff" opacity=".85"><animateMotion dur="3.9s" begin="2.1s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#vb4"/></animateMotion></circle>
+          <circle r="3.2" fill="#ffffff" opacity=".85"><animateMotion dur="3.6s" begin="0.5s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#vb8"/></animateMotion></circle>
+        </g>
+        <!-- Werkzeuge außen -->
+        <g font-size="14" font-weight="600" text-anchor="middle">
+          <g><circle cx="150" cy="95" r="36" fill="#25d366"/><g transform="translate(137,82)"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-4.2 14.8l-.5-.3-3 .8.8-2.9-.3-.5A8 8 0 0 1 12 4Zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.8 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.3 7.3 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4Z" fill="#fff"/></g><text x="150" y="153" fill="#e8eaed">WhatsApp</text></g>
+          <g><circle cx="480" cy="70" r="36" fill="#24272d" stroke="#32363d" stroke-width="1.5"/><g transform="translate(468,58)" stroke="#ffa04d" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></g><text x="480" y="128" fill="#e8eaed">E-Mail</text></g>
+          <g><circle cx="810" cy="95" r="36" fill="#24272d" stroke="#32363d" stroke-width="1.5"/><g transform="translate(798,83)" stroke="#ffa04d" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 9h18"/></g><text x="810" y="153" fill="#e8eaed">Kalender &amp; Termine</text></g>
+          <g><circle cx="105" cy="275" r="36" fill="#24272d" stroke="#32363d" stroke-width="1.5"/><g transform="translate(93,263)" stroke="#ffa04d" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4.5" ry="9"/></g><text x="105" y="333" fill="#e8eaed">Homepage</text></g>
+          <g><circle cx="855" cy="275" r="36" fill="#24272d" stroke="#32363d" stroke-width="1.5"/><g transform="translate(843,263)" stroke="#ffa04d" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.5 5 9a3 3 0 0 1 2.8-2h8.4A3 3 0 0 1 19 9l2 4.5M4.5 13.5h15a1.5 1.5 0 0 1 1.5 1.5v3h-2.5M3 18h-.5v-3A1.5 1.5 0 0 1 4 13.6"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M9 18h6"/></g><text x="855" y="333" fill="#e8eaed">Autovermietung</text></g>
+          <g><circle cx="150" cy="455" r="36" fill="#24272d" stroke="#32363d" stroke-width="1.5"/><g transform="translate(138,443)" stroke="#ffa04d" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h8l6 6v14H6Z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></g><text x="150" y="513" fill="#e8eaed">Rechnungen</text></g>
+          <g><circle cx="480" cy="490" r="36" fill="#24272d" stroke="#32363d" stroke-width="1.5"/><g transform="translate(468,478)" stroke="#ffa04d" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="11" height="8" rx="1"/><path d="M13 9h4l3 3v3h-2.5"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/><path d="M8.3 17.5h6.4"/></g><text x="480" y="548" fill="#e8eaed">Lieferanten</text></g>
+          <g><circle cx="810" cy="455" r="36" fill="#24272d" stroke="#32363d" stroke-width="1.5"/><g transform="translate(798,443)" stroke="#ffa04d" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 3h6v3H9zM9 13l2 2 4-4"/></g><text x="810" y="513" fill="#e8eaed">Aufträge &amp; Werkstatt</text></g>
+        </g>
+        <!-- Zentrum -->
+        <rect x="350" y="207" width="260" height="136" rx="21" fill="none" stroke="#fa7d19" stroke-opacity=".35" stroke-width="1.5"><animate attributeName="stroke-opacity" values=".35;.06;.35" dur="3.5s" repeatCount="indefinite"/></rect>
+        <rect x="356" y="213" width="248" height="124" rx="18" fill="#14161a" stroke="#fa7d19" stroke-width="1.6"/>
+        <text x="480" y="266" text-anchor="middle" fill="#ffffff" font-size="19" font-weight="750">Ihr zentrales KI-System</text>
+        <text x="480" y="292" text-anchor="middle" fill="#a8afb8" font-size="13.5">alle Daten an einem Ort</text>
+      </svg>
+      <p class="system-legende">Jede Linie ist eine Schnittstelle (API). Ihre bestehenden Programme bleiben — sie werden verbunden.</p>
+      <div class="system-mobil">
+        <div class="zentrum"><b>Ihr zentrales KI-System</b><small>alle Daten an einem Ort — verbunden per Schnittstellen (APIs)</small></div>
+        <div class="werkzeuge">
+          <div class="werkzeug"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.5-.7L3 21l1.8-5.5A8.4 8.4 0 1 1 21 11.5Z"/></svg>WhatsApp<em>API</em></div>
+          <div class="werkzeug"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>E-Mail<em>API</em></div>
+          <div class="werkzeug"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 9h18"/></svg>Kalender &amp; Termine<em>API</em></div>
+          <div class="werkzeug"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4.5" ry="9"/></svg>Homepage<em>API</em></div>
+          <div class="werkzeug"><svg viewBox="0 0 24 24"><path d="M3 13.5 5 9a3 3 0 0 1 2.8-2h8.4A3 3 0 0 1 19 9l2 4.5M4.5 13.5h15a1.5 1.5 0 0 1 1.5 1.5v3h-2.5M3 18h-.5v-3A1.5 1.5 0 0 1 4 13.6"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M9 18h6"/></svg>Autovermietung<em>API</em></div>
+          <div class="werkzeug"><svg viewBox="0 0 24 24"><path d="M6 2h8l6 6v14H6Z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>Rechnungen<em>API</em></div>
+          <div class="werkzeug"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="11" height="8" rx="1"/><path d="M13 9h4l3 3v3h-2.5"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/><path d="M8.3 17.5h6.4"/></svg>Lieferanten<em>API</em></div>
+          <div class="werkzeug"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 3h6v3H9zM9 13l2 2 4-4"/></svg>Aufträge &amp; Werkstatt<em>API</em></div>
+        </div>
+      </div>
+    </div>
+    <div class="system-punkte rv">
+      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Eine Verbindung statt zehn Insellösungen</span>
+      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Alle Daten in einem Programm</span>
+      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Sie schauen an eine Stelle — das System erledigt den Rest</span>
+    </div>
+  </div>
+</section>
+
 <!-- ================= ANSATZ + KURZE GESCHICHTE ================= -->
 <section class="reihe" id="ansatz">
   <div class="wrap">
     <div class="split">
       <div class="feld rv">
-        <p class="kicker">Über uns</p>
+        <p class="kicker">Unser Ansatz</p>
         <h2>Keine Standardsoftware. <span>Ein zentrales KI-System, das Ihr Unternehmen kennt.</span></h2>
         <p>Wir analysieren jeden Betrieb individuell, verbinden Ihre bestehenden Programme über moderne Schnittstellen (APIs) und automatisieren Ihre Arbeitsprozesse. KI ersetzt dabei nicht den Menschen — sie nimmt ihm die Zeitfresser ab.</p>
         <ul class="haken">
@@ -355,6 +474,26 @@
         <p><b>2035.</b> In den Geschichtsbüchern stehen die industrielle Revolution, das Internet, das Smartphone — und die KI-Revolution. Wie immer gilt: <b>Wer früh gehandelt hat, wurde Marktführer.</b> Wer gewartet hat, musste teuer aufholen.</p>
         <p>Betriebe werden dann nicht mehr daran gemessen, wie viele Leute sie beschäftigen — sondern wie intelligent ihre Prozesse arbeiten.</p>
         <p class="schluss">Die Frage ist nicht mehr, <span>ob</span> KI kommt.<br>Die Frage ist: <span>Ist Ihr Unternehmen bereit?</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRÜNDER ================= -->
+<section class="reihe" id="gruender">
+  <div class="wrap">
+    <div class="gruender-karte rv">
+      <div class="gruender-foto">
+        <!-- Sobald GF-Foto vorliegt: <img src="bilder/gruender.jpg" alt="Christopher Gärtner"> statt des Monogramms -->
+        <div class="monogramm">CG</div>
+        <p class="wer">Christopher Gärtner</p>
+        <p class="rolle">Gründer &amp; Geschäftsführer</p>
+      </div>
+      <div class="gruender-text">
+        <p class="gruender-zitat">„KI ist bei uns keine Theorie. <span>Ich habe sie zuerst in meinem eigenen Betrieb eingebaut.</span>"</p>
+        <p>Christopher Gärtner führt in Mosbach einen <b>Karosserie- und Lackier-Meisterbetrieb</b>. Dort laufen Verwaltung, Kundenkommunikation, Terminplanung und Autovermietung heute über ein zentrales KI-System — <b>über 120.000 € zusätzlicher Umsatz in zwei Monaten</b> waren das Ergebnis.</p>
+        <p>Genau diese Systeme baut TOMORROWWORKS jetzt für andere Betriebe: vom Handwerk bis zum Mittelstand.</p>
+        <p><b>Wer hier anruft, spricht nicht mit einem Vertriebler</b> — sondern mit jemandem, der selbst jeden Tag einen Betrieb führt.</p>
       </div>
     </div>
   </div>
