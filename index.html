@@ -671,8 +671,11 @@
 </footer>
 
 <script>
-  // Capture-Helfer für Ganzseiten-Screenshots (?shot=1)
-  if (location.search.includes('shot')) document.documentElement.classList.add('shot');
+  // Capture-Helfer für Ganzseiten-Screenshots (?shot=1) — pausiert auch SMIL-Animationen (Headless-Screenshots liefern sonst leere Frames)
+  if (location.search.includes('shot')) {
+    document.documentElement.classList.add('shot');
+    document.querySelectorAll('svg').forEach(s => { try { s.pauseAnimations(); } catch (e) {} });
+  }
 
   // Kopfleiste: Trennlinie beim Scrollen
   const kopf = document.getElementById('kopf');
