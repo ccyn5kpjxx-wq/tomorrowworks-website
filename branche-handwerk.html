@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TOMORROWWORKS für Handwerksbetriebe: ein System für Einkauf, Vertrieb, Sachbearbeitung und Rechnungskontrolle — verbindet Ihre bestehenden Programme statt sie zu ersetzen. Kostenlose Erstberatung.">
+<title>TOMORROWWORKS für Handwerksbetriebe — Ein System für alle Prozesse</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="TOMORROWWORKS für Handwerksbetriebe">
+<meta property="og:description" content="Ein System für Einkauf, Vertrieb, Sachbearbeitung und Rechnungskontrolle — verbindet Ihre bestehenden Programme statt sie zu ersetzen.">
+<meta property="og:url" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/branche-handwerk.html">
+<meta property="og:image" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/bilder/og_vorschau.jpg">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314161a'/%3E%3Ctext x='32' y='44' font-family='Segoe UI,Arial,sans-serif' font-size='34' font-weight='700' text-anchor='middle' fill='%23fff'%3Et%3Ctspan fill='%23fa7d19'%3Ew%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<style>
+  :root{
+    --bg:#0f1114;--bg2:#15171b;--karte:#1e2126;--karte-hover:#262a30;--linie:#2c3037;
+    --text:#f4f5f7;--text2:#a8afb8;--orange:#fa7d19;--orange-hell:#ffa04d;--radius:12px;
+    --font:"Segoe UI Variable Display","Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3{line-height:1.2;font-weight:700;letter-spacing:-.01em}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1220px;margin:0 auto;padding:0 26px}
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
+  .rv.on{opacity:1;transform:none}
+  .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
+  @media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:80;background:rgba(15,17,20,.88);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+  header.linie{border-color:var(--linie)}
+  .nav{display:flex;align-items:center;gap:38px;height:66px}
+  .logo{display:flex;align-items:center;gap:11px;flex:none}
+  .wortmarke{font-size:22px;font-weight:300;letter-spacing:.01em;line-height:1.1}
+  .wortmarke b{font-weight:800}
+  .wortmarke b i{font-style:normal;color:var(--orange)}
+  .logo small{display:block;font-size:10px;font-weight:600;letter-spacing:.34em;color:var(--text2);margin-top:2px}
+  nav.rubriken{display:flex;gap:30px;font-size:15.5px;font-weight:500;color:var(--text2)}
+  nav.rubriken a{padding:22px 0;position:relative;transition:color .25s}
+  nav.rubriken a:hover{color:#fff}
+  .nav .rechts{margin-left:auto;display:flex;align-items:center;gap:18px}
+  .btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;font-weight:600;font-size:15px;padding:11px 22px;border-radius:10px;transition:background .25s,transform .25s;white-space:nowrap}
+  .btn-orange{background:var(--orange);color:#14161a}
+  .btn-orange:hover{background:var(--orange-hell);transform:translateY(-1px)}
+  .btn-dunkel{background:#282c33;color:#fff}
+  .btn-dunkel:hover{background:#33383f}
+  .btn-whatsapp{background:#25d366;color:#0c1a10}
+  .btn-whatsapp:hover{background:#3fe07d;transform:translateY(-1px)}
+  .btn-whatsapp svg{width:19px;height:19px}
+  @media(max-width:960px){nav.rubriken{display:none}}
+  @media(max-width:680px){.logo small{display:none}.wortmarke{font-size:19px}.nav .btn{padding:9px 14px;font-size:13.5px}.nav{gap:16px}}
+
+  .buehne{position:relative;min-height:78svh;display:flex;align-items:center;overflow:hidden}
+  html.shot .buehne{min-height:620px}
+  html.shot .rv{opacity:1!important;transform:none!important;transition:none!important}
+  .buehne .bild{position:absolute;inset:0}
+  .buehne .bild img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+  .buehne .bild::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(13,15,18,.96) 0%,rgba(13,15,18,.82) 34%,rgba(13,15,18,.35) 62%,rgba(13,15,18,.15) 100%)}
+  .buehne .bild::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(15,17,20,.55) 0%,transparent 22%,transparent 62%,var(--bg) 100%)}
+  .buehne-inhalt{position:relative;z-index:2;padding:140px 0 90px;max-width:740px}
+  .buehne h1{font-size:clamp(32px,4.4vw,52px);max-width:14em}
+  .buehne .details{margin-top:16px;color:var(--text2);font-size:16.5px;max-width:560px}
+  .buehne .details b{color:#fff;font-weight:600}
+  .cta-zeile{display:flex;align-items:center;gap:18px;margin-top:30px;flex-wrap:wrap}
+  .kontakt-buttons{display:flex;gap:14px;flex-wrap:wrap}
+  .foto-quelle{position:absolute;right:14px;bottom:10px;z-index:2;font-size:10.5px;color:rgba(255,255,255,.4);letter-spacing:.06em}
+
+  .reihe{padding:64px 0 10px}
+  .reihe-kopf{margin-bottom:26px}
+  .reihe-kopf h2{font-size:clamp(22px,2.6vw,30px)}
+  .kicker{font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange-hell);margin-bottom:10px}
+
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .tile{background:var(--karte);border-radius:var(--radius);padding:22px 22px 24px;transition:background .3s,transform .3s}
+  .tile:hover{background:var(--karte-hover);transform:translateY(-3px)}
+  .tile svg{width:26px;height:26px;stroke:var(--orange-hell);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px}
+  .tile h3{font-size:16px;margin-bottom:5px}
+  .tile p{font-size:13.5px;color:var(--text2)}
+
+  .kachel{background:var(--karte);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;padding:26px 28px 28px;transition:transform .3s,background .3s}
+  .kachel:hover{transform:translateY(-4px);background:var(--karte-hover)}
+  .kachel .kopf-ikon{width:52px;height:52px;border-radius:14px;background:#2a2013;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .kachel .kopf-ikon svg{width:26px;height:26px;stroke:var(--orange-hell);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .kachel .branche{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-hell);margin-bottom:8px}
+  .kachel h3{font-size:20px;margin-bottom:10px}
+  .kachel p{font-size:15px;color:var(--text2)}
+  .kachel ul{list-style:none;margin-top:14px}
+  .kachel ul li{font-size:14.5px;color:var(--text2);padding:5px 0 5px 24px;position:relative}
+  .kachel ul li::before{content:"";position:absolute;left:2px;top:11px;width:11px;height:6px;border-left:2px solid var(--orange);border-bottom:2px solid var(--orange);transform:rotate(-45deg)}
+
+  .fair-band{margin-top:26px;background:var(--karte);border-left:4px solid var(--orange);border-radius:var(--radius);padding:24px 28px;display:flex;gap:14px 30px;flex-wrap:wrap;align-items:center;justify-content:center}
+  .fair-band span{display:flex;gap:10px;align-items:center;font-size:15.5px;font-weight:650}
+  .fair-band svg{width:19px;height:19px;stroke:var(--orange-hell);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+  .beratung-karte{background:linear-gradient(120deg,#1d2026,#1e2126);border-radius:var(--radius);overflow:hidden;display:grid;grid-template-columns:1.15fr .85fr;min-height:360px}
+  @media(max-width:900px){.beratung-karte{grid-template-columns:1fr}}
+  .beratung-karte .textseite{padding:42px 40px;display:flex;flex-direction:column;justify-content:center}
+  .beratung-karte h2{font-size:clamp(24px,2.8vw,34px);margin-bottom:14px}
+  .beratung-karte h2 span{color:var(--orange-hell)}
+  .beratung-karte .textseite>p{color:var(--text2);max-width:520px;margin-bottom:22px;font-size:15.5px}
+  .beratung-karte .bildseite{position:relative;min-height:240px}
+  .beratung-karte .bildseite img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .beratung-karte .bildseite::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#1e2126 0%,rgba(30,33,38,0) 45%)}
+  .beratung-karte .versprechen{display:flex;gap:18px;flex-wrap:wrap;font-size:13.5px;color:var(--text2);margin-top:20px}
+  .beratung-karte .versprechen span{display:flex;gap:7px;align-items:center}
+  .beratung-karte .versprechen svg{width:15px;height:15px;stroke:var(--orange-hell);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .symbolfoto{position:absolute;right:10px;bottom:8px;font-size:10px;color:rgba(255,255,255,.55);background:rgba(15,17,20,.5);padding:2px 7px;border-radius:5px;letter-spacing:.05em;z-index:2}
+
+  footer{margin-top:90px;background:#0b0d0f;border-top:1px solid var(--linie);padding:50px 0 36px;color:var(--text2);font-size:14px}
+  footer .oben{display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid #1d2026}
+  footer .claim{color:#fff;font-weight:700;font-size:16.5px;max-width:480px;line-height:1.5}
+  footer nav{display:flex;gap:24px;flex-wrap:wrap}
+  footer nav a:hover{color:#fff}
+  footer .unten{padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#6b727b}
+</style>
+
+<header id="kopf">
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="TOMORROWWORKS — Startseite">
+      <span><span class="wortmarke">tomorrow<b>works<i>.</i></b></span><small>AI&nbsp;SOLUTIONS</small></span>
+    </a>
+    <nav class="rubriken">
+      <a href="index.html">Start</a>
+      <a href="index.html#projekte">Projekte</a>
+      <a href="branche-autohaeuser-werkstaetten.html">Autohäuser</a>
+      <a href="branche-fahrschulen.html">Fahrschulen</a>
+      <a href="#beratung">Kontakt</a>
+    </nav>
+    <div class="rechts"><a class="btn btn-orange" href="#beratung">Kostenlose Erstberatung</a></div>
+  </div>
+</header>
+
+<section class="buehne">
+  <div class="bild" aria-hidden="true"><img src="bilder/alternative_werkzeugwand.jpg" alt=""></div>
+  <div class="wrap">
+    <div class="buehne-inhalt">
+      <p class="kicker rv on">Für Handwerksbetriebe</p>
+      <h1 class="rv on rv-d1">Ein System für Einkauf, Vertrieb, Sachbearbeitung und Rechnungen.</h1>
+      <p class="details rv on rv-d2">Egal ob Küchenmontage, Elektro, Bau oder Metall: Wir verbinden <b>Ihre bestehenden Programme</b> per Schnittstelle zu einem zentralen KI-System — statt Sie zu einem Systemwechsel zu zwingen. Kein Mindestlizenz-Zwang, ein Festpreis.</p>
+      <div class="cta-zeile rv on rv-d3">
+        <div class="kontakt-buttons">
+          <a class="btn btn-whatsapp" href="https://wa.me/4915227706694?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20TOMORROWWORKS%20f%C3%BCr%20meinen%20Handwerksbetrieb." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-4.2 14.8l-.5-.3-3 .8.8-2.9-.3-.5A8 8 0 0 1 12 4Zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.8 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.3 7.3 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4Z" fill="currentColor" stroke="none"/></svg>
+            WhatsApp
+          </a>
+          <a class="btn btn-orange" href="mailto:info@auto-lackierzentrum.de?subject=Kostenlose%20Pr%C3%A4sentation%20f%C3%BCr%20Handwerksbetrieb">Kostenlose Präsentation anfragen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="foto-quelle">Symbolfoto</span>
+</section>
+
+<section class="reihe">
+  <div class="wrap">
+    <div class="reihe-kopf rv">
+      <p class="kicker">Was früher eine Person war, ist heute die KI</p>
+      <h2>Ihre digitalen Kollegen</h2>
+    </div>
+    <div class="tiles">
+      <div class="tile rv"><svg viewBox="0 0 24 24"><circle cx="11" cy="8" r="3.4"/><path d="M4 20a7 7 0 0 1 14 0"/><path d="M18.5 3.5v4M16.5 5.5h4"/></svg><h3>KI-Vertrieb</h3><p>Beantwortet Anfragen sofort, erstellt Angebote in Sekunden.</p></div>
+      <div class="tile rv"><svg viewBox="0 0 24 24"><circle cx="11" cy="8" r="3.4"/><path d="M4 20a7 7 0 0 1 14 0"/><path d="M18.5 3.5v4M16.5 5.5h4"/></svg><h3>KI-Sachbearbeitung</h3><p>Liest E-Mails, pflegt Akten, plant Termine — rund um die Uhr.</p></div>
+      <div class="tile rv"><svg viewBox="0 0 24 24"><circle cx="11" cy="8" r="3.4"/><path d="M4 20a7 7 0 0 1 14 0"/><path d="M18.5 3.5v4M16.5 5.5h4"/></svg><h3>KI-Einkauf</h3><p>Vergleicht Preise, schreibt Bestellungen, überwacht Liefertermine.</p></div>
+      <div class="tile rv"><svg viewBox="0 0 24 24"><circle cx="11" cy="8" r="3.4"/><path d="M4 20a7 7 0 0 1 14 0"/><path d="M18.5 3.5v4M16.5 5.5h4"/></svg><h3>KI-Rechnungskontrolle</h3><p>Prüft jede Eingangsrechnung gegen Bestellung und Lieferschein.</p></div>
+      <div class="tile rv"><svg viewBox="0 0 24 24"><path d="M4 19.5V6a2 2 0 0 1 2-2h13.5v13H6a2 2 0 0 0-2 2.5ZM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/><path d="M9 8.5h6M9 12h4"/></svg><h3>Wissensdatenbank</h3><p>Dokumente, Pläne, Anleitungen — in Sekunden für jeden Mitarbeiter.</p></div>
+      <div class="tile rv"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 9h18M9 14l2 2 4-4"/></svg><h3>Termine planen sich selbst</h3><p>Kalender und Einsatzplanung stimmen sich automatisch ab.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reihe">
+  <div class="wrap">
+    <div class="reihe-kopf rv">
+      <p class="kicker">Referenz</p>
+      <h2>Digitales Kundenportal für Küchenmontage</h2>
+    </div>
+    <div class="kachel rv" style="max-width:640px">
+      <div class="kopf-ikon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 9h18M9 14l2 2 4-4"/></svg></div>
+      <p class="branche">Küchenmontage</p>
+      <h3>Freie Termine sofort sichtbar, direkt online gebucht</h3>
+      <p>Küchenhäuser sehen freie Montagetermine sofort und vergeben sie direkt online. Kein stundenlanges Telefonieren, keine unnötigen Rückfragen, kein Organisationschaos.</p>
+      <ul>
+        <li>Freie Termine auf einen Blick</li>
+        <li>Online-Terminvergabe ohne Rückruf</li>
+        <li>Komplette Terminplanung digital</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="reihe">
+  <div class="wrap">
+    <div class="fair-band rv">
+      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Ihre Programme bleiben</span>
+      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Keine Mindestlizenzen</span>
+      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Festpreis statt Überraschung</span>
+      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Auch für den 3-Mann-Betrieb</span>
+    </div>
+  </div>
+</section>
+
+<section class="reihe" id="beratung">
+  <div class="wrap">
+    <div class="beratung-karte rv">
+      <div class="textseite">
+        <p class="kicker">Kostenlose Erstberatung</p>
+        <h2>Zeigen Sie uns <span>Ihren Betrieb.</span></h2>
+        <p>30 Minuten, vor Ort oder online — wir schauen uns Ihre Abläufe an und zeigen konkret, was sich automatisieren lässt und was es bringt. Transparent, verständlich, ohne Verpflichtung.</p>
+        <div class="kontakt-buttons">
+          <a class="btn btn-whatsapp" href="https://wa.me/4915227706694?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20TOMORROWWORKS%20f%C3%BCr%20meinen%20Handwerksbetrieb." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-4.2 14.8l-.5-.3-3 .8.8-2.9-.3-.5A8 8 0 0 1 12 4Zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.8 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.3 7.3 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4Z" fill="currentColor" stroke="none"/></svg>
+            WhatsApp
+          </a>
+          <a class="btn btn-orange" href="mailto:info@auto-lackierzentrum.de?subject=Kostenlose%20Pr%C3%A4sentation%20f%C3%BCr%20Handwerksbetrieb">Kostenlose Präsentation anfragen</a>
+          <a class="btn btn-dunkel" href="tel:+4915227706694">0152&nbsp;27706694</a>
+        </div>
+        <div class="versprechen">
+          <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Transparent</span>
+          <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Verständlich</span>
+          <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Ohne Verpflichtung</span>
+        </div>
+      </div>
+      <div class="bildseite" aria-hidden="true">
+        <img src="bilder/team_buero.jpg" alt="">
+        <span class="symbolfoto">Symbolfoto</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="oben">
+      <p class="claim">„Die Zukunft wartet nicht. Sie beginnt mit der Entscheidung, heute zu handeln."</p>
+      <nav>
+        <a href="index.html">Startseite</a>
+        <a href="branche-autohaeuser-werkstaetten.html">Für Autohäuser &amp; Werkstätten</a>
+        <a href="branche-fahrschulen.html">Für Fahrschulen</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </nav>
+    </div>
+    <div class="unten">
+      <span>© 2026 TOMORROWWORKS · AI Solutions — ein Angebot der Gärtner GmbH Karosserie + Lack, Mosbach</span>
+      <span>Fotos: Unsplash (lizenzfrei, Symbolfotos) · Made in Mosbach</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  if (location.search.includes('shot')) {
+    document.documentElement.classList.add('shot');
+    document.querySelectorAll('svg').forEach(s => { try { s.pauseAnimations(); } catch (e) {} });
+  }
+  const kopf = document.getElementById('kopf');
+  const kopfUmschalten = () => kopf.classList.toggle('linie', window.scrollY > 30);
+  window.addEventListener('scroll', kopfUmschalten, {passive:true});
+  kopfUmschalten();
+  const beobachter = new IntersectionObserver((es) => {
+    for (const e of es) if (e.isIntersecting) { e.target.classList.add('on'); beobachter.unobserve(e.target); }
+  }, {threshold:.15, rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.rv:not(.on)').forEach(el => beobachter.observe(el));
+</script>
+</body>
+</html>
