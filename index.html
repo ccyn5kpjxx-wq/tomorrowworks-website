@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="TOMORROWWORKS · AI Solutions — Wir bauen intelligente Unternehmen. KI-Lösungen, exakt abgestimmt auf Ihre Abläufe. Kostenlose Erstberatung für Handwerk, Mittelstand und Konzerne.">
 <title>TOMORROWWORKS · AI Solutions — Die Zukunft beginnt heute</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="TOMORROWWORKS · AI Solutions — Die Zukunft beginnt heute">
+<meta property="og:description" content="Wir bauen intelligente Unternehmen: KI, die Verwaltung übernimmt, Angebote in Sekunden erstellt und Termine plant. Kostenlose Erstberatung für Handwerk & Mittelstand.">
+<meta property="og:url" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/">
+<meta property="og:image" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/bilder/og_vorschau.jpg">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314161a'/%3E%3Ctext x='32' y='44' font-family='Segoe UI,Arial,sans-serif' font-size='34' font-weight='700' text-anchor='middle' fill='%23fff'%3Et%3Ctspan fill='%23fa7d19'%3Ew%3C/tspan%3E%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -65,6 +72,9 @@
   /* ================= Bühne (Hero wie ZDF-Live-Seite) ================= */
   .buehne{position:relative;min-height:92svh;display:flex;align-items:center;overflow:hidden}
   html.shot .buehne{min-height:780px} /* Capture-Helfer: ?shot=1 neutralisiert svh bei sehr hohen Fenstern (Screenshots) */
+  html.shot .rv{opacity:1!important;transform:none!important;transition:none!important}
+  html.shot{scroll-behavior:auto}
+  html.shot .puls{display:none}
   .buehne .bild{position:absolute;inset:0}
   .buehne .bild img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
   .buehne .bild::before{content:"";position:absolute;inset:0;z-index:1;
@@ -149,6 +159,27 @@
     .system-mobil .werkzeug svg{width:20px;height:20px;stroke:var(--orange-hell);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
     .system-mobil .werkzeug em{font-style:normal;margin-left:auto;font-size:10px;letter-spacing:.08em;color:var(--orange-hell);border:1px solid #3a4048;border-radius:5px;padding:2px 6px}
   }
+
+  /* ================= Fairness-Band ================= */
+  .fair-band{margin-top:26px;background:var(--karte);border-left:4px solid var(--orange);border-radius:var(--radius);padding:24px 28px;display:flex;gap:14px 30px;flex-wrap:wrap;align-items:center;justify-content:center}
+  .fair-band span{display:flex;gap:10px;align-items:center;font-size:15.5px;font-weight:650}
+  .fair-band svg{width:19px;height:19px;stroke:var(--orange-hell);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+  /* ================= System in Aktion (Screenshots) ================= */
+  .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .shot{background:var(--karte);border-radius:var(--radius);overflow:hidden;transition:transform .3s,background .3s}
+  .shot:hover{transform:translateY(-4px);background:var(--karte-hover)}
+  .shot .fenster{background:#14161a;padding:9px 14px;display:flex;gap:6px;border-bottom:1px solid var(--linie)}
+  .shot .fenster i{width:9px;height:9px;border-radius:50%;display:block}
+  .shot .fenster i:nth-child(1){background:#e0655a}
+  .shot .fenster i:nth-child(2){background:#e5a94d}
+  .shot .fenster i:nth-child(3){background:#5cb85f}
+  .shot img{width:100%;display:block}
+  .shot .unterschrift{padding:18px 20px 22px}
+  .shot .unterschrift .branche{font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-hell);margin-bottom:6px}
+  .shot .unterschrift h3{font-size:17px;margin-bottom:5px}
+  .shot .unterschrift p{font-size:13.8px;color:var(--text2)}
+  .shots-hinweis{text-align:center;color:var(--text2);font-size:13.5px;margin-top:18px}
 
   /* ================= Gründer ================= */
   .gruender-karte{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;background:var(--karte);border-radius:var(--radius);padding:40px 42px}
@@ -447,6 +478,64 @@
       <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Alle Daten in einem Programm</span>
       <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Sie schauen an eine Stelle — das System erledigt den Rest</span>
     </div>
+    <div class="fair-band rv">
+      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Ihre Programme bleiben</span>
+      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Keine Mindestlizenzen</span>
+      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Festpreis statt Überraschung</span>
+      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Auch für den 3-Mann-Betrieb</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SYSTEM IN AKTION ================= -->
+<section class="reihe" id="aktion">
+  <div class="wrap">
+    <div class="reihe-kopf rv">
+      <div>
+        <p class="kicker">Keine Attrappen</p>
+        <h2>Das System in Aktion — echte Ansichten aus laufenden Systemen</h2>
+      </div>
+    </div>
+    <div class="shots">
+      <div class="shot rv">
+        <div class="fenster" aria-hidden="true"><i></i><i></i><i></i></div>
+        <img src="bilder/screenshots/landing_mietwagen.jpg" alt="Ansicht der Mietwagen-Website des Karosserie- und Lackierbetriebs" loading="lazy">
+        <div class="unterschrift">
+          <p class="branche">Karosserie &amp; Lack · Autovermietung</p>
+          <h3>Online-Auftritt, der verkauft</h3>
+          <p>Vom System erzeugte Vermietungs-Seite mit WhatsApp-Anfrage — läuft im eigenen Betrieb des Gründers.</p>
+        </div>
+      </div>
+      <div class="shot rv rv-d1">
+        <div class="fenster" aria-hidden="true"><i></i><i></i><i></i></div>
+        <img src="bilder/screenshots/app_buchung.jpg" alt="Buchungsformular der Mietwagen-App" loading="lazy">
+        <div class="unterschrift">
+          <p class="branche">Kundenportal</p>
+          <h3>Anfrage in 2 Minuten</h3>
+          <p>Kunde füllt aus, das System bereitet Vertrag und Übergabe vor — digital unterschrieben, aufs Handy geliefert.</p>
+        </div>
+      </div>
+      <div class="shot rv rv-d2">
+        <div class="fenster" aria-hidden="true"><i></i><i></i><i></i></div>
+        <img src="bilder/screenshots/app_fahrzeugwahl.jpg" alt="Fahrzeugauswahl mit Live-Preisen in der Buchungsstrecke" loading="lazy">
+        <div class="unterschrift">
+          <p class="branche">Automatisierung</p>
+          <h3>Live-Preise &amp; Verfügbarkeit</h3>
+          <p>Flotte, Preise und belegte Zeiträume pflegt das System selbst — niemand tippt Listen ab.</p>
+        </div>
+      </div>
+    </div>
+    <p class="shots-hinweis rv">Alle Ansichten stammen aus unseren eigenen, produktiv laufenden Systemen — keine Design-Attrappen.</p>
+    <!-- WEITERE SCREENSHOTS (Fahrschule ACADEMY schäufele, rizzato-Portal) erst nach schriftlicher Marken-/Referenz-Zustimmung einfügen! -->
+    <!-- KUNDENZITATE — vorbereitetes Layout, AKTIVIEREN erst wenn echte, schriftlich freigegebene Zitate vorliegen (keine erfundenen Testimonials!):
+    <div class="shots" style="margin-top:20px">
+      <div class="shot"><div class="unterschrift">
+        <p class="branche">Kundenstimme · Fahrschule</p>
+        <p class="gruender-zitat" style="font-size:18px">„ZITAT HIER"</p>
+        <p>NAME, FIRMA, ORT</p>
+      </div></div>
+    </div>
+    -->
   </div>
 </section>
 
@@ -530,7 +619,7 @@
       <div class="textseite">
         <p class="kicker">Kostenlose Erstberatung</p>
         <h2>Wer heute handelt, <span>gewinnt morgen.</span></h2>
-        <p>Wir schauen uns Ihren Betrieb an, analysieren Ihre Prozesse und zeigen Ihnen, wo Zeit verloren geht und welches Einsparpotenzial in Ihrem Unternehmen steckt.</p>
+        <p>Wir schauen uns Ihren Betrieb an, analysieren Ihre Prozesse und zeigen Ihnen, wo Zeit verloren geht und welches Einsparpotenzial in Ihrem Unternehmen steckt. <b>In 30 Minuten, vor Ort oder online — wir zeigen es direkt an Ihrem Betrieb.</b></p>
         <div class="mini-schritte">
           <span class="s"><i>1</i>Betrieb ansehen</span>
           <svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
@@ -543,7 +632,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-4.2 14.8l-.5-.3-3 .8.8-2.9-.3-.5A8 8 0 0 1 12 4Zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.8 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.3 7.3 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4Z" fill="currentColor" stroke="none"/></svg>
             WhatsApp
           </a>
-          <a class="btn btn-orange" href="mailto:info@auto-lackierzentrum.de?subject=Kostenlose%20KI-Erstberatung">E-Mail schreiben</a>
+          <a class="btn btn-orange" href="mailto:info@auto-lackierzentrum.de?subject=Kostenlose%20Pr%C3%A4sentation%20anfragen">Kostenlose Präsentation anfragen</a>
           <a class="btn btn-dunkel" href="tel:+4915227706694">0152&nbsp;27706694</a>
         </div>
         <div class="versprechen">
