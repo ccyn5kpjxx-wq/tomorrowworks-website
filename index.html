@@ -48,7 +48,8 @@
   header.linie{border-color:var(--linie)}
   .nav{display:flex;align-items:center;gap:38px;height:66px}
   .logo{display:flex;align-items:center;gap:11px;flex:none}
-  .marke-icon{width:34px;height:34px;border-radius:9px;background:#14161a;border:1.5px solid rgba(250,125,25,.5);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:var(--orange);flex:none}
+  .marke-icon{display:inline-flex;align-items:baseline;padding:8px 13px 8px 12px;border-radius:9px;background:#14161a;border:1.5px solid rgba(250,125,25,.5);font-size:18px;font-weight:800;color:var(--orange);flex:none;white-space:nowrap;line-height:1}
+  .marke-icon .punkt-works{font-weight:300;color:var(--text2);font-size:.58em;letter-spacing:.01em;margin-left:1px}
   .wortmarke{font-size:22px;font-weight:300;letter-spacing:.01em;line-height:1.1}
   .wortmarke b{font-weight:800}
   .wortmarke b i{font-style:normal;color:var(--orange)}
@@ -291,7 +292,7 @@
 <header id="kopf">
   <div class="wrap nav">
     <a class="logo" href="#start" aria-label="TOMORROWWORKS — Startseite">
-      <span class="marke-icon" aria-hidden="true">T</span>
+      <span class="marke-icon" aria-hidden="true">T<span class="punkt-works">.works</span></span>
       <span><span class="wortmarke">tomorrow<b>works<i>.</i></b></span><small>AI&nbsp;SOLUTIONS</small></span>
     </a>
     <nav class="rubriken">
@@ -316,7 +317,7 @@
   <div class="wrap">
     <div class="buehne-inhalt">
       <div class="marke-zeile rv on">
-        <span class="marke-icon" style="width:52px;height:52px;border-radius:13px;font-size:27px" aria-hidden="true">T</span>
+        <span class="marke-icon" style="padding:13px 20px 13px 18px;border-radius:14px;font-size:28px" aria-hidden="true">T<span class="punkt-works">.works</span></span>
         <div><div class="wortmarke" style="font-size:clamp(26px,3vw,34px)">tomorrow<b>works<i>.</i></b></div><div class="hinweis">AI SOLUTIONS · KÜNSTLICHE INTELLIGENZ FÜR UNTERNEHMEN</div></div>
       </div>
       <h1 class="rv on rv-d1">Die Zukunft beginnt nicht morgen. Sie beginnt heute.</h1>

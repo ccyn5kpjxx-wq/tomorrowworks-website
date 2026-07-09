@@ -19,7 +19,8 @@
   .zurueck{display:inline-block;margin-bottom:34px;color:var(--text2);font-size:14.5px}
   .zurueck:hover{color:#fff;text-decoration:none}
   .marke-zeile{display:flex;align-items:center;gap:11px}
-  .marke-icon{width:32px;height:32px;border-radius:9px;background:#14161a;border:1.5px solid rgba(250,125,25,.5);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;color:var(--orange);flex:none}
+  .marke-icon{display:inline-flex;align-items:baseline;padding:7px 12px 7px 11px;border-radius:9px;background:#14161a;border:1.5px solid rgba(250,125,25,.5);font-size:17px;font-weight:800;color:var(--orange);flex:none;white-space:nowrap;line-height:1}
+  .marke-icon .punkt-works{font-weight:300;color:var(--text2);font-size:.58em;letter-spacing:.01em;margin-left:1px}
   .wortmarke{font-size:24px;font-weight:300}
   .wortmarke b{font-weight:800}
   .wortmarke b i{font-style:normal;color:var(--orange)}
@@ -33,7 +34,7 @@
 </style>
 <div class="wrap">
   <a class="zurueck" href="index.html">← Zurück zur Startseite</a>
-  <div class="marke-zeile"><span class="marke-icon" aria-hidden="true">T</span><div class="wortmarke">tomorrow<b>works<i>.</i></b></div></div>
+  <div class="marke-zeile"><span class="marke-icon" aria-hidden="true">T<span class="punkt-works">.works</span></span><div class="wortmarke">tomorrow<b>works<i>.</i></b></div></div>
   <h1>Impressum</h1>
 
   <h2>Angaben gemäß § 5 DDG</h2>
