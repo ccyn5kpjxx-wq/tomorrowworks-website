@@ -21,6 +21,14 @@
     --text:#f4f5f7;--text2:#a8afb8;--orange:#fa7d19;--orange-hell:#ffa04d;--radius:12px;
     --font:"Segoe UI Variable Display","Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
   }
+  /* ---------- Helles Design (Schalter im Header; Standard dunkel) ---------- */
+  html[data-theme="light"]{--bg:#f3f4f6;--bg2:#ffffff;--karte:#ffffff;--karte-hover:#f6f7f9;--linie:#e2e6ec;--text:#171a1f;--text2:#4d5560;--orange-hell:#b95606;--kopf-bg:rgba(255,255,255,.92)}
+  html[data-theme="light"] .buehne, html[data-theme="light"] footer{--text:#f4f5f7;--text2:#a8afb8;--orange-hell:#ffa04d;--karte:#1e2126;--linie:#2c3037;--bg:#0f1114;color:var(--text)}
+  html[data-theme="light"] nav.rubriken a:hover, html[data-theme="light"] nav.rubriken a.aktiv{color:#171a1f}
+  html[data-theme="light"] .btn-dunkel{background:#e8eaee;color:#171a1f}
+  html[data-theme="light"] .btn-dunkel:hover{background:#dde0e6}
+  html[data-theme="light"] .beratung-karte{background:linear-gradient(120deg,#ffffff,#f2f4f8);border:1px solid var(--linie);box-shadow:0 14px 40px rgba(20,25,35,.08)}
+  html[data-theme="light"] .mini-schritte .s{background:#eef0f4}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -33,7 +41,7 @@
   .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
   @media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
-  header{position:fixed;top:0;left:0;right:0;z-index:80;background:rgba(15,17,20,.88);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+  header{position:fixed;top:0;left:0;right:0;z-index:80;background:var(--kopf-bg,rgba(15,17,20,.88));backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
   header.linie{border-color:var(--linie)}
   .nav{display:flex;align-items:center;gap:38px;min-height:66px}
   .logo{display:flex;flex-direction:column;align-items:center;gap:3px;flex:none;padding:10px 0 8px}
@@ -57,6 +65,15 @@
   .btn-whatsapp{background:#25d366;color:#0c1a10}
   .btn-whatsapp:hover{background:#3fe07d;transform:translateY(-1px)}
   .btn-whatsapp svg{width:19px;height:19px}
+  .theme-schalter{width:38px;height:38px;border-radius:50%;border:1px solid var(--linie);background:transparent;color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;transition:color .25s,border-color .25s}
+  .theme-schalter:hover{color:var(--text);border-color:var(--text2)}
+  .theme-schalter svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .theme-schalter .mond{display:none}
+  html[data-theme="light"] .theme-schalter .sonne{display:none}
+  html[data-theme="light"] .theme-schalter .mond{display:block}
+  .wa-schwebe{position:fixed;right:18px;bottom:18px;z-index:90;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .25s}
+  .wa-schwebe:hover{transform:scale(1.07)}
+  .wa-schwebe svg{width:30px;height:30px;fill:#fff}
   @media(max-width:960px){nav.rubriken{display:none}}
   @media(max-width:680px){.logo small{display:none}.wortmarke{font-size:19px}.nav .btn{padding:9px 14px;font-size:13.5px}.nav{gap:16px}}
 
@@ -142,7 +159,13 @@
       <a href="preise.html">Preise</a>
       <a href="#beratung">Kontakt</a>
     </nav>
-    <div class="rechts"><a class="btn btn-orange" href="#beratung">Kostenlose Erstberatung</a></div>
+    <div class="rechts">
+      <button class="theme-schalter" id="theme-schalter" aria-label="Design hell/dunkel umschalten" title="Hell/Dunkel umschalten">
+        <svg class="sonne" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M19.4 4.6l-1.8 1.8M6.4 17.6l-1.8 1.8"/></svg>
+        <svg class="mond" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+      </button>
+      <a class="btn btn-orange" href="#beratung">Kostenlose Erstberatung</a>
+    </div>
   </div>
 </header>
 
@@ -245,6 +268,10 @@
   </div>
 </section>
 
+<a class="wa-schwebe" href="https://wa.me/4915227706694?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20eine%20kostenlose%20KI-Erstberatung." target="_blank" rel="noopener" aria-label="Per WhatsApp anfragen">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-4.2 14.8l-.5-.3-3 .8.8-2.9-.3-.5A8 8 0 0 1 12 4Zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.8 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.3 7.3 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4Z"/></svg>
+</a>
+
 <footer>
   <div class="wrap">
     <div class="oben">
@@ -270,6 +297,13 @@
     document.documentElement.classList.add('shot');
     document.querySelectorAll('svg').forEach(s => { try { s.pauseAnimations(); } catch (e) {} });
   }
+  if (location.search.includes('hell')) document.documentElement.dataset.theme = 'light';
+  try { const t = localStorage.getItem('tw-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  document.getElementById('theme-schalter').addEventListener('click', () => {
+    const neu = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = neu;
+    try { localStorage.setItem('tw-theme', neu); } catch (e) {}
+  });
   const kopf = document.getElementById('kopf');
   const kopfUmschalten = () => kopf.classList.toggle('linie', window.scrollY > 30);
   window.addEventListener('scroll', kopfUmschalten, {passive:true});
