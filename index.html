@@ -46,10 +46,12 @@
   /* ================= Kopfleiste (ZDF-Stil) ================= */
   header{position:fixed;top:0;left:0;right:0;z-index:80;background:rgba(15,17,20,.88);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
   header.linie{border-color:var(--linie)}
-  .nav{display:flex;align-items:center;gap:38px;height:66px}
-  .logo{display:flex;align-items:center;gap:11px;flex:none}
-  .marke-icon{display:inline-flex;align-items:baseline;padding:8px 13px 8px 12px;border-radius:9px;background:#14161a;border:1.5px solid rgba(250,125,25,.5);font-size:18px;font-weight:800;color:var(--orange);flex:none;white-space:nowrap;line-height:1}
+  .nav{display:flex;align-items:center;gap:38px;min-height:66px}
+  .logo{display:flex;flex-direction:column;align-items:center;gap:3px;flex:none;padding:10px 0 8px}
+  .marke-icon{display:inline-flex;align-items:baseline;padding:5px 10px 5px 9px;border-radius:7px;background:#14161a;border:1.5px solid rgba(250,125,25,.5);font-size:13px;font-weight:800;color:var(--orange);flex:none;white-space:nowrap;line-height:1}
   .marke-icon .punkt-works{font-weight:300;color:var(--text2);font-size:.58em;letter-spacing:.01em;margin-left:1px}
+  .logo .wortmarke{font-size:14.5px}
+  .logo small{font-size:7.5px}
   .wortmarke{font-size:22px;font-weight:300;letter-spacing:.01em;line-height:1.1}
   .wortmarke b{font-weight:800}
   .wortmarke b i{font-style:normal;color:var(--orange)}
@@ -84,7 +86,7 @@
   .buehne .bild::after{content:"";position:absolute;inset:0;z-index:1;
     background:linear-gradient(180deg,rgba(15,17,20,.55) 0%,transparent 22%,transparent 62%,var(--bg) 100%)}
   .buehne-inhalt{position:relative;z-index:2;padding:150px 0 120px;max-width:760px}
-  .marke-zeile{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+  .marke-zeile{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:26px}
   .marke-zeile svg{width:46px;height:46px}
   .marke-zeile .name{font-size:26px;font-weight:800;letter-spacing:.06em}
   .marke-zeile .hinweis{font-size:11px;color:var(--text2);letter-spacing:.14em;margin-top:2px}
