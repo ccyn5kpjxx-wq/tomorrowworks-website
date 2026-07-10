@@ -27,8 +27,32 @@
     --orange:#fa7d19;
     --orange-hell:#ffa04d;
     --radius:12px;
+    --kopf-bg:rgba(15,17,20,.88);
     --font:"Segoe UI Variable Display","Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
   }
+  /* ---------- Helles Design (Umschalter oben rechts, Standard bleibt dunkel) ---------- */
+  html[data-theme="light"]{
+    --bg:#f3f4f6; --bg2:#ffffff; --karte:#ffffff; --karte-hover:#f6f7f9; --linie:#e2e6ec;
+    --text:#171a1f; --text2:#4d5560; --orange-hell:#b95606;
+    --kopf-bg:rgba(255,255,255,.92);
+  }
+  /* Bild-/Marken-Bänder bleiben bewusst dunkel (Fotos, Diagramm, Schluss-Bänder) */
+  html[data-theme="light"] .buehne, html[data-theme="light"] .frageband, html[data-theme="light"] .schutz,
+  html[data-theme="light"] .vision, html[data-theme="light"] footer, html[data-theme="light"] .system-diagramm,
+  html[data-theme="light"] .zukunft-banner{
+    --text:#f4f5f7; --text2:#a8afb8; --orange-hell:#ffa04d; --karte:#1e2126; --linie:#2c3037; --bg:#0f1114;
+    color:var(--text);
+  }
+  html[data-theme="light"] nav.rubriken a:hover, html[data-theme="light"] nav.rubriken a.aktiv{color:#171a1f}
+  html[data-theme="light"] .chip{background:#ffffff;border-color:#dde2e9;color:#2a2f36}
+  html[data-theme="light"] .chip.aktiv{background:#171a1f;color:#fff;border-color:#171a1f}
+  html[data-theme="light"] .btn-dunkel{background:#e8eaee;color:#171a1f}
+  html[data-theme="light"] .btn-dunkel:hover{background:#dde0e6}
+  html[data-theme="light"] .beratung-karte{background:linear-gradient(120deg,#ffffff,#f2f4f8);border:1px solid var(--linie);box-shadow:0 14px 40px rgba(20,25,35,.08)}
+  html[data-theme="light"] .mini-schritte .s{background:#eef0f4}
+  html[data-theme="light"] .etappe.heute .jahr{background:#171a1f;color:#fff}
+  html[data-theme="light"] .zukunft-fussnote{color:#6b7480}
+  html[data-theme="light"] .rolle .wandel b, html[data-theme="light"] .gruender-text p b, html[data-theme="light"] .geschichte p b, html[data-theme="light"] .geschichte .schluss{color:var(--text)}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -44,7 +68,7 @@
   @media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
   /* ================= Kopfleiste (ZDF-Stil) ================= */
-  header{position:fixed;top:0;left:0;right:0;z-index:80;background:rgba(15,17,20,.88);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+  header{position:fixed;top:0;left:0;right:0;z-index:80;background:var(--kopf-bg);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,background-color .3s}
   header.linie{border-color:var(--linie)}
   .nav{display:flex;align-items:center;gap:38px;min-height:66px}
   .logo{display:flex;flex-direction:column;align-items:center;gap:3px;flex:none;padding:10px 0 8px}
@@ -57,7 +81,7 @@
   .wortmarke b i{font-style:normal;color:var(--orange)}
   .logo small{display:block;font-size:10px;font-weight:600;letter-spacing:.34em;color:var(--text2);margin-top:2px}
   nav.rubriken{display:flex;gap:30px;font-size:15.5px;font-weight:500;color:var(--text2)}
-  nav.rubriken a{padding:22px 0;position:relative;transition:color .25s}
+  nav.rubriken a{padding:22px 0;position:relative;transition:color .25s;white-space:nowrap}
   nav.rubriken a:hover{color:#fff}
   nav.rubriken a.aktiv{color:#fff}
   nav.rubriken a.aktiv::after{content:"";position:absolute;left:0;right:0;bottom:14px;height:3px;border-radius:2px;background:var(--orange)}
@@ -70,6 +94,12 @@
   .btn-whatsapp{background:#25d366;color:#0c1a10}
   .btn-whatsapp:hover{background:#3fe07d;transform:translateY(-1px)}
   .btn-whatsapp svg{width:19px;height:19px}
+  .theme-schalter{width:38px;height:38px;border-radius:50%;border:1px solid var(--linie);background:transparent;color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;transition:color .25s,border-color .25s}
+  .theme-schalter:hover{color:var(--text);border-color:var(--text2)}
+  .theme-schalter svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .theme-schalter .mond{display:none}
+  html[data-theme="light"] .theme-schalter .sonne{display:none}
+  html[data-theme="light"] .theme-schalter .mond{display:block}
   @media(max-width:960px){nav.rubriken{display:none}}
   @media(max-width:680px){.logo small{display:none}.wortmarke{font-size:19px}.nav .btn{padding:9px 14px;font-size:13.5px}.nav{gap:16px}}
 
@@ -308,6 +338,10 @@
       <a href="#beratung">Kontakt</a>
     </nav>
     <div class="rechts">
+      <button class="theme-schalter" id="theme-schalter" aria-label="Design hell/dunkel umschalten" title="Hell/Dunkel umschalten">
+        <svg class="sonne" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M19.4 4.6l-1.8 1.8M6.4 17.6l-1.8 1.8"/></svg>
+        <svg class="mond" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+      </button>
       <a class="btn btn-orange" href="#beratung">Kostenlose Erstberatung</a>
     </div>
   </div>
@@ -347,11 +381,11 @@
   <a class="chip" href="branche-autohaeuser-werkstaetten.html">Werkstätten</a>
   <a class="chip" href="branche-autohaeuser-werkstaetten.html">Autohäuser</a>
   <a class="chip" href="branche-fahrschulen.html">Fahrschulen</a>
-  <span class="chip">Logistik</span>
-  <span class="chip">Handel</span>
-  <span class="chip">Industrie</span>
-  <span class="chip">Dienstleister</span>
-  <span class="chip">Konzerne</span>
+  <a class="chip" href="#beratung">Logistik</a>
+  <a class="chip" href="#beratung">Handel</a>
+  <a class="chip" href="#beratung">Industrie</a>
+  <a class="chip" href="#beratung">Dienstleister</a>
+  <a class="chip" href="#beratung">Konzerne</a>
 </div>
 
 <!-- ================= PROJEKTE ================= -->
@@ -777,6 +811,15 @@
     document.documentElement.classList.add('shot');
     document.querySelectorAll('svg').forEach(s => { try { s.pauseAnimations(); } catch (e) {} });
   }
+  if (location.search.includes('hell')) document.documentElement.dataset.theme = 'light';
+
+  // Hell/Dunkel-Umschalter (Standard: dunkel, Wahl wird gemerkt)
+  try { const t = localStorage.getItem('tw-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  document.getElementById('theme-schalter').addEventListener('click', () => {
+    const neu = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = neu;
+    try { localStorage.setItem('tw-theme', neu); } catch (e) {}
+  });
 
   // Kopfleiste: Trennlinie beim Scrollen
   const kopf = document.getElementById('kopf');
