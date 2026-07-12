@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fallstudie zum größten eigenen Digitalprojekt von TOMORROWWORKS: ein eingesetztes Werkstattcockpit mit interner Auftragsbearbeitung, Autohausportal, persönlichem Kundenstatus und verknüpfter Ersatzmobilität.">
+<title>Werkstattcockpit mit Autohausportal &amp; Kundenstatus — TOMORROWWORKS</title>
+<meta property="og:type" content="article">
+<meta property="og:title" content="Werkstattcockpit mit Autohausportal und Kundenstatus">
+<meta property="og:description" content="Ein im eigenen Betrieb eingesetztes Werkstattcockpit verbindet interne Abläufe, Autohäuser, persönlichen Kundenstatus sowie Miet- und Ersatzfahrzeuge.">
+<meta property="og:url" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/projekt-terminportal.html">
+<meta property="og:image" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/bilder/screenshots/app_buchung.webp">
+<meta property="og:locale" content="de_DE">
+<meta name="theme-color" content="#f3f1eb">
+<link rel="canonical" href="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/projekt-terminportal.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="unterseite.css">
+<script>document.documentElement.classList.add('js');</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CreativeWork",
+  "name":"Werkstattcockpit mit Autohausportal und Kundenstatus",
+  "description":"Fallstudie zu einem im eigenen Werkstattbetrieb eingesetzten Cockpit für Aufträge, Partnerportale, persönlichen Kundenstatus, Dokumente sowie Miet- und Ersatzfahrzeuge.",
+  "creator":{"@type":"Organization","name":"TOMORROWWORKS · Digital Studio"},
+  "about":{"@type":"SoftwareApplication","name":"Werkstattcockpit","applicationCategory":"BusinessApplication","operatingSystem":"Webbrowser"},
+  "url":"https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/projekt-terminportal.html"
+}
+</script>
+<style>
+  .case-page .case-hero{padding-bottom:94px}
+  .case-page .case-hero .hero-copy h1{font-size:clamp(58px,6vw,82px)}
+  .case-page .case-hero .browser-product{transform:rotate(1deg)}
+  .case-page .case-hero .browser-window{min-height:490px}
+  .case-page .case-hero .cockpit-shell{min-height:490px;grid-template-columns:136px 1fr}
+  .case-page .case-hero .cockpit-shell .app-main{padding:26px 22px 54px}
+  .case-page .case-hero .cockpit-shell .app-side{padding-top:22px}
+  .case-page .case-hero .cockpit-shell .ui-row{grid-template-columns:1.1fr .8fr auto}
+  .case-page .portal-links{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:11px}
+  .case-page .portal-link{min-height:69px;padding:10px 9px;background:#fff;border:1px solid #dfddd7;border-radius:11px}
+  .case-page .portal-link small{display:block;color:var(--orange);font-size:6px;font-weight:820;letter-spacing:.08em;text-transform:uppercase}
+  .case-page .portal-link b{display:block;font-size:8px;line-height:1.25;margin:5px 0 3px;letter-spacing:0}
+  .case-page .portal-link span{display:block;color:#85898b;font-size:6px;line-height:1.35}
+  .case-page .case-visual-note{position:absolute;z-index:3;right:-16px;bottom:40px;width:min(265px,45%);padding:17px 19px;background:var(--orange);border-radius:17px;box-shadow:0 20px 50px rgba(17,19,21,.22);transform:rotate(-2deg)}
+  .case-page .case-visual-note small{display:block;color:#6c2a0e;font-size:9px;font-weight:820;letter-spacing:.1em;text-transform:uppercase}
+  .case-page .case-visual-note b{display:block;margin-top:5px;font-size:14px;line-height:1.35}
+  .case-page .case-story{padding:126px 0;background:#fff}
+  .case-page .story-grid{display:grid;grid-template-columns:minmax(0,.88fr) minmax(440px,1.12fr);gap:86px;align-items:start}
+  .case-page .story-copy h2{font-size:clamp(43px,5.1vw,69px);margin:18px 0 26px}
+  .case-page .story-copy>p{color:var(--muted);font-size:18px;line-height:1.7}
+  .case-page .story-copy>p+p{margin-top:18px}
+  .case-page .story-panel{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:34px}
+  .case-page .story-panel>small{display:block;color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px}
+  .case-page .story-point{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:21px 0;border-top:1px solid var(--line)}
+  .case-page .story-point:first-of-type{border-top:0;padding-top:0}
+  .case-page .story-point:last-child{padding-bottom:0}
+  .case-page .story-point>span{width:36px;height:36px;display:grid;place-items:center;background:var(--ink);color:var(--orange);border-radius:11px;font-size:11px;font-weight:820}
+  .case-page .story-point h3{font-size:21px;margin-bottom:5px}
+  .case-page .story-point p{color:var(--muted);font-size:14px}
+  .case-page .case-solution{background:var(--night);color:#fff;padding:126px 0}
+  .case-page .solution-card{display:grid;grid-template-columns:minmax(400px,1.08fr) minmax(0,.92fr);gap:34px;padding:25px;background:var(--night-2);border:1px solid rgba(255,255,255,.09);border-radius:32px}
+  .case-page .solution-media{min-height:570px;display:flex;flex-direction:column;background:#f6f3ed;border-radius:22px;overflow:hidden}
+  .case-page .solution-media img{width:100%;height:100%;min-height:530px;object-fit:cover;object-position:top center}
+  .case-page .solution-bar{height:40px;flex:none;display:flex;align-items:center;gap:6px;padding:0 14px;background:#2a2e33}
+  .case-page .solution-bar i{width:7px;height:7px;border-radius:50%;background:#62676d}
+  .case-page .solution-bar i:first-child{background:#ff6c52}.case-page .solution-bar i:nth-child(2){background:#ffbf41}.case-page .solution-bar i:nth-child(3){background:#54c979}
+  .case-page .solution-bar span{margin-left:auto;color:#b6bbc0;font-size:8px;font-weight:760;letter-spacing:.08em;text-transform:uppercase}
+  .case-page .solution-copy{padding:32px 24px 24px;display:flex;flex-direction:column;justify-content:center}
+  .case-page .solution-copy h2{font-size:clamp(40px,4.6vw,62px);margin:22px 0 20px}
+  .case-page .solution-copy>p{color:#adb3b8;font-size:16px}
+  .case-page .solution-list{list-style:none;display:grid;gap:14px;margin-top:30px}
+  .case-page .solution-list li{display:grid;grid-template-columns:24px 1fr;gap:9px;color:#e0e2e4;font-size:14px}
+  .case-page .solution-list li::before{content:"✓";color:var(--orange);font-weight:900}
+  .case-page .privacy-note{margin-top:33px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);color:#888f96;font-size:12px;line-height:1.55}
+  .case-page .feature-section{padding:126px 0}
+  .case-page .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .case-page .feature-card{min-height:260px;display:flex;flex-direction:column;padding:27px;background:#fff;border:1px solid rgba(17,19,21,.08);border-radius:24px}
+  .case-page .feature-card:nth-child(2),.case-page .feature-card:nth-child(5){background:var(--ink);color:#fff}
+  .case-page .feature-num{color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.1em;text-transform:uppercase}
+  .case-page .feature-card h3{font-size:28px;margin:35px 0 12px}
+  .case-page .feature-card p{color:var(--muted);font-size:14px}
+  .case-page .feature-card:nth-child(2) p,.case-page .feature-card:nth-child(5) p{color:#aeb4ba}
+  .case-page .outcome{padding:126px 0;background:#fff}
+  .case-page .outcome-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(480px,1.15fr);gap:84px;align-items:center}
+  .case-page .outcome-copy h2{font-size:clamp(43px,5.1vw,69px);margin:18px 0 24px}
+  .case-page .outcome-copy>p{color:var(--muted);font-size:17px}
+  .case-page .outcome-board{padding:18px;background:var(--paper);border:1px solid var(--line);border-radius:30px}
+  .case-page .outcome-row{display:grid;grid-template-columns:112px 1fr;gap:24px;padding:25px 20px;border-bottom:1px solid var(--line)}
+  .case-page .outcome-row:last-child{border-bottom:0}
+  .case-page .outcome-row>span{color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.08em;text-transform:uppercase}
+  .case-page .outcome-row h3{font-size:23px;margin-bottom:6px}
+  .case-page .outcome-row p{color:var(--muted);font-size:13px}
+  .case-page .data-section{padding:126px 0;background:var(--paper-2)}
+  .case-page .data-shell{display:grid;grid-template-columns:minmax(0,.9fr) minmax(470px,1.1fr);gap:84px}
+  .case-page .data-copy h2{font-size:clamp(43px,5.1vw,69px);margin:18px 0 24px}
+  .case-page .data-copy>p{color:var(--muted);font-size:17px}
+  .case-page .data-list{display:grid;gap:14px}
+  .case-page .data-item{padding:24px 26px;background:#fff;border:1px solid var(--line);border-radius:21px}
+  .case-page .data-item span{color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.08em;text-transform:uppercase}
+  .case-page .data-item h3{font-size:23px;margin:10px 0 7px}
+  .case-page .data-item p{color:var(--muted);font-size:13px}
+  @media(max-width:900px){
+    .case-page .story-grid,.case-page .outcome-grid,.case-page .data-shell{grid-template-columns:1fr;gap:48px}
+    .case-page .solution-card{grid-template-columns:1fr}.case-page .solution-media{min-height:460px}.case-page .solution-media img{min-height:420px}
+    .case-page .feature-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:600px){
+    .case-page .case-hero .hero-copy h1{font-size:clamp(42px,12.7vw,53px)}
+    .case-page .product-stage{min-height:535px}.case-page .case-hero .browser-window{min-height:455px}.case-page .case-hero .cockpit-shell{min-height:455px;grid-template-columns:1fr}.case-page .case-hero .cockpit-shell .app-main{padding:19px 13px 50px}.case-page .portal-link{padding:8px 6px}.case-page .portal-link span{display:none}
+    .case-page .case-visual-note{display:none}
+    .case-page .case-story,.case-page .case-solution,.case-page .feature-section,.case-page .outcome,.case-page .data-section{padding:91px 0}
+    .case-page .story-panel{padding:24px 20px}.case-page .story-point{grid-template-columns:38px 1fr;gap:10px}
+    .case-page .solution-card{padding:10px;border-radius:24px}.case-page .solution-media{min-height:385px}.case-page .solution-media img{min-height:345px}.case-page .solution-copy{padding:24px 13px 18px}
+    .case-page .feature-grid{grid-template-columns:1fr}.case-page .feature-card{min-height:245px}
+    .case-page .outcome-board{padding:10px}.case-page .outcome-row{grid-template-columns:1fr;gap:8px;padding:22px 16px}
+    .case-page .data-list{gap:10px}.case-page .data-item{padding:21px}
+  }
+</style>
+</head>
+<body class="case-page">
+<a class="skip" href="#hauptinhalt">Zum Inhalt springen</a>
+
+<header class="site-header" id="site-header">
+  <div class="wrap nav-shell">
+    <a class="brand" href="index.html" aria-label="TOMORROWWORKS Startseite"><span class="brand-mark">T</span><span class="brand-name">tomorrow<span>works.</span></span></a>
+    <nav class="desktop-nav" id="main-nav" aria-label="Hauptnavigation">
+      <a href="index.html">Start</a><a href="websites.html">Websites</a><a href="apps.html">Apps</a><a href="ki-einstieg.html">KI-Einstieg</a><a href="index.html#projekte" aria-current="page">Projekte</a><a href="preise.html">Preise</a>
+    </nav>
+    <a class="nav-cta" href="#kontakt">Projekt besprechen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Navigation öffnen"><i></i></button>
+  </div>
+</header>
+
+<main id="hauptinhalt" tabindex="-1">
+  <section class="service-hero case-hero" id="start">
+    <div class="wrap hero-grid">
+      <div class="hero-copy reveal is-visible">
+        <p class="eyebrow">Werkstattcockpit · Eigener Betrieb</p>
+        <h1>Ein Cockpit für Werkstatt, Autohäuser und <em>Privatkunden.</em></h1>
+        <p class="hero-lead">Für unseren eigenen Karosserie- und Lackierbetrieb haben wir ein zentrales digitales Arbeitswerkzeug aufgebaut. Die Werkstatt bearbeitet Aufträge, Termine, Angebote, Dokumente und Status im Cockpit; Autohäuser nutzen ihr eigenes Portal, Privatkunden einen persönlichen Statuslink. Miet- und Ersatzfahrzeuge sind mit den Werkstattvorgängen verbunden. <strong>Gebaut, eingesetzt und aus dem Arbeitsalltag heraus weiterentwickelt.</strong></p>
+        <div class="hero-actions">
+          <a class="button primary" href="#fallstudie">Fallstudie ansehen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          <a class="button secondary" href="#kontakt">Ähnliches Projekt besprechen</a>
+        </div>
+        <p class="hero-note">Werkstattcockpit · Autohausportal · persönlicher Kundenstatus · Ersatzmobilität</p>
+        <div class="hero-points" role="group" aria-label="Projektmerkmale"><span><i></i>Im eigenen Betrieb eingesetzt</span><span><i></i>Mehrere Rollen und Zugänge</span><span><i></i>Laufend weiterentwickelt</span></div>
+      </div>
+
+      <div class="product-stage reveal is-visible" role="group" aria-label="Schematische Ansicht des Werkstattcockpits und seiner verbundenen Zugänge">
+        <div class="stage-glow"></div>
+        <div class="browser-product">
+          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Werkstattcockpit · Systemübersicht</span></div>
+          <div class="browser-window">
+            <div class="app-shell cockpit-shell" aria-hidden="true">
+              <aside class="app-side"><div class="mini-brand"><b>TW</b> Cockpit</div><small>Werkstatt intern</small><span class="side-link active"><i></i>Übersicht</span><span class="side-link"><i></i>Aufträge</span><span class="side-link"><i></i>Termine</span><span class="side-link"><i></i>Angebote</span><span class="side-link"><i></i>Dokumente</span><span class="side-link"><i></i>Mietfahrzeuge</span></aside>
+              <div class="app-main">
+                <div class="ui-head"><div><small>Zentrale Arbeitsoberfläche</small><b>Werkstattcockpit</b></div><span class="ui-button">Im Betrieb</span></div>
+                <div class="stat-grid"><div class="stat"><small>Kernbereich</small><b>Aufträge</b></div><div class="stat"><small>Planung</small><b class="orange">Termine</b></div><div class="stat"><small>Mobilität</small><b>Fahrzeuge</b></div></div>
+                <div class="ui-panel"><div class="ui-panel-head"><span>Aktuelle Vorgänge</span><span>Nächster Schritt</span></div><div class="ui-row"><b>Fahrzeugvorgang</b><span>Termin bestätigt</span><span class="status">Aktiv</span></div><div class="ui-row"><b>Angebotsanfrage</b><span>Prüfung erforderlich</span><span class="status orange">Offen</span></div><div class="ui-row"><b>Dokumente</b><span>Unterlagen zugeordnet</span><span class="status">Bereit</span></div><div class="ui-row"><b>Ersatzmobilität</b><span>Fahrzeug eingeplant</span><span class="status">Geplant</span></div></div>
+                <div class="portal-links"><div class="portal-link"><small>Für Partner</small><b>Autohausportal</b><span>Schäden, Angebote und Status</span></div><div class="portal-link"><small>Für Kunden</small><b>Persönlicher Status</b><span>Fortschritt, Termine und Upload</span></div><div class="portal-link"><small>Für Mobilität</small><b>Miet- &amp; Ersatzwagen</b><span>Planung, Übergabe und Rückgabe</span></div></div>
+              </div>
+            </div>
+            <span class="visual-label">Schematische Darstellung · keine Kundendaten</span>
+          </div>
+        </div>
+        <div class="case-visual-note" aria-hidden="true"><small>Ein System · mehrere Wege</small><b>Werkstatt, Partner, Kunden und Ersatzmobilität greifen ineinander.</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="position-strip" aria-label="Projektüberblick">
+    <div class="wrap position-grid">
+      <div class="position-item"><span>01</span><div><b>Im Zentrum</b><p>Das interne Werkstattcockpit.</p></div></div>
+      <div class="position-item"><span>02</span><div><b>Nach außen</b><p>Autohausportal und Kundenstatus.</p></div></div>
+      <div class="position-item"><span>03</span><div><b>Verbunden</b><p>Mietwagen und Ersatzmobilität.</p></div></div>
+    </div>
+  </section>
+
+  <section class="case-story" id="fallstudie">
+    <div class="wrap story-grid">
+      <div class="story-copy reveal">
+        <p class="eyebrow">Ausgangslage &amp; Ziel</p>
+        <h2>Viele Beteiligte, viele Informationen — aber ein gemeinsamer Fahrzeugvorgang.</h2>
+        <p>Im Werkstattalltag treffen Fahrzeugdaten, Termine, Angebote, Freigaben, Dokumente, Bilder, Verzögerungen und Rückfragen aus unterschiedlichen Richtungen ein. Ohne gemeinsamen Arbeitsstand werden Informationen über Telefon, E-Mail und einzelne Unterlagen immer wieder gesucht und neu erklärt.</p>
+        <p>Das Ziel war deshalb ein zentrales Werkstattcockpit: intern vollständig genug für die Bearbeitung, nach außen klar getrennt durch das Autohausportal und den persönlichen Kundenstatus — und verbunden mit der Planung von Miet- und Ersatzfahrzeugen.</p>
+      </div>
+      <div class="story-panel reveal">
+        <small>Warum ein Gesamtsystem?</small>
+        <article class="story-point"><span>01</span><div><h3>Den Auftrag zusammenhalten</h3><p>Fahrzeug, Termine, Angebote, Unterlagen, Kommunikation und Verlauf bleiben demselben Vorgang zugeordnet.</p></div></article>
+        <article class="story-point"><span>02</span><div><h3>Passende Zugänge schaffen</h3><p>Werkstatt, Autohäuser und Privatkunden sehen genau die Informationen und Möglichkeiten, die für ihre Rolle vorgesehen sind.</p></div></article>
+        <article class="story-point"><span>03</span><div><h3>Ersatzmobilität mitdenken</h3><p>Benötigte Miet- und Ersatzfahrzeuge werden nicht getrennt vom Werkstattauftrag geplant, sondern passend damit verbunden.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-solution" id="loesung">
+    <div class="wrap">
+      <article class="solution-card reveal">
+        <div class="solution-media">
+          <div class="solution-bar" aria-hidden="true"><i></i><i></i><i></i><span>Autovermietung · öffentliches Buchungsmodul</span></div>
+          <img src="bilder/screenshots/app_fahrzeugwahl.jpg" alt="Öffentliche Fahrzeugauswahl der eingebundenen Autovermietung mit Fahrzeugklassen und ergänzenden Angaben" width="1280" height="800" loading="lazy" decoding="async">
+        </div>
+        <div class="solution-copy">
+          <p class="eyebrow light">Die Lösung</p>
+          <h2>Das Cockpit im Zentrum — passende digitale Wege außen herum.</h2>
+          <p>Der zentrale Fahrzeug- und Auftragsdatensatz bildet den Kern. Darauf setzen die interne Werkstattansicht, das Autohausportal, der persönliche Kundenstatus und die Ersatzmobilität auf. Jede Ansicht zeigt nur die Informationen und Handlungen, die für die jeweilige Rolle vorgesehen sind.</p>
+          <ul class="solution-list">
+            <li>Die Werkstatt steuert Aufträge, Termine, Angebote, Dokumente, Aufgaben und Status zentral.</li>
+            <li>Autohäuser melden Fahrzeuge und Schadenfälle, laden Unterlagen hoch und stimmen Angebote im eigenen Portal ab.</li>
+            <li>Privatkunden verfolgen den Fortschritt über ihren persönlichen Link und können Termine, Unterlagen und Nachrichten übermitteln.</li>
+            <li>Miet- und Ersatzfahrzeuge werden nach Verfügbarkeit geplant und direkt mit dem Werkstattauftrag verbunden.</li>
+          </ul>
+          <p class="privacy-note">Das gezeigte Bild stammt aus dem öffentlichen Mietwagen-Buchungsmodul im Projektverbund. Interne Cockpit-, Partner-, Kunden-, Fahrzeug- und Dokumentansichten bilden wir wegen der darin enthaltenen Betriebs- und Kundendaten bewusst nicht öffentlich ab.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="feature-section" id="funktionen">
+    <div class="wrap">
+      <div class="section-head reveal"><div><p class="eyebrow">Das Gesamtsystem</p><h2>Was das Werkstattcockpit heute zusammenführt.</h2></div><p>Das System ist mehr als ein Terminportal. Es verbindet interne Bearbeitung, externe Zugänge und Ersatzmobilität zu einem zusammenhängenden Fahrzeugprozess.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card reveal"><span class="feature-num">01 · Intern</span><h3>Werkstattcockpit</h3><p>Aufträge, Fahrzeugstatus, Termine, Angebote, Dokumente, Aufgaben, Kommunikation und Versicherungsfälle laufen in einer zentralen Arbeitsoberfläche zusammen.</p></article>
+        <article class="feature-card reveal"><span class="feature-num">02 · Partner</span><h3>Autohausportal</h3><p>Partnerbetriebe melden Fahrzeuge und Schadenfälle, laden Unterlagen hoch, fragen Angebote an und verfolgen Termine, Status und Rückfragen im eigenen Zugang.</p></article>
+        <article class="feature-card reveal"><span class="feature-num">03 · Privatkunden</span><h3>Persönlicher Kundenstatus</h3><p>Ein persönlicher Link oder QR-Code führt zu Fortschritt, Terminwünschen, sicherem Dokument-Upload, Nachrichten und freigegebenen Bildern.</p></article>
+        <article class="feature-card reveal"><span class="feature-num">04 · Mobilität</span><h3>Miet- &amp; Ersatzfahrzeuge</h3><p>Verfügbarkeit und Belegung werden geplant, Fahrzeuge direkt dem Werkstattauftrag zugeordnet und Übergaben sowie Rückgaben im Cockpit sichtbar gemacht.</p></article>
+        <article class="feature-card reveal"><span class="feature-num">05 · Vorgangsakte</span><h3>Unterlagen &amp; Bilder</h3><p>Belege, Gutachten, Nachrichten und Bilder bleiben dem richtigen Fahrzeugvorgang zugeordnet und in den berechtigten Ansichten auffindbar.</p></article>
+        <article class="feature-card reveal"><span class="feature-num">06 · Unterstützung</span><h3>Geprüfte Dokumentauslese</h3><p>OCR und KI können geeignete Belege vorbereiten. Unsichere Werte bleiben sichtbare Vorschläge und werden erst nach menschlicher Prüfung übernommen.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="entwicklung">
+    <div class="wrap">
+      <div class="section-head reveal"><div><p class="eyebrow">Laufende Weiterentwicklung</p><h2>Nicht am Reißbrett abgeschlossen — im eigenen Betrieb weiterentwickelt.</h2></div><p>Das Werkstattcockpit ist keine Präsentationsdemo. Weil wir das System selbst einsetzen, werden neue Anforderungen an echten Werkstatt-, Partner-, Kunden- und Mobilitätswegen geprüft.</p></div>
+      <div class="process-grid reveal">
+        <article class="process-step"><span>01 · Beobachten</span><h3>Ablauf verstehen</h3><p>Übergaben, Rollen und wiederkehrende Rückfragen im realen Werkstattalltag aufnehmen.</p></article>
+        <article class="process-step"><span>02 · Verbinden</span><h3>Gemeinsamen Kern schaffen</h3><p>Auftrag, Fahrzeug, Termine, Dokumente, Status und Mobilität eindeutig zusammenführen.</p></article>
+        <article class="process-step"><span>03 · Trennen</span><h3>Passende Zugänge bauen</h3><p>Interne Bearbeitung, Autohausportal und persönlicher Kundenstatus erhalten klare Rollen und Sichtbarkeiten.</p></article>
+        <article class="process-step"><span>04 · Lernen</span><h3>Im Einsatz erweitern</h3><p>Rückmeldungen aus echten Vorgängen aufnehmen und nur sinnvolle nächste Schritte ergänzen.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="outcome" id="ergebnis">
+    <div class="wrap outcome-grid">
+      <div class="outcome-copy reveal">
+        <p class="eyebrow">Sichtbares Ergebnis</p>
+        <h2>Aus einzelnen Kanälen wird ein verbundenes betriebliches System.</h2>
+        <p>Das sichtbare Ergebnis ist kein Konzept und keine Demo. Werkstattcockpit, Autohausportal, persönlicher Kundenstatus und die verknüpfte Ersatzmobilität werden im eigenen Betrieb eingesetzt und anhand realer Vorgänge Schritt für Schritt weiterentwickelt.</p>
+      </div>
+      <div class="outcome-board reveal">
+        <article class="outcome-row"><span>Für die Werkstatt</span><div><h3>Den vollständigen Vorgang zentral bearbeiten</h3><p>Auftrag, Kommunikation, Unterlagen, Status, Termine und Ersatzmobilität bleiben im selben Arbeitskontext.</p></div></article>
+        <article class="outcome-row"><span>Für außen</span><div><h3>Den passenden Zugang bereitstellen</h3><p>Autohäuser arbeiten im eigenen Portal; Privatkunden verfolgen ihren Vorgang über einen persönlichen, geschützten Statuslink.</p></div></article>
+        <article class="outcome-row"><span>Für die Zukunft</span><div><h3>Aus echter Nutzung gezielt lernen</h3><p>Neue Anforderungen werden im Betrieb bewertet und schrittweise in das Gesamtsystem übernommen.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="data-section" id="datenhoheit">
+    <div class="wrap data-shell">
+      <div class="data-copy reveal">
+        <p class="eyebrow">Datenschutz &amp; Datenhoheit</p>
+        <h2>Ein betriebliches Portal braucht mehr als eine schöne Oberfläche.</h2>
+        <p>Zugriff, Sichtbarkeit und Umgang mit Dokumenten werden als Teil des Produkts geplant. Öffentliche Präsentation endet dort, wo Betriebs- oder Kundendaten beginnen.</p>
+      </div>
+      <div class="data-list reveal">
+        <article class="data-item"><span>01 · Zugänge</span><h3>Interne und externe Rollen bleiben getrennt.</h3><p>Partnerbereiche und Werkstattansichten erhalten unterschiedliche Berechtigungen. Nicht jede Information ist für jede Rolle bestimmt.</p></article>
+        <article class="data-item"><span>02 · Zuordnung</span><h3>Dateien bleiben beim richtigen Vorgang.</h3><p>Unterlagen und Bilder werden dem Fahrzeug beziehungsweise Auftrag zugeordnet, statt unverbunden in verschiedenen Kanälen zu liegen.</p></article>
+        <article class="data-item"><span>03 · Kontrolle</span><h3>Automatische Auslese bleibt überprüfbar.</h3><p>Erkannte Angaben werden nicht blind als richtig behandelt. Unsicherheit und menschliche Prüfung gehören zum vorgesehenen Ablauf.</p></article>
+        <article class="data-item"><span>04 · Verantwortung</span><h3>Betrieb und Zugriffe werden bewusst festgelegt.</h3><p>Vor dem Einsatz einer vergleichbaren Lösung klären wir Hosting, Sicherung, Verantwortlichkeiten und benötigte Zugänge passend zum Projekt.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="next-services" aria-labelledby="weitere-projekte">
+    <div class="wrap">
+      <div class="section-head reveal"><div><p class="eyebrow">Weitere Projekte</p><h2 id="weitere-projekte">Andere Aufgaben. Derselbe Praxisanspruch.</h2></div><p>Unsere Projekte beginnen nicht bei einer Technologie, sondern bei einer konkreten Aufgabe: sichtbar werden, Zeit erfassen oder einen betrieblichen Ablauf vereinfachen.</p></div>
+      <div class="next-grid">
+        <a class="next-card reveal" href="projekt-mietwagen-website.html"><small>Website · Eigener Betrieb</small><h3>Webauftritt und Buchung für die Autovermietung</h3><p>Das Angebot verständlich erklären und Interessenten direkt in einen passenden Anfrageweg führen.</p><span class="next-arrow" aria-hidden="true">→</span></a>
+        <a class="next-card reveal" href="projekt-zeiterfassung.html"><small>App · Kundenprojekt</small><h3>Zeiterfassung für den Arbeitsalltag</h3><p>Arbeitszeiten im Browser erfassen und für die weitere Bearbeitung übersichtlich zusammenführen.</p><span class="next-arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="kontakt">
+    <div class="wrap contact-inner reveal">
+      <p class="eyebrow light">Ein eigenes Werkzeug entwickeln</p>
+      <h2>Welcher Ablauf braucht einen <span>klaren gemeinsamen Stand?</span></h2>
+      <p class="contact-lead">Zeigen Sie uns, wie Partner, Kunden oder Mitarbeitende heute zusammenarbeiten. Wir besprechen verständlich, ob ein Portal sinnvoll ist und welcher erste Umfang wirklich gebraucht wird.</p>
+      <div class="contact-actions"><a class="button primary" href="mailto:info@auto-lackierzentrum.de?subject=Anfrage%20zu%20einem%20Portal-Projekt">Portal-Idee besprechen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="button secondary" href="tel:+4915227706694">0152&nbsp;27706694</a></div>
+      <p class="contact-note">Unverbindlich · verständlich · online oder vor Ort</p>
+      <div class="contact-options"><a href="tel:+4915227706694">0152&nbsp;27706694</a><a href="mailto:info@auto-lackierzentrum.de">info@auto-lackierzentrum.de</a><span>Mosbach · Baden-Württemberg</span></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap footer-inner"><div><p class="footer-brand">tomorrowworks. · Digital Studio</p><p>© 2026 TOMORROWWORKS — ein Angebot der Gärtner GmbH Karosserie + Lack</p></div><nav class="footer-links" aria-label="Navigation im Seitenfuß"><a href="websites.html">Websites</a><a href="apps.html">Apps</a><a href="ki-einstieg.html">KI-Einstieg</a><a href="index.html#projekte">Projekte</a><a href="preise.html">Preise</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></div></footer>
+
+<script>
+  const header=document.getElementById('site-header'),menuButton=document.getElementById('menu-button'),mainNav=document.getElementById('main-nav');
+  const setMenu=open=>{menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Navigation schließen':'Navigation öffnen');mainNav.classList.toggle('open',open)};
+  menuButton.addEventListener('click',()=>setMenu(menuButton.getAttribute('aria-expanded')!=='true'));mainNav.addEventListener('click',event=>{if(event.target.closest('a'))setMenu(false)});document.addEventListener('keydown',event=>{if(event.key==='Escape')setMenu(false)});window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>18),{passive:true});
+  const reveal=document.querySelectorAll('.reveal:not(.is-visible)');if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.08});reveal.forEach(element=>observer.observe(element))}else{reveal.forEach(element=>element.classList.add('is-visible'))}
+</script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Projekt-Einblick: TOMORROWWORKS konzipierte und entwickelte eine eigenständige Mietwagen-Website mit klarem Anfrageweg für den eigenen Karosserie- und Lackierbetrieb.">
+<title>Projekt: Mietwagen-Website — TOMORROWWORKS</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Projekt: Mietwagen-Website — TOMORROWWORKS">
+<meta property="og:description" content="Vom erklärungsbedürftigen Mietwagenangebot zur klaren, mobilen Website mit digitalem Anfrageweg.">
+<meta property="og:url" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/projekt-mietwagen-website.html">
+<meta property="og:image" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/bilder/screenshots/landing_mietwagen.jpg">
+<meta property="og:locale" content="de_DE">
+<meta name="theme-color" content="#f3f1eb">
+<link rel="canonical" href="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/projekt-mietwagen-website.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="unterseite.css">
+<style>
+  .case-hero .hero-copy h1{font-size:clamp(56px,6.1vw,84px)}
+  .case-facts{background:var(--ink);color:#fff}
+  .case-fact-grid{display:grid;grid-template-columns:repeat(3,1fr);min-height:104px}
+  .case-fact{padding:22px 34px;border-right:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:15px}
+  .case-fact:first-child{padding-left:0}.case-fact:last-child{border-right:0}
+  .case-fact span{color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.09em;text-transform:uppercase}
+  .case-fact b{display:block;font-size:14px}.case-fact p{color:#92999f;font-size:11px;line-height:1.45;margin-top:2px}
+  .case-context{padding:126px 0;background:#fff}
+  .context-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .context-card{position:relative;border:1px solid var(--line);border-radius:29px;padding:42px;min-height:390px;overflow:hidden}
+  .context-card:first-child{background:var(--paper)}
+  .context-card.goal{background:var(--orange);border-color:transparent}
+  .context-index{display:block;color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.1em;text-transform:uppercase;margin-bottom:75px}
+  .context-card.goal .context-index{color:#6e2c0f}
+  .context-card h2{font-size:clamp(39px,4.2vw,57px);max-width:570px;margin-bottom:20px}
+  .context-card p{color:var(--muted);max-width:570px}
+  .context-card.goal p{color:#692b11}
+  .context-card::after{content:"";position:absolute;width:180px;height:180px;border:1px solid rgba(17,19,21,.1);border-radius:50%;right:-75px;top:-75px}
+  .design-section{padding:126px 0}
+  .design-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .design-card{background:#fff;border:1px solid rgba(17,19,21,.08);border-radius:26px;padding:30px;min-height:335px;display:flex;flex-direction:column}
+  .design-card:nth-child(2){background:var(--night);color:#fff}.design-card:nth-child(3){background:var(--orange)}
+  .design-card small{color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.1em;text-transform:uppercase;margin-bottom:50px}
+  .design-card:nth-child(2) small{color:#9da3aa}.design-card:nth-child(3) small{color:#68290e}
+  .design-card h3{font-size:31px;margin-bottom:15px}
+  .design-card p{color:var(--muted);font-size:14px;margin-top:auto}
+  .design-card:nth-child(2) p{color:#aeb4ba}.design-card:nth-child(3) p{color:#692b11}
+  .request-section{padding:126px 0;background:var(--night);color:#fff}
+  .request-shell{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(330px,.88fr);gap:28px;background:var(--night-2);border:1px solid rgba(255,255,255,.09);border-radius:32px;padding:25px}
+  .request-visual{background:#ecece9;border-radius:21px;overflow:hidden;min-height:500px;display:flex;flex-direction:column}
+  .request-visual picture{display:flex;flex:1}.request-visual img{width:100%;height:100%;object-fit:cover;object-position:top}
+  .request-copy{padding:30px 23px 22px;display:flex;flex-direction:column}
+  .request-copy h2{font-size:clamp(42px,4.7vw,62px);margin:23px 0 20px}
+  .request-copy>p{color:#aeb4ba;font-size:15px}
+  .flow-list{list-style:none;display:grid;gap:12px;margin:30px 0}
+  .flow-list li{display:grid;grid-template-columns:34px 1fr;gap:11px;align-items:start;color:#d5d8da;font-size:13px}
+  .flow-list span{width:27px;height:27px;border-radius:50%;background:rgba(255,100,26,.16);color:#ff8951;display:grid;place-items:center;font-size:9px;font-weight:820}
+  .flow-note{margin-top:auto;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;color:#8e969d;font-size:12px}
+  .mobile-section{padding:126px 0;background:#fff}
+  .mobile-grid{display:grid;grid-template-columns:minmax(330px,.78fr) minmax(0,1.22fr);gap:85px;align-items:center}
+  .phone-stage{position:relative;min-height:620px;display:grid;place-items:center;background:var(--paper);border-radius:34px;overflow:hidden}
+  .phone-stage::before{content:"";position:absolute;width:430px;height:430px;border-radius:50%;background:rgba(255,100,26,.19);filter:blur(38px)}
+  .phone{position:relative;z-index:1;width:280px;background:#101216;border:8px solid #101216;border-radius:43px;padding:12px 7px 7px;box-shadow:0 35px 75px rgba(17,19,21,.27);transform:rotate(-3deg)}
+  .phone::before{content:"";display:block;width:78px;height:19px;background:#101216;border-radius:0 0 13px 13px;position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:2}
+  .phone-screen{height:500px;border-radius:30px;overflow:hidden;background:#fff}
+  .phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top center}
+  .mobile-copy h2{font-size:clamp(43px,5vw,66px);margin:20px 0 24px}
+  .mobile-copy>p{color:var(--muted);font-size:18px;max-width:650px}
+  .mobile-principles{display:grid;gap:0;border-top:1px solid var(--line);margin-top:38px}
+  .mobile-principle{display:grid;grid-template-columns:45px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .mobile-principle>span{color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.08em}
+  .mobile-principle h3{font-size:19px;margin-bottom:5px}.mobile-principle p{color:var(--muted);font-size:13px}
+  .result-section{padding:126px 0;background:var(--paper)}
+  .result-shell{display:grid;grid-template-columns:.82fr 1.18fr;gap:70px;align-items:start}
+  .result-copy h2{font-size:clamp(43px,5vw,67px);margin:20px 0 24px}
+  .result-copy>p{color:var(--muted);font-size:17px}
+  .result-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .result-item{background:#fff;border:1px solid rgba(17,19,21,.08);border-radius:22px;padding:25px;min-height:210px}
+  .result-item span{display:block;color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.09em;margin-bottom:34px}
+  .result-item h3{font-size:23px;margin-bottom:9px}.result-item p{color:var(--muted);font-size:13px}
+  @media(max-width:900px){
+    .case-fact-grid,.context-grid,.request-shell,.mobile-grid,.result-shell{grid-template-columns:1fr}
+    .case-fact,.case-fact:first-child{padding:20px 0;border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}.case-fact:last-child{border-bottom:0}
+    .request-copy{min-height:450px}.mobile-grid{gap:55px}.phone-stage{min-height:610px}.result-list{max-width:760px}
+  }
+  @media(max-width:600px){
+    .case-hero .hero-copy h1{font-size:clamp(42px,13vw,54px)}
+    .case-fact{padding:16px 0!important;border-right:0!important;border-bottom:1px solid rgba(255,255,255,.1)}.case-fact:last-child{border-bottom:0}
+    .case-context,.design-section,.request-section,.mobile-section,.result-section{padding:91px 0}
+    .context-card{padding:28px;min-height:350px}.context-index{margin-bottom:55px}
+    .design-grid,.result-list{grid-template-columns:1fr}.design-card{min-height:310px}
+    .request-shell{padding:10px;border-radius:24px}.request-visual{min-height:300px}.request-copy{padding:25px 13px 16px;min-height:500px}
+    .phone-stage{min-height:550px}.phone{width:245px}.phone-screen{height:435px}
+    .mobile-copy h2,.result-copy h2{font-size:41px}.mobile-copy>p{font-size:16px}
+    .result-item{min-height:195px}
+  }
+  @media(max-width:370px){.context-card h2,.mobile-copy h2,.result-copy h2{font-size:36px}.phone{width:225px}.phone-screen{height:400px}}
+</style>
+<script>document.documentElement.classList.add('js');</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CreativeWork",
+  "name":"Mietwagen-Website für den eigenen Karosserie- und Lackierbetrieb",
+  "creator":{"@type":"Organization","name":"TOMORROWWORKS · Digital Studio"},
+  "about":"Konzeption, Design und Entwicklung einer Unternehmenswebsite mit digitalem Anfrageweg",
+  "url":"https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/projekt-mietwagen-website.html"
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#hauptinhalt">Zum Inhalt springen</a>
+
+<header class="site-header" id="site-header">
+  <div class="wrap nav-shell">
+    <a class="brand" href="index.html" aria-label="TOMORROWWORKS Startseite"><span class="brand-mark">T</span><span class="brand-name">tomorrow<span>works.</span></span></a>
+    <nav class="desktop-nav" id="main-nav" aria-label="Hauptnavigation">
+      <a href="index.html">Start</a><a href="websites.html">Websites</a><a href="apps.html">Apps</a><a href="ki-einstieg.html">KI-Einstieg</a><a href="index.html#projekte" aria-current="page">Projekte</a><a href="preise.html">Preise</a>
+    </nav>
+    <a class="nav-cta" href="#kontakt">Projekt besprechen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Navigation öffnen"><i></i></button>
+  </div>
+</header>
+
+<main id="hauptinhalt" tabindex="-1">
+  <section class="service-hero case-hero" id="start">
+    <div class="wrap hero-grid">
+      <div class="hero-copy reveal is-visible">
+        <p class="eyebrow">Website · Eigener Betrieb</p>
+        <h1>Vom Mietwagenangebot zur <em>klaren digitalen Anfrage.</em></h1>
+        <p class="hero-lead">Für den eigenen Karosserie- und Lackierbetrieb entstand eine eigenständige Website, die das Mietwagenangebot verständlich präsentiert und Interessierte gezielt in den Anfrageweg führt. <strong>Konzipiert, gestaltet und entwickelt von TOMORROWWORKS.</strong></p>
+        <div class="hero-actions">
+          <a class="button primary" href="#ausgangslage">Projekt ansehen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="button secondary" href="#kontakt">Ähnliches Projekt besprechen</a>
+        </div>
+        <p class="hero-note">Projekt-Einblick · keine Demo und keine Vorlage</p>
+        <div class="hero-points" role="group" aria-label="Projektbausteine"><span><i></i>Website-Konzept</span><span><i></i>Responsive Design</span><span><i></i>Digitaler Anfrageweg</span></div>
+      </div>
+
+      <div class="product-stage reveal is-visible" role="group" aria-label="Ansicht der entwickelten Mietwagen-Website">
+        <div class="stage-glow"></div>
+        <div class="browser-product">
+          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Mietwagen-Website</span></div>
+          <div class="browser-window">
+            <picture><source srcset="bilder/screenshots/landing_mietwagen.webp" type="image/webp"><img src="bilder/screenshots/landing_mietwagen.jpg" alt="Startseite der für den eigenen Betrieb entwickelten Mietwagen-Website" width="1280" height="800" fetchpriority="high" decoding="async"></picture>
+            <span class="visual-label">Reale Projektansicht</span>
+          </div>
+        </div>
+        <div class="floating-note" aria-hidden="true"><small>Aufgabe</small><b>Angebot erklären und den nächsten Schritt eindeutig machen.</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-facts" aria-label="Projektübersicht">
+    <div class="wrap case-fact-grid">
+      <div class="case-fact"><span>Projekt</span><div><b>Mietwagen-Website</b><p>Eigenständiger Webauftritt für ein betriebliches Angebot.</p></div></div>
+      <div class="case-fact"><span>Leistung</span><div><b>Konzept, Design &amp; Entwicklung</b><p>Von der Inhaltsstruktur bis zur responsiven Umsetzung.</p></div></div>
+      <div class="case-fact"><span>Kontext</span><div><b>Im eigenen Betrieb entstanden</b><p>Aus einer konkreten betrieblichen Anforderung entwickelt.</p></div></div>
+    </div>
+  </section>
+
+  <section class="case-context" id="ausgangslage">
+    <div class="wrap">
+      <div class="section-head reveal"><div><p class="eyebrow">Ausgangslage &amp; Ziel</p><h2>Ein eigenes Angebot braucht mehr als einen kurzen Hinweis.</h2></div><p>Wer online einen Mietwagen sucht, möchte schnell verstehen, was angeboten wird und wie eine Anfrage funktioniert. Genau dafür sollte ein klarer, eigenständiger Auftritt entstehen.</p></div>
+      <div class="context-grid">
+        <article class="context-card reveal">
+          <span class="context-index">01 · Ausgangslage</span>
+          <h2>Das Angebot war erklärungsbedürftig.</h2>
+          <p>Mietwagen sind ein eigenständiger Leistungsbereich des Betriebs. Damit Interessierte nicht zwischen allgemeinen Werkstattinformationen suchen müssen, brauchte das Angebot einen eigenen digitalen Rahmen mit verständlicher Nutzerführung.</p>
+        </article>
+        <article class="context-card goal reveal">
+          <span class="context-index">02 · Ziel</span>
+          <h2>Verstehen, auswählen, anfragen.</h2>
+          <p>Die Website sollte das Angebot klar einordnen, auf unterschiedlichen Bildschirmgrößen funktionieren und Besucherinnen und Besucher ohne Umwege zur digitalen Anfrage führen.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="design-section" id="konzept">
+    <div class="wrap">
+      <div class="section-head reveal"><div><p class="eyebrow">Konzeption &amp; Design</p><h2>Jede Entscheidung unterstützt den nächsten Schritt.</h2></div><p>Die Gestaltung sollte eigenständig wirken, aber nicht vom Angebot ablenken. Deshalb folgen Inhalt, Bildsprache und Bedienelemente einer klaren Hierarchie.</p></div>
+      <div class="design-grid">
+        <article class="design-card reveal"><small>01 · Struktur</small><h3>Das Wesentliche zuerst</h3><p>Angebot, Nutzen und nächster Schritt werden so angeordnet, dass Besucher nicht lange nach der entscheidenden Information suchen müssen.</p></article>
+        <article class="design-card reveal"><small>02 · Gestaltung</small><h3>Eigenständig statt beliebig</h3><p>Kontraste, Typografie und Bildauswahl geben dem Mietwagenangebot eine eigene visuelle Bühne, ohne die Bedienung unnötig kompliziert zu machen.</p></article>
+        <article class="design-card reveal"><small>03 · Führung</small><h3>Eine sichtbare Handlung</h3><p>Die digitale Anfrage bleibt als logischer nächster Schritt präsent. Sie konkurriert nicht mit einer Vielzahl gleichwertiger Schaltflächen.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="request-section" id="anfrage">
+    <div class="wrap">
+      <div class="section-head dark reveal"><div><p class="eyebrow light">Digitale Anfrage</p><h2>Die Website endet nicht bei der Präsentation.</h2></div><p>Sie bereitet den Übergang in eine strukturierte Anfrage vor. So wird aus allgemeinem Interesse ein Vorgang, mit dem der Betrieb weiterarbeiten kann.</p></div>
+      <article class="request-shell reveal">
+        <div class="request-visual">
+          <div class="project-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <picture><source srcset="bilder/screenshots/landing_mietwagen.webp" type="image/webp"><img src="bilder/screenshots/landing_mietwagen.jpg" alt="Mietwagen-Website mit hervorgehobener Möglichkeit zur digitalen Buchungsanfrage" width="1280" height="800" loading="lazy" decoding="async"></picture>
+        </div>
+        <div class="request-copy">
+          <span class="project-label">Vom Inhalt zum Vorgang</span>
+          <h2>Ein verständlicher Übergang.</h2>
+          <p>Die Website erklärt zunächst das Angebot. Anschließend führt sie zur digitalen Anfrage, in der die für die Bearbeitung benötigten Angaben strukturiert aufgenommen werden können.</p>
+          <ol class="flow-list">
+            <li><span>01</span><div><strong>Angebot verstehen</strong><br>Die Website schafft den fachlichen und visuellen Kontext.</div></li>
+            <li><span>02</span><div><strong>Anfrage beginnen</strong><br>Ein eindeutiger Handlungsweg führt in den digitalen Vorgang.</div></li>
+            <li><span>03</span><div><strong>Angaben übergeben</strong><br>Die Informationen kommen geordnet beim Betrieb an.</div></li>
+          </ol>
+          <p class="flow-note">Bewusst als Anfrage gestaltet: Die betriebliche Prüfung und Bestätigung bleiben Teil des Ablaufs.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="mobile-section" id="mobil">
+    <div class="wrap mobile-grid">
+      <div class="phone-stage reveal">
+        <div class="phone"><div class="phone-screen"><picture><source srcset="bilder/screenshots/landing_mietwagen.webp" type="image/webp"><img src="bilder/screenshots/landing_mietwagen.jpg" alt="Mobile Darstellung der Mietwagen-Website" width="1280" height="800" loading="lazy" decoding="async"></picture></div></div>
+      </div>
+      <div class="mobile-copy reveal">
+        <p class="eyebrow">Mobile Umsetzung</p>
+        <h2>Auf dem Smartphone nicht nur kleiner — sondern klarer geführt.</h2>
+        <p>Eine Mietwagenanfrage beginnt häufig unterwegs. Deshalb wurden Hierarchie, Abstände und Bedienelemente für kleine Bildschirme bewusst neu angeordnet.</p>
+        <div class="mobile-principles">
+          <article class="mobile-principle"><span>01</span><div><h3>Lesbare Inhalte</h3><p>Überschriften und Textblöcke bleiben ohne Zoomen gut erfassbar.</p></div></article>
+          <article class="mobile-principle"><span>02</span><div><h3>Greifbare Bedienelemente</h3><p>Schaltflächen und Abstände sind auf die Bedienung per Finger ausgelegt.</p></div></article>
+          <article class="mobile-principle"><span>03</span><div><h3>Kurzer Weg zur Anfrage</h3><p>Der nächste Schritt bleibt auch auf schmalen Bildschirmen eindeutig sichtbar.</p></div></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="phasen">
+    <div class="wrap">
+      <div class="section-head reveal"><div><p class="eyebrow">Projektphasen</p><h2>Vom betrieblichen Bedarf zur funktionierenden Website.</h2></div><p>Die Entwicklung folgte klaren Freigabepunkten. Umfang und Tempo richten sich bei vergleichbaren Projekten nach Inhalten, Funktionen und Abstimmung — nicht nach einer pauschalen Dauer.</p></div>
+      <div class="process-grid reveal">
+        <article class="process-step"><span>01 · Einordnen</span><h3>Angebot verstehen</h3><p>Ziel, Nutzerfragen und betrieblicher Anfrageweg wurden als Grundlage festgehalten.</p></article>
+        <article class="process-step"><span>02 · Strukturieren</span><h3>Inhalte ordnen</h3><p>Die Seite erhielt eine klare Abfolge vom ersten Eindruck bis zur Handlung.</p></article>
+        <article class="process-step"><span>03 · Gestalten</span><h3>Auftritt entwerfen</h3><p>Das visuelle Konzept machte Angebot, Hierarchie und Handlungsweg konkret sichtbar.</p></article>
+        <article class="process-step"><span>04 · Entwickeln</span><h3>Umsetzen &amp; prüfen</h3><p>Die freigegebene Ansicht wurde responsiv entwickelt und auf relevanten Bildschirmgrößen geprüft.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="result-section" id="ergebnis">
+    <div class="wrap result-shell">
+      <div class="result-copy reveal">
+        <p class="eyebrow">Qualitatives Ergebnis</p>
+        <h2>Ein klarer digitaler Einstieg in das Mietwagenangebot.</h2>
+        <p>Das Ergebnis wird hier bewusst nicht mit erfundenen Erfolgszahlen aufgeladen. Sichtbar ist, was tatsächlich entstanden ist: ein eigenständiger Auftritt, eine nachvollziehbare Nutzerführung und die Verbindung zur digitalen Anfrage.</p>
+      </div>
+      <div class="result-list reveal">
+        <article class="result-item"><span>01</span><h3>Eigenständiger Auftritt</h3><p>Das Mietwagenangebot erhält eine eigene, professionelle Präsenz statt nur einer beiläufigen Erwähnung.</p></article>
+        <article class="result-item"><span>02</span><h3>Klare Orientierung</h3><p>Besucher verstehen schneller, worum es geht und welcher nächste Schritt vorgesehen ist.</p></article>
+        <article class="result-item"><span>03</span><h3>Mobile Nutzbarkeit</h3><p>Inhalte und Handlungsweg funktionieren auch auf schmalen Bildschirmen verständlich.</p></article>
+        <article class="result-item"><span>04</span><h3>Digitaler Anschluss</h3><p>Die Website führt strukturiert in den Anfrageprozess, ohne eine automatische Bestätigung vorzutäuschen.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="next-services" aria-labelledby="weitere-projekte">
+    <div class="wrap">
+      <div class="section-head reveal"><div><p class="eyebrow">Weitere Projekte</p><h2 id="weitere-projekte">Digitale Werkzeuge aus echter Betriebspraxis.</h2></div><p>Auch die weiteren Projekte entstanden aus konkreten Aufgaben: Zusammenarbeit vereinfachen und interne Abläufe besser unterstützen.</p></div>
+      <div class="next-grid">
+        <a class="next-card reveal" href="projekt-terminportal.html"><small>Werkstattcockpit · Eigener Betrieb</small><h3>Cockpit mit Autohausportal und Kundenstatus</h3><p>Interne Werkstattarbeit, externe Zugänge und Ersatzmobilität in einem verbundenen System.</p><span class="next-arrow" aria-hidden="true">→</span></a>
+        <a class="next-card reveal" href="projekt-zeiterfassung.html"><small>App · Kundenprojekt</small><h3>Zeiterfassung für den Arbeitsalltag</h3><p>Eine individuelle Anwendung für klare Erfassung und nachvollziehbare Auswertung.</p><span class="next-arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="kontakt">
+    <div class="wrap contact-inner reveal">
+      <p class="eyebrow light">Website-Projekt besprechen</p>
+      <h2>Welches Angebot soll bei Ihnen <span>klarer sichtbar</span> werden?</h2>
+      <p class="contact-lead">Erzählen Sie uns, was Sie anbieten, wen Sie erreichen möchten und welcher nächste Schritt online möglich sein soll. Wir ordnen gemeinsam einen sinnvollen Projektumfang ein.</p>
+      <div class="contact-actions"><a class="button primary" href="mailto:info@auto-lackierzentrum.de?subject=Anfrage%20Website-Projekt">Website-Projekt anfragen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="button secondary" href="tel:+4915227706694">0152&nbsp;27706694</a></div>
+      <p class="contact-note">Unverbindlich · verständlich · online oder vor Ort</p>
+      <div class="contact-options"><a href="tel:+4915227706694">0152&nbsp;27706694</a><a href="mailto:info@auto-lackierzentrum.de">info@auto-lackierzentrum.de</a><span>Mosbach · Baden-Württemberg</span></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap footer-inner"><div><p class="footer-brand">tomorrowworks. · Digital Studio</p><p>© 2026 TOMORROWWORKS — ein Angebot der Gärtner GmbH Karosserie + Lack</p></div><nav class="footer-links" aria-label="Navigation im Seitenfuß"><a href="websites.html">Websites</a><a href="apps.html">Apps</a><a href="ki-einstieg.html">KI-Einstieg</a><a href="index.html#projekte">Projekte</a><a href="preise.html">Preise</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></div></footer>
+
+<script>
+  const header=document.getElementById('site-header'),menuButton=document.getElementById('menu-button'),mainNav=document.getElementById('main-nav');
+  const setMenu=open=>{menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Navigation schließen':'Navigation öffnen');mainNav.classList.toggle('open',open)};
+  menuButton.addEventListener('click',()=>setMenu(menuButton.getAttribute('aria-expanded')!=='true'));mainNav.addEventListener('click',event=>{if(event.target.closest('a'))setMenu(false)});document.addEventListener('keydown',event=>{if(event.key==='Escape')setMenu(false)});window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>18),{passive:true});
+  const reveal=document.querySelectorAll('.reveal:not(.is-visible)');if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.08});reveal.forEach(element=>observer.observe(element))}else{reveal.forEach(element=>element.classList.add('is-visible'))}
+</script>
+</body>
+</html>

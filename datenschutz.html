@@ -3,111 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex">
-<title>Datenschutzerklärung — TOMORROWWORKS · AI Solutions</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314161a'/%3E%3Ctext x='26' y='46' font-family='Segoe UI,Arial,sans-serif' font-size='40' font-weight='800' text-anchor='middle' fill='%23fa7d19'%3ET%3C/text%3E%3Ccircle cx='46' cy='41' r='4.5' fill='%23fa7d19'/%3E%3C/svg%3E">
+<meta name="description" content="Datenschutzhinweise für die Website von TOMORROWWORKS.">
+<meta name="robots" content="noindex, follow">
+<title>Datenschutzerklärung — TOMORROWWORKS</title>
+<link rel="canonical" href="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/datenschutz.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="unterseite.css">
+<style>
+  .legal-hero{position:relative;padding:154px 0 58px;overflow:hidden}
+  .legal-hero::before{content:"";position:absolute;width:540px;height:540px;right:-260px;top:-300px;border-radius:50%;background:rgba(255,100,26,.11);pointer-events:none}
+  .legal-intro{position:relative;max-width:900px}
+  .legal-intro h1{font-size:clamp(52px,7vw,82px);margin:20px 0 22px}
+  .legal-intro>p:last-child{max-width:700px;color:var(--muted);font-size:19px}
+  .legal-page{padding:0 0 110px}
+  .legal-grid{display:grid;grid-template-columns:minmax(210px,290px) minmax(0,790px);gap:44px;align-items:start}
+  .legal-aside{position:sticky;top:112px;border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:13px}
+  .legal-aside b{display:block;color:var(--ink);font-size:15px;margin-bottom:7px}
+  .legal-aside p{margin-bottom:20px}
+  .legal-nav{display:grid;gap:7px}
+  .legal-nav a{width:max-content;font-weight:730;color:var(--ink)}
+  .legal-nav a:hover{color:var(--orange)}
+  .legal-content{background:#fff;border:1px solid rgba(17,19,21,.08);border-radius:30px;padding:clamp(29px,5vw,58px);box-shadow:0 24px 70px rgba(17,19,21,.06)}
+  .legal-content h2{font-size:24px;line-height:1.25;margin:39px 0 12px;letter-spacing:-.025em}
+  .legal-content h2:first-child{margin-top:0}
+  .legal-content h3{font-size:18px;line-height:1.3;margin:25px 0 8px;letter-spacing:-.015em}
+  .legal-content p,.legal-content li{color:var(--muted);margin-bottom:13px}
+  .legal-content ul{margin:0 0 17px 21px}
+  .legal-content li{padding-left:4px;margin-bottom:7px}
+  .legal-content b{color:var(--ink)}
+  .legal-content a{color:#bd4d17;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+  .legal-content code{background:var(--paper);border-radius:6px;padding:2px 6px;color:var(--ink);font-size:.9em}
+  .legal-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px 24px;margin:14px 0 20px}
+  .legal-card p{margin-bottom:3px}
+  .legal-date{margin-top:42px!important;padding-top:20px;border-top:1px solid var(--line);font-size:12px}
+  @media(max-width:800px){.legal-grid{grid-template-columns:1fr}.legal-aside{position:static}.legal-intro h1{font-size:51px}}
+  @media(max-width:600px){.legal-hero{padding:119px 0 42px}.legal-intro h1{font-size:41px}.legal-intro>p:last-child{font-size:17px}.legal-page{padding-bottom:80px}.legal-grid{gap:28px}.legal-content{border-radius:23px;padding:28px 21px}.legal-content h2{font-size:21px}.legal-content h3{font-size:17px}}
+</style>
 </head>
 <body>
-<!-- ENTWURF: Inhalt fachlich befüllt (statische Seite ohne Cookies/Tracking, Stand 07/2026) — juristische Freigabe durch Syndikus vor Go-live erforderlich. Bei Hosting-Entscheidung Abschnitt „Hosting" um Anbieter ergänzen. -->
-<style>
-  :root{--bg:#0f1114;--karte:#1e2126;--text:#f4f5f7;--text2:#a8afb8;--orange:#fa7d19;--linie:#2c3037}
-  html[data-theme="light"]{--bg:#f3f4f6;--karte:#ffffff;--text:#171a1f;--text2:#4d5560;--orange:#b95606;--linie:#e2e6ec}
-  html[data-theme="light"] p b, html[data-theme="light"] li b{color:var(--text)}
-  .theme-schalter{position:fixed;top:16px;right:16px;z-index:90;width:38px;height:38px;border-radius:50%;border:1px solid var(--linie);background:var(--karte);color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer}
-  .theme-schalter:hover{color:var(--text)}
-  .theme-schalter svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-  .theme-schalter .mond{display:none}
-  html[data-theme="light"] .theme-schalter .sonne{display:none}
-  html[data-theme="light"] .theme-schalter .mond{display:block}
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:"Segoe UI Variable Display","Segoe UI",-apple-system,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px}
-  .wrap{max-width:820px;margin:0 auto;padding:60px 26px 80px}
-  a{color:var(--orange);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .zurueck{display:inline-block;margin-bottom:34px;color:var(--text2);font-size:14.5px}
-  .zurueck:hover{color:#fff;text-decoration:none}
-  .marke-zeile{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
-  .marke-icon{display:inline-flex;align-items:baseline;padding:7px 12px 7px 11px;border-radius:9px;background:#14161a;border:1.5px solid rgba(250,125,25,.5);font-size:17px;font-weight:800;color:var(--orange);flex:none;white-space:nowrap;line-height:1}
-  .marke-icon .punkt-works{font-weight:300;color:var(--text2);font-size:.58em;letter-spacing:.01em;margin-left:1px}
-  .wortmarke{font-size:24px;font-weight:300}
-  .wortmarke b{font-weight:800}
-  .wortmarke b i{font-style:normal;color:var(--orange)}
-  h1{font-size:32px;margin:18px 0 30px}
-  h2{font-size:20px;margin:36px 0 10px}
-  h3{font-size:16.5px;margin:22px 0 8px}
-  p,li{color:var(--text2);margin-bottom:12px}
-  ul{margin:0 0 12px 22px}
-  li{margin-bottom:6px}
-  p b,li b{color:#fff}
-  .karte{background:var(--karte);border-radius:12px;padding:26px 28px;margin:22px 0}
-  .karte p{margin-bottom:4px}
-  .fuss{margin-top:44px;padding-top:20px;border-top:1px solid var(--linie);font-size:12.5px;color:#6b727b}
-</style>
-<div class="wrap">
-  <a class="zurueck" href="index.html">← Zurück zur Startseite</a>
-  <div class="marke-zeile"><span class="marke-icon" aria-hidden="true">T<span class="punkt-works">.works</span></span><div class="wortmarke">tomorrow<b>works<i>.</i></b></div></div>
-  <h1>Datenschutzerklärung</h1>
+<!-- RECHTSPRÜFUNG: Datenschutzhinweise an den aktuellen technischen Stand angepasst; vor Go-live juristisch prüfen und freigeben lassen. Bei Hosting-, Kontakt- oder Tracking-Änderungen erneut prüfen. -->
+<a class="skip" href="#hauptinhalt">Zum Inhalt springen</a>
 
-  <h2>1. Verantwortlicher</h2>
-  <div class="karte">
-    <p><b>Gärtner GmbH Karosserie + Lack</b> („TOMORROWWORKS · AI Solutions")</p>
-    <p>Binauer Höhe 4, 74821 Mosbach, Deutschland</p>
-    <p>Telefon: +49 1522 7706694 · E-Mail: info@auto-lackierzentrum.de</p>
-    <p>Vertreten durch den Geschäftsführer Christopher Gärtner</p>
+<header class="site-header" id="site-header">
+  <div class="wrap nav-shell">
+    <a class="brand" href="index.html" aria-label="TOMORROWWORKS Startseite">
+      <span class="brand-mark">T</span>
+      <span class="brand-name">tomorrow<span>works.</span></span>
+    </a>
+    <nav class="desktop-nav" id="main-nav" aria-label="Hauptnavigation">
+      <a href="index.html">Start</a>
+      <a href="websites.html">Websites</a>
+      <a href="apps.html">Apps</a>
+      <a href="ki-einstieg.html">KI-Einstieg</a>
+      <a href="index.html#projekte">Projekte</a>
+      <a href="preise.html">Preise</a>
+    </nav>
+    <a class="nav-cta" href="index.html#kontakt">Erstgespräch <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Navigation öffnen"><i></i></button>
   </div>
+</header>
 
-  <h2>2. Das Wichtigste in Kürze</h2>
-  <ul>
-    <li>Diese Website ist eine <b>rein informative, statische Seite</b>.</li>
-    <li>Wir setzen <b>keine Cookies</b> ein und nutzen <b>keine Analyse- oder Tracking-Dienste</b>.</li>
-    <li>Es werden <b>keine Kontaktformulare</b> betrieben; Sie erreichen uns per E-Mail, Telefon oder WhatsApp — dabei gelten die unten beschriebenen Hinweise.</li>
-    <li>Alle Inhalte (auch Schriften und Bilder) werden <b>von unserem eigenen Webserver</b> geladen; es werden keine Inhalte von Drittservern nachgeladen.</li>
-  </ul>
+<main id="hauptinhalt">
+  <section class="legal-hero">
+    <div class="wrap legal-intro">
+      <p class="eyebrow">Rechtliche Informationen</p>
+      <h1>Datenschutzerklärung</h1>
+      <p>Informationen zur Verarbeitung personenbezogener Daten beim Besuch dieser Website und bei einer Kontaktaufnahme.</p>
+    </div>
+  </section>
 
-  <h2>3. Hosting und Server-Logfiles</h2>
-  <p>Beim Aufruf dieser Website verarbeitet der Webserver automatisch Informationen, die Ihr Browser übermittelt (sog. Server-Logfiles): IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser und Betriebssystem sowie die Referrer-URL. Diese Daten sind technisch erforderlich, um die Website auszuliefern und die Stabilität und Sicherheit zu gewährleisten.</p>
-  <p><b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der sicheren Bereitstellung der Website). Logfiles werden nach kurzer Zeit automatisch gelöscht.</p>
+  <section class="legal-page">
+    <div class="wrap legal-grid">
+      <aside class="legal-aside" aria-label="Rechtliche Navigation">
+        <b>TOMORROWWORKS</b>
+        <p>Hinweise zum Datenschutz auf dieser Website.</p>
+        <nav class="legal-nav" aria-label="Weitere rechtliche Seiten">
+          <a href="index.html">← Zur Startseite</a>
+          <a href="impressum.html">Impressum</a>
+        </nav>
+      </aside>
 
-  <h2>4. Kontaktaufnahme</h2>
-  <h3>4.1 E-Mail und Telefon</h3>
-  <p>Wenn Sie uns per E-Mail oder Telefon kontaktieren, verarbeiten wir die von Ihnen mitgeteilten Daten (Name, Kontaktdaten, Inhalt der Anfrage), um Ihre Anfrage zu bearbeiten.</p>
-  <p><b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. b DSGVO (Anbahnung/Durchführung eines Vertrags) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen). Wir löschen die Daten, sobald sie für die Bearbeitung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
-  <h3>4.2 WhatsApp</h3>
-  <p>Sie können uns freiwillig über den Messenger-Dienst WhatsApp kontaktieren (Anbieter: WhatsApp Ireland Ltd., 4 Grand Canal Square, Dublin 2, Irland — Teil der Meta-Unternehmensgruppe). Wenn Sie WhatsApp nutzen, erhält WhatsApp Metadaten der Kommunikation (z. B. Ihre Telefonnummer und Nutzungszeitpunkte); dabei kann eine Datenübermittlung in Drittländer (u. a. USA) stattfinden. Die Inhalte der Kommunikation sind Ende-zu-Ende-verschlüsselt. Es gelten ergänzend die Datenschutzhinweise von WhatsApp. Wenn Sie das nicht möchten, nutzen Sie bitte E-Mail oder Telefon — die Erreichbarkeit ist identisch.</p>
-  <p><b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. b DSGVO bzw. Ihre freiwillige Nutzung des Dienstes.</p>
+      <article class="legal-content">
+        <h2>1. Verantwortlicher</h2>
+        <div class="legal-card">
+          <p><b>Gärtner GmbH Karosserie + Lack</b> („TOMORROWWORKS · Digital Studio")</p>
+          <p>Binauer Höhe 4, 74821 Mosbach, Deutschland</p>
+          <p>Telefon: +49 1522 7706694 · E-Mail: info@auto-lackierzentrum.de</p>
+          <p>Vertreten durch den Geschäftsführer Christopher Gärtner</p>
+        </div>
 
-  <h2>5. Weitergabe von Daten</h2>
-  <p>Eine Übermittlung Ihrer Daten an Dritte findet nicht statt, es sei denn, sie ist zur Vertragsabwicklung erforderlich, gesetzlich vorgeschrieben oder Sie haben eingewilligt.</p>
+        <h2>2. Das Wichtigste in Kürze</h2>
+        <ul>
+          <li>Diese Website ist eine <b>informative, statische Website</b> und wird über GitHub Pages bereitgestellt.</li>
+          <li>Unser Website-Code setzt <b>keine Cookies</b> und bindet <b>keine eigenen Analyse- oder Tracking-Dienste</b> ein. GitHub verarbeitet beim Seitenabruf technisch erforderliche Nutzungsdaten, wie im nächsten Abschnitt beschrieben.</li>
+          <li>Es gibt <b>kein Kontaktformular</b>. Kontaktlinks zu E-Mail, Telefon oder WhatsApp werden erst aktiv, wenn Sie sie selbst auswählen.</li>
+          <li>Schriften, Bilder und sonstige Seitenelemente liegen im Website-Projekt. Es werden beim normalen Seitenaufruf <b>keine extern eingebetteten Medien</b> wie Karten, Videos oder Social-Media-Feeds nachgeladen.</li>
+        </ul>
 
-  <h2>6. Ihre Rechte</h2>
-  <p>Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
-  <ul>
-    <li>Recht auf <b>Auskunft</b> (Art. 15 DSGVO)</li>
-    <li>Recht auf <b>Berichtigung</b> (Art. 16 DSGVO)</li>
-    <li>Recht auf <b>Löschung</b> (Art. 17 DSGVO)</li>
-    <li>Recht auf <b>Einschränkung der Verarbeitung</b> (Art. 18 DSGVO)</li>
-    <li>Recht auf <b>Datenübertragbarkeit</b> (Art. 20 DSGVO)</li>
-    <li>Recht auf <b>Widerspruch</b> gegen Verarbeitungen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (Art. 21 DSGVO)</li>
-  </ul>
-  <p>Zudem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig für uns ist der <b>Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg</b>, Lautenschlagerstraße 20, 70173 Stuttgart.</p>
+        <h2>3. Hosting über GitHub Pages</h2>
+        <p>Diese Website wird mit <b>GitHub Pages</b>, einem Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA, als statische Website ausgeliefert.</p>
+        <p>Beim Besuch einer GitHub-Pages-Website wird nach Angaben von GitHub die IP-Adresse der besuchenden Person zu Sicherheitszwecken protokolliert und gespeichert. Abhängig von der technischen Nutzung können außerdem Service- und Website-Nutzungsdaten verarbeitet werden, etwa Geräte- und Browserinformationen, Datum und Uhrzeit einer Anfrage, aufgerufene Seiten sowie die zuvor besuchte Seite. GitHub verwendet solche Daten unter anderem zur Bereitstellung, Absicherung, Fehleranalyse und Verbesserung seiner Dienste. Dabei kann eine Verarbeitung in den USA stattfinden.</p>
+        <p>Einzelheiten zu Umfang, Zwecken, Rechtsgrundlagen und Speicherdauer der Verarbeitung durch GitHub finden Sie in den <a href="https://docs.github.com/de/pages/getting-started-with-github-pages/what-is-github-pages#datensammlung" target="_blank" rel="noopener noreferrer">Hinweisen zur Datensammlung bei GitHub Pages</a> und in der <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von GitHub</a>.</p>
+        <p><b>Rechtsgrundlage für unseren Einsatz des Hostings:</b> Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der sicheren, zuverlässigen und wirtschaftlichen Bereitstellung dieser Website.</p>
 
-  <h2>7. Änderungen dieser Datenschutzerklärung</h2>
-  <p>Wir passen diese Datenschutzerklärung an, sobald sich der Funktionsumfang der Website ändert (z. B. bei Einführung eines Kontaktformulars oder neuer Dienste).</p>
+        <h2>4. Kontaktaufnahme</h2>
+        <h3>4.1 E-Mail und Telefon</h3>
+        <p>Wenn Sie uns per E-Mail oder Telefon kontaktieren, verarbeiten wir die von Ihnen mitgeteilten Daten (Name, Kontaktdaten, Inhalt der Anfrage), um Ihre Anfrage zu bearbeiten.</p>
+        <p><b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. b DSGVO (Anbahnung/Durchführung eines Vertrags) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen). Wir löschen die Daten, sobald sie für die Bearbeitung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+        <h3>4.2 WhatsApp</h3>
+        <p>Sie können uns freiwillig über den Messenger-Dienst WhatsApp kontaktieren (Anbieter für Nutzerinnen und Nutzer im Europäischen Wirtschaftsraum: WhatsApp Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland, Teil der Meta-Unternehmensgruppe). Erst wenn Sie einen WhatsApp-Link auswählen, verlassen Sie unsere Website und stellen eine Verbindung zu WhatsApp her. WhatsApp verarbeitet dabei insbesondere Verbindungs- und Kommunikationsdaten; eine Verarbeitung in Drittländern, darunter den USA, kann nicht ausgeschlossen werden. Es gelten ergänzend die Datenschutzhinweise von WhatsApp. Wenn Sie WhatsApp nicht nutzen möchten, erreichen Sie uns alternativ per E-Mail oder Telefon.</p>
+        <p><b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. b DSGVO bzw. Ihre freiwillige Nutzung des Dienstes.</p>
 
-  <p class="fuss">Stand: Juli 2026</p>
-</div>
-<button class="theme-schalter" id="theme-schalter" aria-label="Design hell/dunkel umschalten" title="Hell/Dunkel umschalten">
-  <svg class="sonne" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M19.4 4.6l-1.8 1.8M6.4 17.6l-1.8 1.8"/></svg>
-  <svg class="mond" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
-</button>
+        <h2>5. Empfänger von Daten</h2>
+        <p>Personenbezogene Daten können im Rahmen der oben beschriebenen Vorgänge an den Hosting-Anbieter GitHub oder an den von Ihnen gewählten Kommunikationsdienst übermittelt werden. Darüber hinaus geben wir Daten nur weiter, wenn dies zur Bearbeitung Ihrer Anfrage oder Vertragsabwicklung erforderlich ist, eine gesetzliche Pflicht besteht oder Sie eingewilligt haben.</p>
+
+        <h2>6. Ihre Rechte</h2>
+        <p>Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
+        <ul>
+          <li>Recht auf <b>Auskunft</b> (Art. 15 DSGVO)</li>
+          <li>Recht auf <b>Berichtigung</b> (Art. 16 DSGVO)</li>
+          <li>Recht auf <b>Löschung</b> (Art. 17 DSGVO)</li>
+          <li>Recht auf <b>Einschränkung der Verarbeitung</b> (Art. 18 DSGVO)</li>
+          <li>Recht auf <b>Datenübertragbarkeit</b> (Art. 20 DSGVO)</li>
+          <li>Recht auf <b>Widerspruch</b> gegen Verarbeitungen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (Art. 21 DSGVO)</li>
+        </ul>
+        <p>Zudem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig für uns ist der <b>Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg</b>, Lautenschlagerstraße 20, 70173 Stuttgart.</p>
+
+        <h2>7. Änderungen dieser Datenschutzerklärung</h2>
+        <p>Wir passen diese Datenschutzerklärung an, sobald sich der Funktionsumfang der Website ändert (z. B. bei Einführung eines Kontaktformulars oder neuer Dienste).</p>
+
+        <p class="legal-date">Stand: Juli 2026</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div><p class="footer-brand">tomorrowworks.</p><p>© 2026 TOMORROWWORKS — Websites, Apps und KI-Einstieg</p></div>
+    <nav class="footer-links" aria-label="Navigation im Seitenfuß"><a href="websites.html">Websites</a><a href="apps.html">Apps</a><a href="ki-einstieg.html">KI-Einstieg</a><a href="index.html#projekte">Projekte</a><a href="preise.html">Preise</a><a href="impressum.html">Impressum</a><a href="datenschutz.html" aria-current="page">Datenschutz</a></nav>
+  </div>
+</footer>
+
 <script>
-  if (location.search.includes('hell')) document.documentElement.dataset.theme = 'light';
-  try { const t = localStorage.getItem('tw-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
-  document.getElementById('theme-schalter').addEventListener('click', () => {
-    const neu = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-    document.documentElement.dataset.theme = neu;
-    try { localStorage.setItem('tw-theme', neu); } catch (e) {}
-  });
+  const header=document.getElementById('site-header');
+  const menuButton=document.getElementById('menu-button');
+  const mainNav=document.getElementById('main-nav');
+  const setMenu=open=>{menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Navigation schließen':'Navigation öffnen');mainNav.classList.toggle('open',open)};
+  menuButton.addEventListener('click',()=>setMenu(menuButton.getAttribute('aria-expanded')!=='true'));
+  mainNav.addEventListener('click',event=>{if(event.target.closest('a'))setMenu(false)});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')setMenu(false)});
+  window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>18),{passive:true});
 </script>
 </body>
 </html>

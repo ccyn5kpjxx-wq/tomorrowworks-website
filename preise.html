@@ -1,320 +1,397 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="TOMORROWWORKS Preise: transparent statt versteckt. Einrichtung 1.490 €, ab 349 €/Monat, Betreuungs-Pauschale 2.400 €/Jahr für 24/7-Erreichbarkeit. Keine versteckten Zusatzkosten.">
-<title>TOMORROWWORKS Preise — transparent statt versteckt</title>
-<meta property="og:type" content="website">
-<meta property="og:title" content="TOMORROWWORKS Preise — transparent statt versteckt">
-<meta property="og:description" content="Einrichtung 1.490 €, ab 349 €/Monat, Betreuung ab 2.400 €/Jahr. Keine versteckten Kosten, kein Modul-Wildwuchs.">
-<meta property="og:url" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/preise.html">
-<meta property="og:image" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/bilder/og_vorschau.jpg">
-<meta property="og:locale" content="de_DE">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314161a'/%3E%3Ctext x='26' y='46' font-family='Segoe UI,Arial,sans-serif' font-size='40' font-weight='800' text-anchor='middle' fill='%23fa7d19'%3ET%3C/text%3E%3Ccircle cx='46' cy='41' r='4.5' fill='%23fa7d19'/%3E%3C/svg%3E">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wie TOMORROWWORKS Websites, individuelle Apps und den Einstieg in KI kalkuliert: klarer Leistungsumfang, nachvollziehbare Projektphasen und mögliche Folgekosten vor dem Start.">
+  <title>Preise für Websites, Apps &amp; KI-Projekte | TOMORROWWORKS</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Preise für Websites, Apps &amp; KI-Projekte | TOMORROWWORKS">
+  <meta property="og:description" content="Keine undurchsichtigen Pakete: Sie erhalten einen verständlichen Leistungsumfang und ein passendes Angebot für Ihr digitales Vorhaben.">
+  <meta property="og:url" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/preise.html">
+  <meta property="og:image" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/bilder/og_vorschau.jpg">
+  <meta property="og:locale" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f3f1eb">
+  <link rel="canonical" href="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/preise.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="unterseite.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    .preis-hero{position:relative;padding:158px 0 86px;overflow:hidden}
+    .preis-hero::before{content:"";position:absolute;width:620px;height:620px;border-radius:50%;right:-295px;top:-320px;background:rgba(255,100,26,.1);pointer-events:none}
+    .preis-hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(17,19,21,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(17,19,21,.035) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,#000,transparent 91%);pointer-events:none}
+    .preis-hero .subhero-copy{position:relative;z-index:1;max-width:940px}
+    .preis-hero h1{font-size:clamp(58px,6.4vw,88px);max-width:940px;margin:24px 0 27px}
+    .preis-hero h1 em{font-style:normal;color:var(--orange)}
+    .preis-hero .subhero-lead{color:#53575a;font-size:20px;line-height:1.58;max-width:800px}
+    .preis-hero .hero-note{display:flex;align-items:center;gap:10px;margin-top:26px;color:var(--muted);font-size:14px;font-weight:650}
+    .preis-hero .hero-note::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(98,213,139,.14);flex:none}
+
+    .preis-einstieg{padding:0 0 104px}
+    .preis-einstieg-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.72fr);gap:60px;align-items:start;padding:42px 46px;background:var(--white);border:1px solid var(--line);border-radius:26px;box-shadow:0 22px 70px rgba(17,19,21,.07)}
+    .preis-einstieg h2{font-size:clamp(30px,3.4vw,46px);margin-bottom:17px}
+    .preis-einstieg p{color:var(--muted);font-size:18px;max-width:720px}
+    .preis-einstieg aside{padding-left:30px;border-left:1px solid var(--line)}
+    .preis-einstieg aside strong{display:block;font-size:17px;margin-bottom:8px}
+    .preis-einstieg aside p{font-size:15px}
+
+    .angebote{padding:118px 0;background:var(--white)}
+    .preis-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .preis-karte{display:flex;flex-direction:column;min-height:100%;padding:32px 30px;border:1px solid var(--line);border-radius:24px;background:#f8f7f3;transition:transform .2s,box-shadow .2s,border-color .2s}
+    .preis-karte:hover{transform:translateY(-4px);border-color:#c9c5bc;box-shadow:0 20px 50px rgba(17,19,21,.08)}
+    .preis-karte:nth-child(2){background:var(--night);color:#fff;border-color:var(--night)}
+    .preis-nummer{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:38px;color:var(--muted);font-size:12px;font-weight:780;letter-spacing:.08em;text-transform:uppercase}
+    .preis-karte:nth-child(2) .preis-nummer{color:#aeb4bb}
+    .preis-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:var(--orange-soft);color:var(--orange)}
+    .preis-karte:nth-child(2) .preis-icon{background:rgba(255,100,26,.13)}
+    .preis-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .preis-karte h3{font-size:29px;margin-bottom:12px}
+    .preis-karte .beschreibung{color:var(--muted);font-size:15px;min-height:78px}
+    .preis-karte:nth-child(2) .beschreibung{color:#abb1b7}
+    .preis-art{margin:27px 0 24px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .preis-karte:nth-child(2) .preis-art{border-color:rgba(255,255,255,.14)}
+    .preis-art strong{display:block;color:var(--orange);font-size:20px;letter-spacing:-.025em}
+    .preis-art span{display:block;margin-top:3px;color:var(--muted);font-size:13px}
+    .preis-karte:nth-child(2) .preis-art span{color:#9da3aa}
+    .preis-karte h4{font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:13px}
+    .preis-liste{display:grid;gap:10px;list-style:none;margin-bottom:25px}
+    .preis-liste li{position:relative;padding-left:20px;color:#4f5356;font-size:14px}
+    .preis-liste li::before{content:"";position:absolute;left:0;top:.66em;width:7px;height:7px;border-radius:50%;background:var(--orange)}
+    .preis-karte:nth-child(2) .preis-liste li{color:#c3c7cb}
+    .preis-treiber{margin-top:auto;padding-top:23px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;line-height:1.55}
+    .preis-karte:nth-child(2) .preis-treiber{border-color:rgba(255,255,255,.14);color:#969da4}
+    .preis-treiber b{color:var(--ink)}
+    .preis-karte:nth-child(2) .preis-treiber b{color:#fff}
+
+    .kalkulation{padding:118px 0;background:var(--paper)}
+    .kalkulation-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:90px;align-items:start}
+    .kalkulation-kopf{position:sticky;top:112px}
+    .kalkulation-kopf h2{font-size:clamp(40px,4.7vw,64px);margin:18px 0 22px}
+    .kalkulation-kopf>p{color:var(--muted);font-size:18px;max-width:500px}
+    .kalkulation-schritte{display:grid;gap:12px}
+    .kalkulation-schritt{display:grid;grid-template-columns:52px 1fr;gap:21px;padding:25px;background:var(--white);border:1px solid var(--line);border-radius:20px}
+    .kalkulation-schritt .nr{width:52px;height:52px;display:grid;place-items:center;border-radius:16px;background:var(--orange-soft);color:var(--orange);font-weight:800}
+    .kalkulation-schritt h3{font-size:20px;margin:2px 0 7px;letter-spacing:-.025em}
+    .kalkulation-schritt p{color:var(--muted);font-size:14.5px}
+
+    .klarheit{padding:118px 0;background:var(--night);color:#fff}
+    .klarheit .section-head>p{color:#aeb4bb}
+    .klarheit .eyebrow{color:#aeb4bb}
+    .klarheit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .klarheit-karte{padding:30px;border:1px solid rgba(255,255,255,.12);border-radius:22px;background:rgba(255,255,255,.04)}
+    .klarheit-karte h3{font-size:22px;margin-bottom:17px}
+    .klarheit-liste{display:grid;gap:12px;list-style:none}
+    .klarheit-liste li{display:flex;gap:12px;color:#bec3c8;font-size:15px}
+    .klarheit-liste li::before{content:"✓";color:var(--orange);font-weight:850;flex:none}
+    .klarheit-karte.nebenkosten .klarheit-liste li::before{content:"+"}
+    .klarheit-hinweis{margin-top:25px;color:#9299a1;font-size:13px}
+
+    .preis-faq{padding:118px 0;background:var(--white)}
+    .faq-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:84px;align-items:start}
+    .faq-kopf h2{font-size:clamp(40px,4.7vw,64px);margin-top:18px}
+    .faq-liste{border-top:1px solid var(--line)}
+    .faq-liste details{border-bottom:1px solid var(--line);padding:20px 0}
+    .faq-liste summary{display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;list-style:none;font-size:18px;font-weight:720}
+    .faq-liste summary::-webkit-details-marker{display:none}
+    .faq-liste summary::after{content:"+";width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:var(--paper);color:var(--orange);font-size:21px;flex:none;transition:transform .2s}
+    .faq-liste details[open] summary::after{transform:rotate(45deg)}
+    .faq-liste details p{padding:14px 52px 2px 0;color:var(--muted);font-size:15px}
+
+    .preis-cta{padding:0 0 118px;background:var(--white)}
+    .preis-cta-inner{position:relative;overflow:hidden;padding:64px;border-radius:30px;background:var(--orange);color:#18120f}
+    .preis-cta-inner::after{content:"";position:absolute;width:360px;height:360px;right:-120px;top:-180px;border:1px solid rgba(24,18,15,.16);border-radius:50%;box-shadow:0 0 0 62px rgba(24,18,15,.035),0 0 0 124px rgba(24,18,15,.025)}
+    .preis-cta-copy{position:relative;z-index:1;max-width:810px}
+    .preis-cta h2{font-size:clamp(38px,5vw,68px);margin-bottom:19px}
+    .preis-cta p{font-size:19px;max-width:700px;margin-bottom:29px}
+    .preis-auswahl{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:31px;list-style:none}
+    .preis-auswahl li{padding:8px 13px;border:1px solid rgba(24,18,15,.22);border-radius:999px;font-size:13px;font-weight:730}
+    .preis-cta .button{background:var(--ink);color:#fff}
+    .preis-cta .button:hover{background:#2b2e31}
+
+    @media(max-width:980px){
+      .preis-grid{grid-template-columns:1fr}.preis-karte .beschreibung{min-height:0}.preis-karte{padding:28px}
+      .kalkulation-grid,.faq-grid{grid-template-columns:1fr;gap:48px}.kalkulation-kopf{position:static}
+      .preis-einstieg-inner{grid-template-columns:1fr;gap:28px}.preis-einstieg aside{padding:24px 0 0;border-left:0;border-top:1px solid var(--line)}
+    }
+    @media(max-width:680px){
+      .preis-hero{padding:110px 0 64px}.preis-hero::after{background-size:38px 38px}.preis-hero h1{font-size:clamp(44px,13.7vw,57px);margin:19px 0 22px}.preis-hero .subhero-lead{font-size:18px}.preis-einstieg{padding-bottom:78px}.preis-einstieg-inner{padding:29px 24px;border-radius:21px}
+      .angebote,.kalkulation,.klarheit,.preis-faq{padding:84px 0}.klarheit-grid{grid-template-columns:1fr}
+      .kalkulation-schritt{grid-template-columns:42px 1fr;padding:21px 18px;gap:15px}.kalkulation-schritt .nr{width:42px;height:42px;border-radius:13px}
+      .preis-cta{padding-bottom:84px}.preis-cta-inner{padding:40px 24px;border-radius:23px}.preis-cta p{font-size:17px}
+      .preis-auswahl{margin-bottom:25px}.preis-cta .button{width:100%}
+    }
+  </style>
 </head>
 <body>
-<style>
-  :root{
-    --bg:#0f1114;--bg2:#15171b;--karte:#1e2126;--karte-hover:#262a30;--linie:#2c3037;
-    --text:#f4f5f7;--text2:#a8afb8;--orange:#fa7d19;--orange-hell:#ffa04d;--radius:12px;
-    --font:"Segoe UI Variable Display","Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
-  }
-  /* ---------- Helles Design (Schalter im Header; Standard dunkel) ---------- */
-  html[data-theme="light"]{--bg:#f3f4f6;--bg2:#ffffff;--karte:#ffffff;--karte-hover:#f6f7f9;--linie:#e2e6ec;--text:#171a1f;--text2:#4d5560;--orange-hell:#b95606;--kopf-bg:rgba(255,255,255,.92)}
-  html[data-theme="light"] .buehne, html[data-theme="light"] footer{--text:#f4f5f7;--text2:#a8afb8;--orange-hell:#ffa04d;--karte:#1e2126;--linie:#2c3037;--bg:#0f1114;color:var(--text)}
-  html[data-theme="light"] nav.rubriken a:hover, html[data-theme="light"] nav.rubriken a.aktiv{color:#171a1f}
-  html[data-theme="light"] .btn-dunkel{background:#e8eaee;color:#171a1f}
-  html[data-theme="light"] .btn-dunkel:hover{background:#dde0e6}
-  html[data-theme="light"] .beratung-karte{background:linear-gradient(120deg,#ffffff,#f2f4f8);border:1px solid var(--linie);box-shadow:0 14px 40px rgba(20,25,35,.08)}
-  html[data-theme="light"] .mini-schritte .s{background:#eef0f4}
-  html[data-theme="light"] .summenband{background:linear-gradient(120deg,#ffffff,#f2f4f8)}
-  html[data-theme="light"] .preiskarte .betrag{color:var(--text)}
-  html[data-theme="light"] table.vgl td.uns{color:var(--text)}
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  h1,h2,h3{line-height:1.2;font-weight:700;letter-spacing:-.01em}
-  img{max-width:100%;display:block}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1220px;margin:0 auto;padding:0 26px}
-  .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
-  .rv.on{opacity:1;transform:none}
-  .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
-  @media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+  <a class="skip" href="#hauptinhalt">Direkt zum Inhalt</a>
 
-  header{position:fixed;top:0;left:0;right:0;z-index:80;background:var(--kopf-bg,rgba(15,17,20,.88));backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
-  header.linie{border-color:var(--linie)}
-  .nav{display:flex;align-items:center;gap:38px;min-height:66px}
-  .logo{display:flex;flex-direction:column;align-items:center;gap:3px;flex:none;padding:10px 0 8px}
-  .marke-icon{display:inline-flex;align-items:baseline;padding:5px 10px 5px 9px;border-radius:7px;background:#14161a;border:1.5px solid rgba(250,125,25,.5);font-size:13px;font-weight:800;color:var(--orange);flex:none;white-space:nowrap;line-height:1}
-  .marke-icon .punkt-works{font-weight:300;color:var(--text2);font-size:.58em;letter-spacing:.01em;margin-left:1px}
-  .logo .wortmarke{font-size:14.5px}
-  .logo small{font-size:7.5px}
-  .wortmarke{font-size:22px;font-weight:300;letter-spacing:.01em;line-height:1.1}
-  .wortmarke b{font-weight:800}
-  .wortmarke b i{font-style:normal;color:var(--orange)}
-  .logo small{display:block;font-size:10px;font-weight:600;letter-spacing:.34em;color:var(--text2);margin-top:2px}
-  nav.rubriken{display:flex;gap:30px;font-size:15.5px;font-weight:500;color:var(--text2)}
-  nav.rubriken a{padding:22px 0;position:relative;transition:color .25s}
-  nav.rubriken a:hover{color:#fff}
-  nav.rubriken a.aktiv{color:#fff}
-  nav.rubriken a.aktiv::after{content:"";position:absolute;left:0;right:0;bottom:14px;height:3px;border-radius:2px;background:var(--orange)}
-  .nav .rechts{margin-left:auto;display:flex;align-items:center;gap:18px}
-  .btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;font-weight:600;font-size:15px;padding:11px 22px;border-radius:10px;transition:background .25s,transform .25s;white-space:nowrap}
-  .btn-orange{background:var(--orange);color:#14161a}
-  .btn-orange:hover{background:var(--orange-hell);transform:translateY(-1px)}
-  .btn-dunkel{background:#282c33;color:#fff}
-  .btn-dunkel:hover{background:#33383f}
-  .btn-whatsapp{background:#25d366;color:#0c1a10}
-  .btn-whatsapp:hover{background:#3fe07d;transform:translateY(-1px)}
-  .btn-whatsapp svg{width:19px;height:19px}
-  .theme-schalter{width:38px;height:38px;border-radius:50%;border:1px solid var(--linie);background:transparent;color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;transition:color .25s,border-color .25s}
-  .theme-schalter:hover{color:var(--text);border-color:var(--text2)}
-  .theme-schalter svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-  .theme-schalter .mond{display:none}
-  html[data-theme="light"] .theme-schalter .sonne{display:none}
-  html[data-theme="light"] .theme-schalter .mond{display:block}
-  .wa-schwebe{position:fixed;right:18px;bottom:18px;z-index:90;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .25s}
-  .wa-schwebe:hover{transform:scale(1.07)}
-  .wa-schwebe svg{width:30px;height:30px;fill:#fff}
-  @media(max-width:960px){nav.rubriken{display:none}}
-  @media(max-width:680px){.logo small{display:none}.wortmarke{font-size:19px}.nav .btn{padding:9px 14px;font-size:13.5px}.nav{gap:16px}}
-
-  .kopfband{padding:150px 0 60px;text-align:center;background:radial-gradient(1100px 420px at 50% -10%, rgba(250,125,25,.14), transparent 70%)}
-  .kicker{font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange-hell);margin-bottom:14px}
-  .kopfband h1{font-size:clamp(30px,4vw,46px);max-width:820px;margin:0 auto}
-  .kopfband p{color:var(--text2);font-size:17px;max-width:640px;margin:18px auto 0}
-
-  .reihe{padding:50px 0 10px}
-  .reihe-kopf{margin-bottom:26px;text-align:center}
-  .reihe-kopf h2{font-size:clamp(22px,2.6vw,30px)}
-
-  .preistafel{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-  .preiskarte{background:var(--karte);border-radius:var(--radius);padding:30px 28px 28px;border-top:3px solid var(--linie);transition:transform .3s,background .3s}
-  .preiskarte:hover{transform:translateY(-4px);background:var(--karte-hover)}
-  .preiskarte.betont{border-top-color:var(--orange)}
-  .preiskarte .schritt{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-hell);margin-bottom:10px}
-  .preiskarte h3{font-size:19px;margin-bottom:14px}
-  .preiskarte .betrag{font-size:38px;font-weight:800;letter-spacing:-.02em;color:#fff}
-  .preiskarte .betrag span{font-size:15px;font-weight:600;color:var(--text2);margin-left:4px}
-  .preiskarte p.erklaer{color:var(--text2);font-size:14.5px;margin-top:12px}
-  .preiskarte .plus{text-align:center;color:var(--orange-hell);font-size:22px;font-weight:800;margin:4px 0}
-
-  .summenband{margin-top:22px;background:linear-gradient(120deg,#1d2026,#1e2126);border:1px solid var(--linie);border-radius:var(--radius);padding:26px 30px;text-align:center}
-  .summenband .zahl{font-size:34px;font-weight:800;color:var(--orange-hell)}
-  .summenband p{color:var(--text2);font-size:14px;margin-top:6px}
-
-  .zusatz{margin-top:34px;background:var(--karte);border-radius:var(--radius);padding:28px 30px}
-  .zusatz h3{font-size:18px;margin-bottom:10px}
-  .zusatz p{color:var(--text2);font-size:15px;margin-bottom:14px}
-  .zusatz-liste{display:flex;gap:12px;flex-wrap:wrap}
-  .zusatz-liste span{border:1px solid var(--linie);border-radius:9px;padding:9px 16px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
-  .zusatz-liste svg{width:16px;height:16px;stroke:var(--orange-hell);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-
-  .fair-band{margin-top:26px;background:var(--karte);border-left:4px solid var(--orange);border-radius:var(--radius);padding:24px 28px;display:flex;gap:14px 30px;flex-wrap:wrap;align-items:center;justify-content:center}
-  .fair-band span{display:flex;gap:10px;align-items:center;font-size:15.5px;font-weight:650}
-  .fair-band svg{width:19px;height:19px;stroke:var(--orange-hell);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
-
-  .vergleich{margin-top:34px;overflow-x:auto}
-  table.vgl{width:100%;border-collapse:collapse;min-width:560px}
-  table.vgl th,table.vgl td{padding:14px 16px;text-align:left;font-size:14.5px;border-bottom:1px solid var(--linie)}
-  table.vgl th{color:var(--text2);font-weight:700;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
-  table.vgl td.uns{color:#fff;font-weight:700}
-  table.vgl tr:last-child td{border-bottom:none}
-  .vergleich-hinweis{color:#7d848d;font-size:12px;margin-top:10px}
-
-  .laufzeit-hinweis{display:flex;gap:12px;align-items:flex-start;color:var(--text2);font-size:14px;margin-top:22px;background:var(--karte);border-radius:var(--radius);padding:18px 22px}
-  .laufzeit-hinweis svg{width:20px;height:20px;stroke:var(--orange-hell);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none;margin-top:2px}
-
-  .beratung-karte{background:linear-gradient(120deg,#1d2026,#1e2126);border-radius:var(--radius);overflow:hidden;display:grid;grid-template-columns:1.15fr .85fr;min-height:340px}
-  @media(max-width:900px){.beratung-karte{grid-template-columns:1fr}}
-  .beratung-karte .textseite{padding:42px 40px;display:flex;flex-direction:column;justify-content:center}
-  .beratung-karte h2{font-size:clamp(24px,2.8vw,34px);margin-bottom:14px}
-  .beratung-karte h2 span{color:var(--orange-hell)}
-  .beratung-karte .textseite>p{color:var(--text2);max-width:520px;margin-bottom:22px;font-size:15.5px}
-  .kontakt-buttons{display:flex;gap:14px;flex-wrap:wrap}
-  .beratung-karte .bildseite{position:relative;min-height:220px}
-  .beratung-karte .bildseite img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .beratung-karte .bildseite::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#1e2126 0%,rgba(30,33,38,0) 45%)}
-  .symbolfoto{position:absolute;right:10px;bottom:8px;font-size:10px;color:rgba(255,255,255,.55);background:rgba(15,17,20,.5);padding:2px 7px;border-radius:5px;letter-spacing:.05em;z-index:2}
-
-  footer{margin-top:90px;background:#0b0d0f;border-top:1px solid var(--linie);padding:50px 0 36px;color:var(--text2);font-size:14px}
-  footer .oben{display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid #1d2026}
-  footer .claim{color:#fff;font-weight:700;font-size:16.5px;max-width:480px;line-height:1.5}
-  footer nav{display:flex;gap:24px;flex-wrap:wrap}
-  footer nav a:hover{color:#fff}
-  footer .unten{padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#6b727b}
-</style>
-
-<header id="kopf">
-  <div class="wrap nav">
-    <a class="logo" href="index.html" aria-label="TOMORROWWORKS — Startseite">
-      <span class="marke-icon" aria-hidden="true">T<span class="punkt-works">.works</span></span>
-      <span><span class="wortmarke">tomorrow<b>works<i>.</i></b></span><small>AI&nbsp;SOLUTIONS</small></span>
-    </a>
-    <nav class="rubriken">
-      <a href="index.html">Start</a>
-      <a href="index.html#projekte">Projekte</a>
-      <a class="aktiv" href="preise.html">Preise</a>
-      <a href="#beratung">Kontakt</a>
-    </nav>
-    <div class="rechts">
-      <button class="theme-schalter" id="theme-schalter" aria-label="Design hell/dunkel umschalten" title="Hell/Dunkel umschalten">
-        <svg class="sonne" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M19.4 4.6l-1.8 1.8M6.4 17.6l-1.8 1.8"/></svg>
-        <svg class="mond" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
-      </button>
-      <a class="btn btn-orange" href="#beratung">Kostenlose Erstberatung</a>
+  <header class="site-header" id="site-header">
+    <div class="wrap nav-shell">
+      <a class="brand" href="index.html" aria-label="TOMORROWWORKS – Startseite">
+        <span class="brand-mark" aria-hidden="true">T</span>
+        <span class="brand-name">tomorrow<span>works.</span></span>
+      </a>
+      <nav class="desktop-nav" id="main-nav" aria-label="Hauptnavigation">
+        <a href="index.html">Start</a>
+        <a href="websites.html">Websites</a>
+        <a href="apps.html">Apps</a>
+        <a href="ki-einstieg.html">KI-Einstieg</a>
+        <a href="index.html#projekte">Projekte</a>
+        <a href="preise.html" aria-current="page">Preise</a>
+      </nav>
+      <a class="nav-cta" href="#erstgespraech">Erstgespräch</a>
+      <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Navigation öffnen"><i></i></button>
     </div>
-  </div>
-</header>
+  </header>
 
-<section class="kopfband">
-  <div class="wrap">
-    <p class="kicker rv on">Preise</p>
-    <h1 class="rv on rv-d1">Transparent statt versteckt.</h1>
-    <p class="rv on rv-d2">Kein Kleingedrucktes, keine Mindestabnahme, keine überraschenden Zusatzmodule. Ein Festpreis für die Einrichtung, eine klare monatliche Grundgebühr, eine faire Betreuungs-Pauschale.</p>
-  </div>
-</section>
-
-<section class="reihe">
-  <div class="wrap">
-    <div class="preistafel rv">
-      <div class="preiskarte">
-        <p class="schritt">Schritt 1</p>
-        <h3>Einrichtung</h3>
-        <div class="betrag">1.490&nbsp;€<span>einmalig</span></div>
-        <p class="erklaer">Ihr System wird aufgesetzt: bestehende Programme per Schnittstelle angebunden, Grundprozesse eingerichtet, Team eingewiesen.</p>
+  <main id="hauptinhalt">
+    <section class="subhero preis-hero">
+      <div class="wrap subhero-copy reveal is-visible">
+        <p class="eyebrow">Preise &amp; Zusammenarbeit</p>
+        <h1>Ein klares Angebot für ein <em>klares Vorhaben.</em></h1>
+        <p class="subhero-lead">Eine neue Firmenwebsite wird anders kalkuliert als eine individuelle App oder ein KI-Pilot. Deshalb erhalten Sie bei uns keine pauschale Scheinlösung, sondern einen verständlichen Leistungsumfang mit nachvollziehbarem Projektpreis.</p>
+        <p class="hero-note">Das erste Kennenlernen ist kostenlos und unverbindlich.</p>
       </div>
-      <div class="preiskarte betont">
-        <p class="schritt">Schritt 2</p>
-        <h3>Laufender Betrieb</h3>
-        <div class="betrag">ab 349&nbsp;€<span>/ Monat</span></div>
-        <p class="erklaer">Grundgebühr für Ihr laufendes KI-System — Verwaltung, Kommunikation, Termine, Rechnungen.</p>
-      </div>
-      <div class="preiskarte">
-        <p class="schritt">Schritt 3</p>
-        <h3>Betreuung &amp; Support</h3>
-        <div class="betrag">2.400&nbsp;€<span>/ Jahr</span></div>
-        <p class="erklaer">Pauschale für garantierte Erreichbarkeit — wir sind für Sie da, auch außerhalb der Geschäftszeiten.</p>
-      </div>
-    </div>
-    <div class="summenband rv">
-      <div class="zahl">≈ 549 €/Monat all-in</div>
-      <p>Grundgebühr + Betreuungs-Pauschale zusammengerechnet (349 €/Monat + 2.400 €/Jahr) — ein Richtwert, kein verstecktes Add-on-System.</p>
-    </div>
+    </section>
 
-    <div class="zusatz rv">
-      <h3>Optional: Auftritt nach außen</h3>
-      <p>Wenn gewünscht, kümmern wir uns auch um Ihren Außenauftritt — Website-Pflege, Google Ads, Online-Präsenz. Wir starten bewusst klein und bauen erst aus, wenn es zu Ihrem Betrieb passt und Sie sich daran gewöhnt haben.</p>
-      <div class="zusatz-liste">
-        <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4.5" ry="9"/></svg>Website-Pflege</span>
-        <span><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.5-.7L3 21l1.8-5.5A8.4 8.4 0 1 1 21 11.5Z"/></svg>Google Ads — skalierbar je nach Budget</span>
-        <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Individuell nach Bedarf, jederzeit anpassbar</span>
-      </div>
-    </div>
-
-    <div class="laufzeit-hinweis rv">
-      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 9h18M9 14l2 2 4-4"/></svg>
-      <div>Laufende Verträge (Schritt 2 + 3) mit <b>12 Monaten Laufzeit</b> — für Planungssicherheit auf beiden Seiten. Das betrifft die Vertragsdauer, nicht die Nutzeranzahl: eine Mindestabnahme an Lizenzen oder Nutzern gibt es bei uns nicht.</div>
-    </div>
-  </div>
-</section>
-
-<section class="reihe">
-  <div class="wrap">
-    <div class="reihe-kopf rv">
-      <p class="kicker">Zum Vergleich</p>
-      <h2>Warum Transparenz bei uns der Standard ist</h2>
-    </div>
-    <div class="vergleich rv">
-      <table class="vgl">
-        <tr><th>Anbieter</th><th>Preismodell</th><th>Besonderheit</th></tr>
-        <tr><td>Typisches Komplettsystem</td><td>ab 69 €/Monat</td><td>+ separate Einrichtungsgebühr, oft erst ab 5 Nutzern nutzbar, Zusatzmodule einzeln berechnet</td></tr>
-        <tr><td>Typische Branchensoftware</td><td>„auf Anfrage"</td><td>keine öffentlichen Preise, reines Angebotsmodell</td></tr>
-        <tr><td>Klassische KI-/Digitalisierungsberatung</td><td>1.500–25.000&nbsp;€ Projekt</td><td>reine Beratung, oft ohne laufende Betreuung; Umsetzung häufig extra</td></tr>
-        <tr><td class="uns">TOMORROWWORKS</td><td class="uns">1.490 € einmalig + ab 349 €/Monat</td><td class="uns">alle Preise öffentlich, keine Mindestnutzerzahl, keine versteckten Zusatzmodule</td></tr>
-      </table>
-    </div>
-    <p class="vergleich-hinweis">Marktvergleich auf Basis unserer Wettbewerbsrecherche 2026, ohne Bezug auf einzelne Anbieter — Werte gerundet zur Veranschaulichung.</p>
-    <div class="fair-band rv">
-      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Ihre Programme bleiben</span>
-      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Keine Mindestlizenzen</span>
-      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Festpreis statt Überraschung</span>
-      <span><svg viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L19.5 7"/></svg>Auch für den 3-Mann-Betrieb</span>
-    </div>
-  </div>
-</section>
-
-<section class="reihe" id="beratung">
-  <div class="wrap">
-    <div class="beratung-karte rv">
-      <div class="textseite">
-        <p class="kicker">Kostenlose Erstberatung</p>
-        <h2>Rechnen wir es <span>für Ihren Betrieb</span> durch.</h2>
-        <p>30 Minuten, vor Ort oder online — wir schauen uns Ihren Betrieb an und sagen ehrlich, welches Preismodell zu Ihnen passt. Transparent, verständlich, ohne Verpflichtung.</p>
-        <div class="kontakt-buttons">
-          <a class="btn btn-whatsapp" href="https://wa.me/4915227706694?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20TOMORROWWORKS%20-%20Frage%20zu%20den%20Preisen." target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-4.2 14.8l-.5-.3-3 .8.8-2.9-.3-.5A8 8 0 0 1 12 4Zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.8 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.3 7.3 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4Z" fill="currentColor" stroke="none"/></svg>
-            WhatsApp
-          </a>
-          <a class="btn btn-orange" href="mailto:info@auto-lackierzentrum.de?subject=Frage%20zu%20den%20TOMORROWWORKS-Preisen">Kostenlose Präsentation anfragen</a>
-          <a class="btn btn-dunkel" href="tel:+4915227706694">0152&nbsp;27706694</a>
+    <section class="preis-einstieg">
+      <div class="wrap">
+        <div class="preis-einstieg-inner reveal">
+          <div>
+            <h2>Sie wissen vor dem Start, was entwickelt wird.</h2>
+            <p>Bei einem klar abgegrenzten Projekt arbeiten wir bevorzugt mit einem Festpreis. Bei umfangreicheren Apps oder KI-Vorhaben teilen wir die Entwicklung in sinnvolle, separat beauftragbare Etappen.</p>
+          </div>
+          <aside>
+            <strong>Keine automatische Dauerbindung.</strong>
+            <p>Hosting, Wartung oder Weiterentwicklung sind optional und werden getrennt ausgewiesen, wenn sie für Ihr Projekt sinnvoll sind.</p>
+          </aside>
         </div>
       </div>
-      <div class="bildseite" aria-hidden="true">
-        <img src="bilder/team_buero.jpg" alt="">
-        <span class="symbolfoto">Symbolfoto</span>
+    </section>
+
+    <section class="angebote" aria-labelledby="angebote-titel">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Drei Angebote</p>
+            <h2 id="angebote-titel">Was möchten Sie entwickeln?</h2>
+          </div>
+          <p>Der Preis folgt dem tatsächlichen Umfang: Ziele, Inhalte, Funktionen, Nutzer und bestehende Systeme bestimmen gemeinsam den Aufwand.</p>
+        </div>
+
+        <div class="preis-grid">
+          <article class="preis-karte reveal">
+            <div class="preis-nummer"><span>01 · Websites</span><span class="preis-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span></div>
+            <h3>Firmenwebsite</h3>
+            <p class="beschreibung">Für einen professionellen Auftritt, einen Relaunch oder eine fokussierte Landingpage.</p>
+            <div class="preis-art"><strong>Festpreis nach Umfang</strong><span>auf Basis von Seiten, Inhalten und Funktionen</span></div>
+            <h4>Typischer Leistungsumfang</h4>
+            <ul class="preis-liste">
+              <li>Struktur und inhaltliche Führung</li>
+              <li>individuelles, responsives Design</li>
+              <li>technische Umsetzung und Veröffentlichung</li>
+              <li>SEO- und Datenschutz-Grundlagen</li>
+            </ul>
+            <p class="preis-treiber"><b>Preisrelevant:</b> Seitenanzahl, Texterstellung, Bildmaterial, Mehrsprachigkeit, Formulare und besondere Funktionen.</p>
+          </article>
+
+          <article class="preis-karte reveal">
+            <div class="preis-nummer"><span>02 · Apps</span><span class="preis-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4M11 19h2"/></svg></span></div>
+            <h3>Individuelle App</h3>
+            <p class="beschreibung">Für Kundenportale, interne Werkzeuge und Abläufe, zu denen Standardsoftware nicht passt.</p>
+            <div class="preis-art"><strong>In planbaren Etappen</strong><span>Konzept, erste nutzbare Version und Ausbau</span></div>
+            <h4>Typischer Leistungsumfang</h4>
+            <ul class="preis-liste">
+              <li>Anforderungen und Nutzerabläufe</li>
+              <li>Oberfläche und klickbarer Entwurf</li>
+              <li>Entwicklung, Tests und Einführung</li>
+              <li>Dokumentation und Übergabe</li>
+            </ul>
+            <p class="preis-treiber"><b>Preisrelevant:</b> Rollen, Funktionen, Schnittstellen, Datenübernahme, Sicherheitsanforderungen und gewünschte Geräte.</p>
+          </article>
+
+          <article class="preis-karte reveal">
+            <div class="preis-nummer"><span>03 · KI-Einstieg</span><span class="preis-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="5"/></svg></span></div>
+            <h3>KI sinnvoll starten</h3>
+            <p class="beschreibung">Für Unternehmen, die ein verständliches, überschaubares KI-Projekt praktisch erproben möchten.</p>
+            <div class="preis-art"><strong>Analyse, Pilot, Ausbau</strong><span>jede Phase mit eigenem Ziel und Umfang</span></div>
+            <h4>Typischer Leistungsumfang</h4>
+            <ul class="preis-liste">
+              <li>sinnvollen Anwendungsfall auswählen</li>
+              <li>Daten und Risiken gemeinsam prüfen</li>
+              <li>überschaubaren Pilot entwickeln</li>
+              <li>Team einweisen und Ergebnisse bewerten</li>
+            </ul>
+            <p class="preis-treiber"><b>Preisrelevant:</b> Datenlage, vorhandene Programme, Modell- und API-Kosten, Prüfregeln, Datenschutz und Integrationen.</p>
+          </article>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<a class="wa-schwebe" href="https://wa.me/4915227706694?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20eine%20kostenlose%20KI-Erstberatung." target="_blank" rel="noopener" aria-label="Per WhatsApp anfragen">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-4.2 14.8l-.5-.3-3 .8.8-2.9-.3-.5A8 8 0 0 1 12 4Zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.8 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.3 7.3 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4Z"/></svg>
-</a>
+    <section class="kalkulation" aria-labelledby="kalkulation-titel">
+      <div class="wrap kalkulation-grid">
+        <div class="kalkulation-kopf reveal">
+          <p class="eyebrow">Vom Gespräch zum Preis</p>
+          <h2 id="kalkulation-titel">So entsteht Ihr Angebot.</h2>
+          <p>Sie müssen keine technische Leistungsbeschreibung mitbringen. Eine verständliche Schilderung Ihres Ziels reicht für den Anfang.</p>
+        </div>
+        <div class="kalkulation-schritte">
+          <article class="kalkulation-schritt reveal">
+            <span class="nr">01</span>
+            <div><h3>Kostenlos kennenlernen</h3><p>Wir sprechen über Ziel, Nutzer, Ausgangslage und den gewünschten Zeitrahmen. Danach wissen beide Seiten, ob eine Zusammenarbeit grundsätzlich passt.</p></div>
+          </article>
+          <article class="kalkulation-schritt reveal">
+            <span class="nr">02</span>
+            <div><h3>Umfang verständlich abgrenzen</h3><p>Wir halten fest, was die erste Version können soll und was bewusst später kommen kann. Bei komplexen Vorhaben kann dafür zunächst eine separate Konzeptphase sinnvoll sein.</p></div>
+          </article>
+          <article class="kalkulation-schritt reveal">
+            <span class="nr">03</span>
+            <div><h3>Schriftliches Angebot erhalten</h3><p>Sie erhalten Leistungen, Zeitrahmen, Projektpreis, mögliche Zusatzkosten und Voraussetzungen in nachvollziehbarer Form – bevor Sie sich entscheiden.</p></div>
+          </article>
+          <article class="kalkulation-schritt reveal">
+            <span class="nr">04</span>
+            <div><h3>In klaren Schritten umsetzen</h3><p>Sie sehen Zwischenergebnisse und geben zentrale Entscheidungen frei. Änderungen außerhalb des vereinbarten Umfangs werden besprochen, bevor Mehrkosten entstehen.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<footer>
-  <div class="wrap">
-    <div class="oben">
-      <p class="claim">„Die Zukunft wartet nicht. Sie beginnt mit der Entscheidung, heute zu handeln."</p>
-      <nav>
-        <a href="index.html">Startseite</a>
-        <a href="branche-autohaeuser-werkstaetten.html">Für Autohäuser &amp; Werkstätten</a>
-        <a href="branche-fahrschulen.html">Für Fahrschulen</a>
-        <a href="branche-handwerk.html">Für Handwerksbetriebe</a>
+    <section class="klarheit" aria-labelledby="klarheit-titel">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Volle Kostentransparenz</p>
+            <h2 id="klarheit-titel">Was im Angebot steht – und was zusätzlich anfallen kann.</h2>
+          </div>
+          <p>Fremdkosten und laufende Leistungen werden nicht in einer Gesamtsumme versteckt. Sie sehen, wofür Sie bezahlen und welche Positionen optional sind.</p>
+        </div>
+        <div class="klarheit-grid">
+          <article class="klarheit-karte reveal">
+            <h3>Ihr Projektangebot enthält</h3>
+            <ul class="klarheit-liste">
+              <li>vereinbartes Ziel und konkreten Leistungsumfang</li>
+              <li>Liefergegenstände und Projektphasen</li>
+              <li>Abstimmungen und enthaltene Korrekturrunden</li>
+              <li>Zeitplan, Mitwirkung und Abnahme</li>
+              <li>Projektpreis und Zahlungsweise</li>
+              <li>Nutzungsrechte, Übergabe und Supportumfang</li>
+            </ul>
+          </article>
+          <article class="klarheit-karte nebenkosten reveal">
+            <h3>Mögliche separate Kosten</h3>
+            <ul class="klarheit-liste">
+              <li>Domain, Hosting und E-Mail-Dienste</li>
+              <li>Stockfotos, Schrift- oder Softwarelizenzen</li>
+              <li>externe APIs, KI-Modelle und Verbrauchskosten</li>
+              <li>Werbebudget, Foto- oder Videoproduktion</li>
+              <li>freiwillige Wartung und Weiterentwicklung</li>
+              <li>zusätzliche Wünsche außerhalb des Auftrags</li>
+            </ul>
+          </article>
+        </div>
+        <p class="klarheit-hinweis reveal">Ob Preise zuzüglich Umsatzsteuer ausgewiesen werden, wird im jeweiligen Angebot eindeutig angegeben.</p>
+      </div>
+    </section>
+
+    <section class="preis-faq" aria-labelledby="faq-titel">
+      <div class="wrap faq-grid">
+        <div class="faq-kopf reveal">
+          <p class="eyebrow">Häufige Fragen</p>
+          <h2 id="faq-titel">Kurz und klar beantwortet.</h2>
+        </div>
+        <div class="faq-liste reveal">
+          <details>
+            <summary>Kostet das erste Gespräch etwas?</summary>
+            <p>Nein. Im unverbindlichen Erstgespräch klären wir Ihr Vorhaben und einen sinnvollen nächsten Schritt. Falls vor einem Angebot eine ausführliche Konzeptphase nötig ist, besprechen wir deren Umfang und Preis vorab.</p>
+          </details>
+          <details>
+            <summary>Bekomme ich einen Festpreis?</summary>
+            <p>Für klar definierte Website-Projekte und abgegrenzte Entwicklungsphasen in der Regel ja. Bei Apps und KI-Projekten kann eine schrittweise Beauftragung verlässlicher sein, weil die Erkenntnisse aus der ersten Version in den Ausbau einfließen.</p>
+          </details>
+          <details>
+            <summary>Entstehen automatisch monatliche Kosten?</summary>
+            <p>Nein. Laufende Kosten entstehen nur, wenn Ihr Projekt Dienste wie Hosting, externe Software oder KI-Modelle benötigt oder wenn Sie Betreuung und Weiterentwicklung wünschen. Diese Positionen werden separat ausgewiesen.</p>
+          </details>
+          <details>
+            <summary>Kann ein Projekt klein beginnen?</summary>
+            <p>Ja. Gerade bei Apps und KI ist eine überschaubare erste Version oft sinnvoll. So prüfen Sie die Lösung im Alltag, bevor weitere Funktionen oder Vernetzungen dazukommen.</p>
+          </details>
+          <details>
+            <summary>Kann TOMORROWWORKS bestehende Lösungen weiterentwickeln?</summary>
+            <p>Grundsätzlich ja. Im Erstgespräch prüfen wir, ob eine Modernisierung technisch und wirtschaftlich sinnvoll ist oder ob ein sauberer Neustart die bessere Lösung wäre.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="preis-cta" id="erstgespraech" aria-labelledby="cta-titel">
+      <div class="wrap">
+        <div class="preis-cta-inner reveal">
+          <div class="preis-cta-copy">
+            <h2 id="cta-titel">Was möchten Sie digital voranbringen?</h2>
+            <p>Erzählen Sie uns kurz von Ihrem Vorhaben. Im kostenlosen Erstgespräch klären wir Ziel, sinnvollen Umfang und den nächsten Schritt.</p>
+            <ul class="preis-auswahl">
+              <li>Neue Website</li><li>Website-Relaunch</li><li>Individuelle App</li><li>KI-Einstieg</li>
+            </ul>
+            <a class="button" href="mailto:info@auto-lackierzentrum.de?subject=Kostenloses%20Erstgespr%C3%A4ch%20mit%20TOMORROWWORKS">Erstgespräch vereinbaren <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>
+        <p class="footer-brand">TOMORROWWORKS · Digital Studio</p>
+        <p>Websites, Apps und ein verständlicher Einstieg in KI – persönlich entwickelt für Unternehmen.</p>
+        <p>© 2026 · Ein Angebot der Gärtner GmbH Karosserie + Lack · Mosbach</p>
+      </div>
+      <nav class="footer-links" aria-label="Weitere Informationen">
+        <a href="websites.html">Websites</a>
+        <a href="apps.html">Apps</a>
+        <a href="ki-einstieg.html">KI-Einstieg</a>
+        <a href="index.html#projekte">Projekte</a>
+        <a href="preise.html" aria-current="page">Preise</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
       </nav>
     </div>
-    <div class="unten">
-      <span>© 2026 TOMORROWWORKS · AI Solutions — ein Angebot der Gärtner GmbH Karosserie + Lack, Mosbach</span>
-      <span>Fotos: Unsplash (lizenzfrei, Symbolfotos) · Made in Mosbach</span>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  if (location.search.includes('shot')) {
-    document.documentElement.classList.add('shot');
-    document.querySelectorAll('svg').forEach(s => { try { s.pauseAnimations(); } catch (e) {} });
-  }
-  if (location.search.includes('hell')) document.documentElement.dataset.theme = 'light';
-  try { const t = localStorage.getItem('tw-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
-  document.getElementById('theme-schalter').addEventListener('click', () => {
-    const neu = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-    document.documentElement.dataset.theme = neu;
-    try { localStorage.setItem('tw-theme', neu); } catch (e) {}
-  });
-  const kopf = document.getElementById('kopf');
-  const kopfUmschalten = () => kopf.classList.toggle('linie', window.scrollY > 30);
-  window.addEventListener('scroll', kopfUmschalten, {passive:true});
-  kopfUmschalten();
-  const beobachter = new IntersectionObserver((es) => {
-    for (const e of es) if (e.isIntersecting) { e.target.classList.add('on'); beobachter.unobserve(e.target); }
-  }, {threshold:.15, rootMargin:'0px 0px -30px 0px'});
-  document.querySelectorAll('.rv:not(.on)').forEach(el => beobachter.observe(el));
-</script>
+  <script>
+    const header = document.getElementById('site-header');
+    const menuButton = document.getElementById('menu-button');
+    const mainNav = document.getElementById('main-nav');
+    const setMenu = (open) => {
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Navigation schließen' : 'Navigation öffnen');
+      mainNav.classList.toggle('open', open);
+    };
+    menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+    mainNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
+    document.addEventListener('click', event => { if (!header.contains(event.target)) setMenu(false); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenu(false); }, {passive:true});
+    const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 24);
+    window.addEventListener('scroll', updateHeader, {passive:true});
+    updateHeader();
+
+    const revealItems = document.querySelectorAll('.reveal:not(.is-visible)');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.12, rootMargin:'0px 0px -24px'});
+      revealItems.forEach(item => observer.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add('is-visible'));
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Projektbeispiel einer individuell entwickelten Zeiterfassungs-Web-App: klarer Tagesstatus, Pausenhinweise und eine für den Arbeitsalltag optimierte Bedienung.">
+<title>Digitale Zeiterfassung · App-Projekt | TOMORROWWORKS</title>
+<meta property="og:type" content="article">
+<meta property="og:title" content="Digitale Zeiterfassung · App-Projekt | TOMORROWWORKS">
+<meta property="og:description" content="Eine individuell entwickelte Web-App für verständliche Zeiterfassung, Pausenhinweise und einen klaren Tagesstatus.">
+<meta property="og:url" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/projekt-zeiterfassung.html">
+<meta property="og:image" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/bilder/screenshots/app_zeiterfassung.jpg">
+<meta property="og:locale" content="de_DE">
+<meta name="theme-color" content="#f3f1eb">
+<link rel="canonical" href="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/projekt-zeiterfassung.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="unterseite.css">
+<script>document.documentElement.classList.add('js');</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CreativeWork",
+  "name":"Digitale Zeiterfassung",
+  "description":"Projektbeispiel einer individuell entwickelten Web-App für verständliche Zeiterfassung im Arbeitsalltag.",
+  "creator":{"@type":"Organization","name":"TOMORROWWORKS · Digital Studio"},
+  "url":"https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/projekt-zeiterfassung.html"
+}
+</script>
+<style>
+  .case-hero{position:relative;padding:148px 0 105px;overflow:hidden}
+  .case-hero::before{content:"";position:absolute;right:-230px;top:-330px;width:690px;height:690px;border-radius:50%;background:rgba(255,100,26,.11);pointer-events:none}
+  .case-hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(17,19,21,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(17,19,21,.035) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,#000,transparent 88%);pointer-events:none}
+  .case-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,.84fr) minmax(520px,1.16fr);gap:74px;align-items:center}
+  .case-label{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(17,19,21,.12);border-radius:999px;background:rgba(255,255,255,.46);padding:8px 12px;color:#55595c;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .case-label::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(255,100,26,.12)}
+  .case-hero h1{font-size:clamp(58px,6.3vw,88px);max-width:720px;margin:25px 0 28px}
+  .case-hero h1 em{color:var(--orange);font-style:normal}
+  .case-lead{max-width:670px;color:#53575a;font-size:20px;line-height:1.58}
+  .case-lead strong{color:var(--ink);font-weight:735}
+  .case-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:35px}
+  .case-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:35px;padding-top:23px;border-top:1px solid var(--line)}
+  .case-tags span{border:1px solid rgba(17,19,21,.12);border-radius:999px;padding:7px 11px;background:rgba(255,255,255,.4);color:#616568;font-size:10px;font-weight:760;letter-spacing:.035em}
+  .case-stage{position:relative;min-height:610px;display:grid;place-items:center}
+  .case-glow{position:absolute;width:470px;height:470px;border-radius:50%;background:linear-gradient(135deg,rgba(255,100,26,.35),rgba(85,107,255,.13));filter:blur(58px)}
+  .case-device{position:relative;z-index:2;width:min(100%,650px);padding:14px;background:var(--night);border:1px solid rgba(255,255,255,.1);border-radius:30px;box-shadow:0 42px 105px rgba(17,20,24,.3);transform:rotate(1.2deg)}
+  .case-device-bar{height:42px;display:flex;align-items:center;gap:6px;padding:0 10px;color:#aeb4bb}
+  .case-device-bar i{width:7px;height:7px;border-radius:50%;background:#60666c}
+  .case-device-bar span{margin-left:auto;font-size:9px;font-weight:760;letter-spacing:.09em;text-transform:uppercase}
+  .case-screen{position:relative;display:grid;place-items:center;min-height:475px;overflow:hidden;border-radius:19px;background:#eeefed}
+  .case-screen img{width:100%;height:475px;object-fit:cover;object-position:center top}
+  .screen-note{position:absolute;left:18px;bottom:18px;border:1px solid rgba(255,255,255,.13);border-radius:999px;background:rgba(17,19,21,.91);color:#fff;padding:8px 12px;font-size:9px;font-weight:780;letter-spacing:.07em;text-transform:uppercase;backdrop-filter:blur(10px)}
+  .stage-note{position:absolute;z-index:3;right:-8px;bottom:5px;width:215px;padding:16px;border:1px solid rgba(17,19,21,.08);border-radius:17px;background:#fff;box-shadow:0 18px 52px rgba(17,19,21,.17);transform:rotate(-4deg)}
+  .stage-note small{display:block;margin-bottom:6px;color:var(--orange);font-size:9px;font-weight:820;letter-spacing:.1em;text-transform:uppercase}
+  .stage-note b{display:block;font-size:12px;line-height:1.38}
+
+  .case-principles{background:var(--ink);color:#fff}
+  .principle-grid{display:grid;grid-template-columns:repeat(3,1fr);min-height:102px}
+  .principle{display:flex;align-items:center;gap:14px;padding:20px 34px;border-right:1px solid rgba(255,255,255,.12)}
+  .principle:first-child{padding-left:0}.principle:last-child{border-right:0}
+  .principle>span{color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.09em}
+  .principle b{display:block;font-size:13px}.principle p{margin-top:2px;color:#969ca2;font-size:11px;line-height:1.4}
+
+  .case-section{padding:126px 0}
+  .case-section.alt{background:var(--paper-2)}
+  .case-section.white{background:#fff}
+  .story-grid{display:grid;grid-template-columns:minmax(0,.76fr) minmax(0,1.24fr);gap:90px;align-items:start}
+  .story-copy h2{margin:19px 0 25px;font-size:clamp(43px,5.2vw,69px)}
+  .story-copy>p{max-width:610px;color:var(--muted);font-size:18px}
+  .story-list{border-top:1px solid var(--line)}
+  .story-item{display:grid;grid-template-columns:54px 1fr;gap:18px;padding:27px 0;border-bottom:1px solid var(--line)}
+  .story-item>span{color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.09em}
+  .story-item h3{margin-bottom:7px;font-size:22px}.story-item p{color:var(--muted);font-size:14px}
+
+  .goal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .goal-card{min-height:310px;padding:31px;border:1px solid rgba(17,19,21,.08);border-radius:26px;background:#fff;display:flex;flex-direction:column}
+  .goal-card.dark{background:var(--night);color:#fff}.goal-card.orange{background:var(--orange)}
+  .goal-card>span{display:block;margin-bottom:52px;color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.1em;text-transform:uppercase}
+  .goal-card.dark>span{color:#aeb4ba}.goal-card.orange>span{color:#6d2b0e}
+  .goal-card h3{font-size:30px;margin-bottom:14px}.goal-card p{color:var(--muted);font-size:14px}
+  .goal-card.dark p{color:#adb3b8}.goal-card.orange p{color:#6f3015}
+
+  .solution{padding:126px 0;background:var(--night);color:#fff}
+  .solution .section-head>p{color:#aeb4ba}
+  .solution-board{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);gap:28px;padding:25px;border:1px solid rgba(255,255,255,.09);border-radius:32px;background:var(--night-2)}
+  .solution-visual{min-height:590px;overflow:hidden;border-radius:22px;background:#edeeec;display:grid;place-items:center}
+  .solution-visual img{width:100%;height:590px;object-fit:cover;object-position:center top}
+  .solution-copy{display:flex;flex-direction:column;padding:30px 23px 22px}
+  .solution-copy h3{margin:25px 0 18px;font-size:clamp(38px,4vw,54px)}
+  .solution-copy>p{color:#aeb4ba;font-size:16px}
+  .solution-list{display:grid;gap:12px;list-style:none;margin:31px 0}
+  .solution-list li{display:flex;gap:10px;color:#d5d8da;font-size:13px}
+  .solution-list li::before{content:"✓";color:var(--orange);font-weight:900}
+  .solution-honesty{margin-top:auto;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);color:#8f969c;font-size:11px;line-height:1.55}
+
+  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .feature-card{min-height:260px;padding:29px;border:1px solid rgba(17,19,21,.08);border-radius:24px;background:rgba(255,255,255,.65)}
+  .feature-icon{width:43px;height:43px;border-radius:13px;background:var(--orange-soft);color:var(--orange);display:grid;place-items:center;margin-bottom:44px;font-size:12px;font-weight:840}
+  .feature-card h3{margin-bottom:10px;font-size:24px}.feature-card p{color:var(--muted);font-size:13px}
+
+  .ux-shell{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:80px;align-items:center}
+  .ux-copy h2{margin:20px 0 25px;font-size:clamp(43px,5vw,68px)}
+  .ux-copy>p{color:var(--muted);font-size:17px}
+  .ux-notes{display:grid;gap:12px}
+  .ux-note{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:center;padding:19px 21px;border:1px solid rgba(17,19,21,.08);border-radius:18px;background:#fff}
+  .ux-note span{width:43px;height:43px;border-radius:13px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:11px;font-weight:820}
+  .ux-note h3{font-size:17px;margin-bottom:3px}.ux-note p{color:var(--muted);font-size:13px}
+
+  .phase-grid{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #cbc7bd}
+  .phase{position:relative;padding:29px 22px 25px 0;border-bottom:1px solid #cbc7bd}
+  .phase:not(:last-child){margin-right:22px;padding-right:22px;border-right:1px solid #cbc7bd}
+  .phase>span{display:block;margin-bottom:32px;color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.09em}
+  .phase h3{margin-bottom:9px;font-size:21px}.phase p{color:var(--muted);font-size:12px}
+
+  .result-shell{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:70px;align-items:start}
+  .result-copy h2{margin:19px 0 24px;font-size:clamp(43px,5.2vw,69px)}
+  .result-copy>p{max-width:690px;color:var(--muted);font-size:18px}
+  .result-panel{padding:32px;border:1px solid rgba(17,19,21,.08);border-radius:27px;background:var(--ink);color:#fff}
+  .result-panel>small{color:var(--orange);font-size:9px;font-weight:820;letter-spacing:.1em;text-transform:uppercase}
+  .result-panel h3{margin:27px 0 20px;font-size:32px}
+  .result-panel ul{display:grid;gap:13px;list-style:none}
+  .result-panel li{display:flex;gap:10px;color:#c9cdd1;font-size:13px}.result-panel li::before{content:"✓";color:var(--orange);font-weight:900}
+  .result-note{margin-top:25px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);color:#8f969c;font-size:11px}
+
+  .privacy-shell{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:80px;align-items:start}
+  .privacy-copy h2{margin:19px 0 24px;font-size:clamp(42px,5vw,66px)}.privacy-copy>p{color:var(--muted);font-size:17px}
+  .privacy-list{border-top:1px solid var(--line)}
+  .privacy-item{display:grid;grid-template-columns:54px 1fr;gap:18px;padding:25px 0;border-bottom:1px solid var(--line)}
+  .privacy-item>span{color:var(--orange);font-size:10px;font-weight:820}.privacy-item h3{margin-bottom:6px;font-size:20px}.privacy-item p{color:var(--muted);font-size:13px}
+
+  .more-projects{padding:105px 0;background:var(--paper-2)}
+  .project-link-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .project-link{position:relative;min-height:330px;overflow:hidden;border-radius:26px;background:var(--night);color:#fff;display:grid;grid-template-columns:190px 1fr;border:1px solid rgba(17,19,21,.08);transition:transform .22s,box-shadow .22s}
+  .project-link:hover{transform:translateY(-4px);box-shadow:0 20px 55px rgba(17,19,21,.13)}
+  .project-link picture{min-height:330px;background:#ebece9}.project-link img{width:100%;height:100%;object-fit:cover;object-position:center top}
+  .project-link-copy{display:flex;flex-direction:column;padding:27px}
+  .project-link-copy small{color:var(--orange);font-size:9px;font-weight:820;letter-spacing:.09em;text-transform:uppercase}
+  .project-link-copy h3{margin:17px 0 12px;font-size:29px}.project-link-copy p{color:#9fa5ab;font-size:13px}
+  .project-link-copy b{margin-top:auto;color:#fff;font-size:13px}.project-link-copy b span{color:var(--orange);margin-left:6px}
+
+  @media(max-width:1080px){
+    .case-hero-grid{grid-template-columns:minmax(0,.9fr) minmax(460px,1.1fr);gap:38px}.case-hero h1{font-size:60px}.phase-grid{grid-template-columns:repeat(3,1fr)}.phase:nth-child(3){border-right:0;margin-right:0}.feature-grid{grid-template-columns:1fr 1fr}.feature-card:last-child{grid-column:1/-1}
+  }
+  @media(max-width:900px){
+    .case-hero{padding-top:126px}.case-hero-grid{grid-template-columns:1fr;gap:52px}.case-copy-top{text-align:center}.case-actions,.case-tags{justify-content:center}.case-lead,.case-hero h1{margin-inline:auto}.case-stage{min-height:570px}
+    .story-grid,.ux-shell,.result-shell,.privacy-shell{grid-template-columns:1fr;gap:52px}.goal-grid{grid-template-columns:1fr 1fr}.goal-card:last-child{grid-column:1/-1}.solution-board{grid-template-columns:1fr}.solution-copy{min-height:390px}.phase-grid{grid-template-columns:1fr 1fr}.phase:nth-child(3){border-right:1px solid #cbc7bd;margin-right:22px}.phase:nth-child(even){border-right:0;margin-right:0}.project-link{grid-template-columns:150px 1fr}
+  }
+  @media(max-width:600px){
+    .case-hero{padding:108px 0 76px}.case-copy-top{text-align:left}.case-actions,.case-tags{justify-content:flex-start}.case-hero h1{font-size:clamp(44px,13.4vw,56px);margin:20px 0 22px}.case-lead{font-size:18px}.case-actions{display:grid}.case-tags{margin-top:28px}.case-stage{min-height:470px;margin:0 -4px}.case-device{padding:9px;border-radius:23px;transform:none}.case-device-bar{height:37px}.case-screen,.case-screen img{min-height:370px;height:370px}.case-screen{border-radius:16px}.stage-note{right:0;bottom:-17px;width:174px;padding:12px}
+    .principle-grid{grid-template-columns:1fr}.principle,.principle:first-child{padding:16px 0;border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}.principle:last-child{border-bottom:0}
+    .case-section,.solution{padding:91px 0}.story-copy h2,.ux-copy h2,.result-copy h2,.privacy-copy h2{font-size:41px}.story-item,.privacy-item{grid-template-columns:42px 1fr;gap:10px}.goal-grid,.feature-grid,.phase-grid,.project-link-grid{grid-template-columns:1fr}.goal-card,.goal-card:last-child,.feature-card:last-child{grid-column:auto}.goal-card{min-height:285px}.solution-board{padding:10px;border-radius:24px}.solution-visual,.solution-visual img{min-height:390px;height:390px}.solution-copy{padding:24px 13px 15px;min-height:420px}.solution-copy h3{font-size:38px}.feature-card{min-height:240px}.phase,.phase:not(:last-child),.phase:nth-child(3){border-right:0;margin-right:0;padding-right:0}.phase>span{margin-bottom:21px}.result-panel{padding:25px}.more-projects{padding:82px 0}.project-link{grid-template-columns:1fr;min-height:0}.project-link picture{min-height:225px;max-height:225px}.project-link-copy{min-height:260px}
+  }
+  @media(max-width:370px){.case-hero h1{font-size:42px}.story-copy h2,.ux-copy h2,.result-copy h2,.privacy-copy h2{font-size:36px}}
+  @media(prefers-reduced-motion:reduce){.case-device,.stage-note{transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#hauptinhalt">Zum Inhalt springen</a>
+
+<header class="site-header" id="site-header">
+  <div class="wrap nav-shell">
+    <a class="brand" href="index.html" aria-label="TOMORROWWORKS Startseite"><span class="brand-mark">T</span><span class="brand-name">tomorrow<span>works.</span></span></a>
+    <nav class="desktop-nav" id="main-nav" aria-label="Hauptnavigation">
+      <a href="index.html">Start</a><a href="websites.html">Websites</a><a href="apps.html" aria-current="page">Apps</a><a href="ki-einstieg.html">KI-Einstieg</a><a href="index.html#projekte">Projekte</a><a href="preise.html">Preise</a>
+    </nav>
+    <a class="nav-cta" href="#kontakt">App-Idee besprechen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Navigation öffnen"><i></i></button>
+  </div>
+</header>
+
+<main id="hauptinhalt">
+  <section class="case-hero">
+    <div class="wrap case-hero-grid">
+      <div class="case-copy-top reveal is-visible">
+        <span class="case-label">App · Kundenprojekt</span>
+        <h1>Arbeitszeit, die im Alltag <em>sofort verständlich</em> ist.</h1>
+        <p class="case-lead">Eine fokussierte Web-App bündelt Dienststatus, Pausen und die persönliche Tagesübersicht an einem Ort. <strong>Entwickelt für kurze Wege und klare Entscheidungen im Arbeitsalltag.</strong></p>
+        <div class="case-actions"><a class="button primary" href="#loesung">Lösung ansehen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a><a class="button secondary" href="#kontakt">Ähnliche App besprechen</a></div>
+        <div class="case-tags" role="group" aria-label="Projektmerkmale"><span>Web-App</span><span>Zeiterfassung</span><span>für den täglichen Einsatz</span></div>
+      </div>
+      <div class="case-stage reveal is-visible" role="group" aria-label="Ansicht der entwickelten Zeiterfassungs-Web-App mit Demo-Daten">
+        <div class="case-glow"></div>
+        <div class="case-device">
+          <div class="case-device-bar" aria-hidden="true"><i></i><i></i><i></i><span>Zeiterfassung · Tagesansicht</span></div>
+          <div class="case-screen"><picture><source srcset="bilder/screenshots/app_zeiterfassung.webp" type="image/webp"><img src="bilder/screenshots/app_zeiterfassung.jpg" alt="Zeiterfassungs-Web-App mit Dienststatus, Pausenhinweis und Arbeitszeitübersicht anhand von Demo-Daten" width="1280" height="800" decoding="async"></picture><span class="screen-note">Ansicht mit Demo-Daten</span></div>
+        </div>
+        <div class="stage-note" aria-hidden="true"><small>Ein Blick genügt</small><b>Status, nächste Aktion und Tageswerte bleiben zusammen sichtbar.</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-principles" aria-label="Schwerpunkte des Projekts">
+    <div class="wrap principle-grid">
+      <div class="principle"><span>01</span><div><b>Direkt bedienbar</b><p>Die aktuelle Aktion steht im Mittelpunkt.</p></div></div>
+      <div class="principle"><span>02</span><div><b>Am Arbeitstag orientiert</b><p>Termine, Zeiten und Hinweise in einer Ansicht.</p></div></div>
+      <div class="principle"><span>03</span><div><b>Bewusst fokussiert</b><p>Kein überladenes Personalprogramm.</p></div></div>
+    </div>
+  </section>
+
+  <section class="case-section" id="ausgangslage">
+    <div class="wrap story-grid">
+      <div class="story-copy reveal"><p class="eyebrow">Ausgangslage</p><h2>Zeit erfassen darf nicht selbst Zeit kosten.</h2><p>Für das Kundenprojekt sollte keine möglichst große Personalsoftware entstehen. Gesucht war eine übersichtliche Anwendung für die Momente, die Mitarbeitende während des Tages wirklich benötigen.</p></div>
+      <div class="story-list reveal">
+        <article class="story-item"><span>01</span><div><h3>Der aktuelle Status muss eindeutig sein.</h3><p>Wer gerade im Dienst ist, eine Pause beginnt oder den Arbeitstag beendet, braucht eine klare Rückmeldung statt mehrerer verschachtelter Ansichten.</p></div></article>
+        <article class="story-item"><span>02</span><div><h3>Hinweise gehören in den richtigen Moment.</h3><p>Ein Pausenhinweis hilft dann, wenn er im laufenden Arbeitstag sichtbar wird — nicht erst später in einer schwer lesbaren Auswertung.</p></div></article>
+        <article class="story-item"><span>03</span><div><h3>Der eigene Tag soll nachvollziehbar bleiben.</h3><p>Anwesenheit, Pause, Netto-Arbeitszeit und Abweichung vom Soll werden in der persönlichen Tagesansicht zusammengeführt.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section alt" id="ziel">
+    <div class="wrap">
+      <div class="section-head reveal"><div><p class="eyebrow">Ziel des Projekts</p><h2>Eine Anwendung, die sich im Alltag selbst erklärt.</h2></div><p>Der Funktionsumfang folgt dem Arbeitsablauf: Status erkennen, passende Aktion ausführen und den Tag ohne Umwege überblicken.</p></div>
+      <div class="goal-grid">
+        <article class="goal-card dark reveal"><span>01 · Klarheit</span><h3>Eine eindeutige nächste Aktion</h3><p>Die Oberfläche zeigt abhängig vom Tagesstatus, was als Nächstes sinnvoll ist — etwa eine Pause zu starten oder den Dienst zu beenden.</p></article>
+        <article class="goal-card orange reveal"><span>02 · Überblick</span><h3>Der ganze Tag auf einer Seite</h3><p>Aktuelle Uhrzeit, Dienstbeginn, Tageseinträge und persönliche Zeitwerte bleiben ohne Ansichtswechsel erreichbar.</p></article>
+        <article class="goal-card reveal"><span>03 · Alltag</span><h3>Auch auf kleinen Geräten nutzbar</h3><p>Große Bedienelemente, klare Abstände und eine reduzierte Hierarchie unterstützen den schnellen Zugriff während des Arbeitstags.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="solution" id="loesung">
+    <div class="wrap">
+      <div class="section-head dark reveal"><div><p class="eyebrow light">Entwickelte Lösung</p><h2>Eine fokussierte Web-App statt eines überladenen Systems.</h2></div><p>Die Oberfläche folgt einer einfachen Reihenfolge: aktuellen Zustand verstehen, passende Aktion wählen und die wichtigsten Werte einordnen.</p></div>
+      <article class="solution-board reveal">
+        <div class="solution-visual"><picture><source srcset="bilder/screenshots/app_zeiterfassung.webp" type="image/webp"><img src="bilder/screenshots/app_zeiterfassung.jpg" alt="Tagesansicht der Zeiterfassungs-App mit Demo-Daten" width="1280" height="800" loading="lazy" decoding="async"></picture></div>
+        <div class="solution-copy"><span class="case-label">App · Kundenprojekt</span><h3>Die Tagesansicht bündelt, was jetzt wichtig ist.</h3><p>Eine zentrale Statuskarte macht den laufenden Dienst sichtbar. Direkt darunter liegen die nächsten Aktionen, Tageseinträge, ein situationsbezogener Hinweis und die persönliche Zeitbilanz.</p><ul class="solution-list"><li>Dienststatus und Startzeit auf einen Blick</li><li>klare Aktionen für Pause und Arbeitsende</li><li>Tageseinträge in zeitlicher Reihenfolge</li><li>Pausenhinweis im laufenden Arbeitstag</li><li>Netto-Arbeitszeit, Anwesenheit, Pausen und Soll-Abweichung</li></ul><p class="solution-honesty">Die gezeigte Ansicht verwendet Demo-Daten und nennt bewusst keinen Kundennamen. Sie zeigt einen real entwickelten Projektstand, aber keine nicht belegbaren Erfolgskennzahlen.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="case-section white" id="funktionen">
+    <div class="wrap">
+      <div class="section-head reveal"><div><p class="eyebrow">Funktionen im gezeigten Stand</p><h2>Wenige Bausteine, klar zusammengesetzt.</h2></div><p>Jedes Element beantwortet eine konkrete Frage des Arbeitstags. Die Beschreibung bezieht sich ausschließlich auf den sichtbaren Projektstand.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card reveal"><span class="feature-icon">01</span><h3>Live-Dienststatus</h3><p>Uhrzeit und Dienstbeginn stehen prominent zusammen. Der aktuelle Zustand ist dadurch sofort erkennbar.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon">02</span><h3>Pause &amp; Arbeitsende</h3><p>Die zentralen Aktionen sind groß, eindeutig beschriftet und ohne Suche in einem Menü erreichbar.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon">03</span><h3>Tagesübersicht</h3><p>Einträge des Tages werden mit Zeitraum und Art des Eintrags in einer kompakten Liste dargestellt.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon">04</span><h3>Pausenhinweis</h3><p>Ein sichtbarer Hinweis macht auf eine im Tagesverlauf relevante Pausensituation aufmerksam.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon">05</span><h3>Persönliche Zeitwerte</h3><p>Netto-Arbeitszeit, Soll-Abweichung, Anwesenheit und Pause sind als getrennte Werte schnell erfassbar.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon">06</span><h3>Benutzerkontext</h3><p>Die angemeldete Person und ihre Rolle bleiben sichtbar; ein Wechsel ist in der gezeigten Ansicht vorgesehen.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section alt" id="bedienung">
+    <div class="wrap ux-shell">
+      <div class="ux-copy reveal"><p class="eyebrow">UX im Arbeitsalltag</p><h2>Erst die Aufgabe. Dann die Details.</h2><p>Eine Zeiterfassung wird häufig nebenbei bedient. Deshalb setzt die Oberfläche auf klare Prioritäten, kurze Texte und große Interaktionsflächen statt auf ein dichtes Verwaltungsdashboard.</p></div>
+      <div class="ux-notes reveal">
+        <article class="ux-note"><span>01</span><div><h3>Status vor Statistik</h3><p>Die wichtigste Information des Moments steht oben, weiterführende Tageswerte folgen darunter.</p></div></article>
+        <article class="ux-note"><span>02</span><div><h3>Beschriftung statt Symbolrätsel</h3><p>„Pause starten“ und „Arbeitsende“ benennen die Konsequenz der Aktion direkt.</p></div></article>
+        <article class="ux-note"><span>03</span><div><h3>Hinweise im Kontext</h3><p>Der Pausenhinweis steht zwischen Tagesablauf und Zeitbilanz — dort, wo er verstanden und eingeordnet werden kann.</p></div></article>
+        <article class="ux-note"><span>04</span><div><h3>Mobile Lesbarkeit</h3><p>Die schmale, vertikale Anordnung funktioniert ohne seitliches Springen und unterstützt die Bedienung auf kleinen Bildschirmen.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section" id="projektphasen">
+    <div class="wrap">
+      <div class="section-head reveal"><div><p class="eyebrow">Projektphasen</p><h2>Vom Arbeitstag zur passenden Oberfläche.</h2></div><p>Die Entwicklung wurde nicht an einer erfundenen Featureliste ausgerichtet, sondern an den konkreten Situationen der späteren Nutzung. Die tatsächliche Projektdauer bleibt vertraulich.</p></div>
+      <div class="phase-grid reveal">
+        <article class="phase"><span>01 · Verstehen</span><h3>Ablauf aufnehmen</h3><p>Nutzer, Statuswechsel, Tageswerte und typische Bedienmomente gemeinsam ordnen.</p></article>
+        <article class="phase"><span>02 · Begrenzen</span><h3>Kern festlegen</h3><p>Die Funktionen auswählen, die für den täglichen Einsatz wirklich benötigt werden.</p></article>
+        <article class="phase"><span>03 · Gestalten</span><h3>Prioritäten zeigen</h3><p>Status, Aktionen, Hinweise und Auswertung in eine verständliche Reihenfolge bringen.</p></article>
+        <article class="phase"><span>04 · Entwickeln</span><h3>Web-App umsetzen</h3><p>Die Ansichten und Zustandswechsel als browserbasierte Anwendung realisieren.</p></article>
+        <article class="phase"><span>05 · Prüfen</span><h3>Alltag erproben</h3><p>Typische Wege durchspielen, Rückmeldungen aufnehmen und die Bedienung nachschärfen.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section white" id="resultat">
+    <div class="wrap result-shell">
+      <div class="result-copy reveal"><p class="eyebrow">Qualitatives Resultat</p><h2>Ein klarer Arbeitsbereich für den persönlichen Tag.</h2><p>Das Ergebnis ist eine kompakte Web-App, die die Zeiterfassung nicht als abstrakte Verwaltung, sondern aus Sicht der nutzenden Person zeigt. Der aktuelle Zustand, die nächste Handlung und die Einordnung des Tages liegen sichtbar zusammen.</p></div>
+      <aside class="result-panel reveal" aria-label="Erreichte qualitative Verbesserungen"><small>Was der Projektstand leistet</small><h3>Mehr Orientierung ohne zusätzliche Komplexität.</h3><ul><li>Ein zentraler Einstieg statt verteilter Einzelinformationen</li><li>klare Rückmeldung über den laufenden Dienst</li><li>sichtbare Pausensituation im Tageskontext</li><li>persönliche Zeitbilanz ohne Tabellenansicht</li><li>auf den Einsatz im Browser ausgerichtete Oberfläche</li></ul><p class="result-note">Bewusst ohne erfundene Prozentwerte, Zeitersparnis oder Kundenstimme. Solche Aussagen wären erst mit freigegebenen Nutzungsdaten belastbar.</p></aside>
+    </div>
+  </section>
+
+  <section class="case-section" id="datenschutz">
+    <div class="wrap privacy-shell">
+      <div class="privacy-copy reveal"><p class="eyebrow">Datenschutz &amp; Verantwortung</p><h2>Arbeitszeitdaten brauchen einen klaren Rahmen.</h2><p>Bei einer produktiven Zeiterfassung gehören technische Umsetzung und organisatorische Regeln zusammen. Rollen, Aufbewahrung und Zugriff werden deshalb nicht als Nebensache behandelt.</p></div>
+      <div class="privacy-list reveal">
+        <article class="privacy-item"><span>01</span><div><h3>Nur notwendige Daten vorsehen</h3><p>Welche Personen-, Termin- und Zeitdaten tatsächlich gebraucht werden, sollte vor dem produktiven Einsatz festgelegt und begrenzt werden.</p></div></article>
+        <article class="privacy-item"><span>02</span><div><h3>Zugriffe und Rollen definieren</h3><p>Wer eigene Zeiten, fremde Einträge oder Auswertungen sehen und bearbeiten darf, wird passend zum betrieblichen Einsatzkonzept geklärt.</p></div></article>
+        <article class="privacy-item"><span>03</span><div><h3>Hosting und Aufbewahrung abstimmen</h3><p>Speicherort, Datensicherung, Lösch- und Aufbewahrungsregeln hängen von der gewählten Betriebsumgebung und den rechtlichen Anforderungen des Unternehmens ab.</p></div></article>
+        <article class="privacy-item"><span>04</span><div><h3>Demo bleibt Demo</h3><p>Die veröffentlichte Projektansicht verwendet Beispielangaben und verzichtet auf Kundennamen. Sie ist keine öffentlich zugängliche Produktivansicht.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="more-projects" aria-labelledby="weitere-projekte">
+    <div class="wrap">
+      <div class="section-head reveal"><div><p class="eyebrow">Weitere Projekte</p><h2 id="weitere-projekte">Andere Aufgaben. Derselbe klare Blick.</h2></div><p>Von der öffentlichen Website bis zum Portal für betriebliche Abläufe: Gestaltung und Entwicklung folgen immer dem konkreten Zweck.</p></div>
+      <div class="project-link-grid">
+        <a class="project-link reveal" href="projekt-terminportal.html"><picture><source srcset="bilder/screenshots/app_buchung.webp" type="image/webp"><img src="bilder/screenshots/app_buchung.jpg" alt="Öffentliches Mietwagen-Buchungsmodul als Teil des Werkstattcockpits" width="1280" height="800" loading="lazy" decoding="async"></picture><div class="project-link-copy"><small>Werkstattcockpit · Eigener Betrieb</small><h3>Cockpit mit Portalen und Ersatzmobilität</h3><p>Werkstatt, Autohäuser und Privatkunden arbeiten über passende, verbundene Zugänge.</p><b>Projekt ansehen <span>→</span></b></div></a>
+        <a class="project-link reveal" href="projekt-mietwagen-website.html"><picture><source srcset="bilder/screenshots/landing_mietwagen.webp" type="image/webp"><img src="bilder/screenshots/landing_mietwagen.jpg" alt="Entwickelte Website für eine regionale Mietwagenleistung" width="1280" height="800" loading="lazy" decoding="async"></picture><div class="project-link-copy"><small>Website · Eigener Betrieb</small><h3>Mietwagen-Website</h3><p>Leistung, Fahrzeugangebot und Anfrageweg auf einer modernen Website verbunden.</p><b>Projekt ansehen <span>→</span></b></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="kontakt">
+    <div class="wrap contact-inner reveal"><p class="eyebrow light">Ihre App-Idee</p><h2>Welcher Arbeitsschritt braucht ein <span>klareres Werkzeug?</span></h2><p class="contact-lead">Zeigen Sie uns den heutigen Ablauf. Wir besprechen verständlich, ob eine individuelle Web-App sinnvoll ist und welcher erste Umfang wirklich gebraucht wird.</p><div class="contact-actions"><a class="button primary" href="mailto:info@auto-lackierzentrum.de?subject=Anfrage%20zu%20einer%20individuellen%20App">App-Idee anfragen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="button secondary" href="tel:+4915227706694">0152&nbsp;27706694</a></div><p class="contact-note">Unverbindlich · verständlich · online oder vor Ort</p><div class="contact-options"><a href="tel:+4915227706694">0152&nbsp;27706694</a><a href="mailto:info@auto-lackierzentrum.de">info@auto-lackierzentrum.de</a><span>Mosbach · Baden-Württemberg</span></div></div>
+  </section>
+</main>
+
+<footer><div class="wrap footer-inner"><div><p class="footer-brand">tomorrowworks. · Digital Studio</p><p>© 2026 TOMORROWWORKS — ein Angebot der Gärtner GmbH Karosserie + Lack</p></div><nav class="footer-links" aria-label="Navigation im Seitenfuß"><a href="websites.html">Websites</a><a href="apps.html">Apps</a><a href="ki-einstieg.html">KI-Einstieg</a><a href="index.html#projekte">Projekte</a><a href="preise.html">Preise</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></div></footer>
+
+<script>
+  const header=document.getElementById('site-header'),menuButton=document.getElementById('menu-button'),mainNav=document.getElementById('main-nav');
+  const setMenu=open=>{menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Navigation schließen':'Navigation öffnen');mainNav.classList.toggle('open',open)};
+  menuButton.addEventListener('click',()=>setMenu(menuButton.getAttribute('aria-expanded')!=='true'));mainNav.addEventListener('click',event=>{if(event.target.closest('a'))setMenu(false)});document.addEventListener('keydown',event=>{if(event.key==='Escape')setMenu(false)});window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>18),{passive:true});
+  const reveal=document.querySelectorAll('.reveal:not(.is-visible)');if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.08});reveal.forEach(element=>observer.observe(element))}else{reveal.forEach(element=>element.classList.add('is-visible'))}
+</script>
+</body>
+</html>
