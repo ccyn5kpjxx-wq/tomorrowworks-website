@@ -443,6 +443,32 @@
   .service-link{margin-top:auto;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(17,19,21,.12);padding-top:19px;font-size:13px;font-weight:760}.service-card.app .service-link{border-color:rgba(255,255,255,.12)}.service-link span:last-child{font-size:19px;color:var(--orange)}.service-card.ai .service-link span:last-child{color:var(--ink)}
   .connection-note{margin-top:22px;display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;color:var(--muted);font-size:12px}.connection-note i{width:8px;height:8px;border-radius:50%;background:var(--orange)}
 
+  /* Print & Geschäftsausstattung */
+  .print-service{padding:0 0 132px;background:var(--paper)}
+  .print-shell{display:grid;grid-template-columns:minmax(0,.88fr) minmax(470px,1.12fr);gap:20px;padding:18px;background:#fff;border:1px solid rgba(17,19,21,.08);border-radius:32px;box-shadow:0 24px 70px rgba(17,19,21,.08);overflow:hidden}
+  .print-copy{display:flex;flex-direction:column;justify-content:center;padding:46px 35px}
+  .print-copy h2{font-size:clamp(42px,4.8vw,64px);margin:19px 0 23px}
+  .print-copy>p{color:var(--muted);font-size:17px;line-height:1.68}
+  .print-list{display:flex;gap:8px;flex-wrap:wrap;margin:27px 0 34px}
+  .print-list span{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:#565a5d;font-size:10px;font-weight:760}
+  .print-copy .button{width:max-content}
+  .print-note{margin-top:14px;color:#888c8f;font-size:11px}
+  .print-visual{position:relative;min-height:530px;border-radius:24px;overflow:hidden;background:#171a1f;color:#fff}
+  .print-visual::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:42px 42px}
+  .print-visual::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;right:-115px;top:-125px;background:rgba(255,100,26,.22);filter:blur(18px)}
+  .print-flyer,.print-card{position:absolute;z-index:2;box-shadow:0 28px 60px rgba(0,0,0,.33)}
+  .print-flyer{left:62px;top:43px;width:278px;aspect-ratio:.707;background:#f2efe7;color:var(--ink);border-radius:8px;padding:28px;transform:rotate(-6deg)}
+  .print-flyer small{display:block;color:var(--orange);font-size:8px;font-weight:830;letter-spacing:.12em;text-transform:uppercase}
+  .print-flyer b{display:block;font-size:31px;line-height:1.02;letter-spacing:-.04em;margin:64px 0 20px}
+  .print-flyer span{display:block;color:#6b6e70;font-size:10px;line-height:1.5}
+  .print-flyer i{position:absolute;left:28px;right:28px;bottom:28px;height:7px;border-radius:99px;background:var(--orange)}
+  .print-card{right:42px;bottom:54px;width:312px;height:178px;border-radius:12px;padding:25px 27px;background:var(--ink);border:1px solid rgba(255,255,255,.13);transform:rotate(7deg)}
+  .print-card strong{font-size:18px;letter-spacing:-.03em}.print-card strong em{color:var(--orange);font-style:normal}
+  .print-card p{position:absolute;left:27px;bottom:25px;color:#b7bcc1;font-size:10px;line-height:1.5}
+  .print-card span{position:absolute;right:25px;top:25px;width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:var(--orange);color:var(--ink);font-size:15px;font-weight:850}
+  .print-status{position:absolute;z-index:3;right:28px;top:26px;display:flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(17,19,21,.72);color:#e6e8ea;font-size:8px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(8px)}
+  .print-status::before{content:"";width:7px;height:7px;border-radius:50%;background:#62d58b}
+
   .project-type{display:inline-flex;width:max-content;border-radius:999px;padding:7px 10px;background:rgba(255,100,26,.14);border:1px solid rgba(255,100,26,.25);color:#ff9b6c;font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
   .case-copy .project-type{margin-bottom:4px}
 
@@ -515,6 +541,7 @@
   }
   @media (max-width:860px){
     .studio-stage{min-height:610px}.service-grid{grid-template-columns:1fr}.service-card.ai{grid-column:auto}.service-card{min-height:470px}
+    .print-shell{grid-template-columns:1fr}.print-visual{min-height:500px}.print-copy{padding:38px 30px}
     .delivery-grid{grid-template-columns:1fr 1fr}.delivery-step:nth-child(2){border-right:0}.delivery-step:nth-child(-n+2){border-bottom:1px solid #dcd9d2}
     .ai-spotlight-card{grid-template-columns:1fr}.ai-route{border-left:0;border-top:1px solid rgba(255,255,255,.08)}
     .price-bridge-card{grid-template-columns:1fr}.price-bridge-card .button{width:max-content}
@@ -523,6 +550,7 @@
     .brand-sub{font-size:6px}.studio-stage{min-height:500px;margin:0 -5px}.studio-window{padding:9px;border-radius:23px;transform:none}.studio-canvas{min-height:405px;padding:15px}.studio-tabs{display:none}
     .web-preview{width:92%}.web-preview img{height:220px}.app-preview{width:137px;right:8px;bottom:13px;padding:6px;border-radius:16px}.app-preview img{height:170px;border-radius:11px}.app-preview p{font-size:8px}.ai-preview{left:16px;bottom:14px;width:210px;padding:12px}.ai-preview p{font-size:9px}
     .services,.delivery,.why{padding:92px 0}.service-card{min-height:auto;padding:25px;border-radius:23px}.service-top{margin-bottom:38px}.service-card h3{font-size:32px}.service-card > p{font-size:14px}
+    .print-service{padding-bottom:92px}.print-shell{padding:10px;border-radius:25px}.print-copy{padding:28px 17px 32px}.print-copy h2{font-size:40px}.print-copy>p{font-size:16px}.print-copy .button{width:100%}.print-visual{min-height:430px;border-radius:19px}.print-flyer{left:29px;top:36px;width:225px;padding:23px}.print-flyer b{font-size:26px;margin-top:49px}.print-flyer i{left:23px;right:23px;bottom:23px}.print-card{right:22px;bottom:43px;width:264px;height:151px;padding:21px 23px}.print-card p{left:23px;bottom:21px}.print-card span{right:21px;top:21px}.print-status{right:18px;top:17px}
     .delivery-grid{grid-template-columns:1fr}.delivery-step{border-right:0;border-bottom:1px solid #dcd9d2;min-height:215px}.delivery-step:last-child{border-bottom:0}.delivery-step:nth-child(-n+2){border-bottom:1px solid #dcd9d2}.delivery-step > span{margin-bottom:28px}
     .why-grid{grid-template-columns:1fr}.why-card{min-height:auto}.ai-spotlight{padding-bottom:92px}.ai-spotlight-card > *{min-width:0}.ai-spotlight-copy,.ai-route{padding:27px}.ai-spotlight-copy h2{font-size:40px;overflow-wrap:anywhere}.ai-route-item{grid-template-columns:38px minmax(0,1fr)}.ai-route-item b:first-child{width:38px;height:38px}
     .price-bridge{padding:80px 0}.price-bridge-card{padding:27px 23px;border-radius:23px}.price-bridge-card .button{width:100%}
@@ -648,7 +676,7 @@
         <a class="service-card website reveal" id="websites" href="websites.html">
           <div class="service-top"><span class="service-no">01 · Websites</span><span class="service-icon">W</span></div>
           <h3>Websites, die professionell wirken und klar führen.</h3>
-          <p>Vom ersten Eindruck bis zur Anfrage: Wir gestalten und entwickeln moderne Firmenwebsites, Landingpages und Relaunches.</p>
+          <p>Vom ersten Eindruck bis zur Anfrage: Wir gestalten Firmenwebsites, Landingpages und Relaunches – auf Wunsch ergänzt durch passende Visitenkarten und Flyer.</p>
           <ul class="service-points"><li>Konzept und Seitenstruktur</li><li>individuelles responsives Design</li><li>Entwicklung und technische Einrichtung</li><li>SEO-Grundlagen und klare Kontaktwege</li></ul>
           <span class="service-link"><span>Website-Leistung ansehen</span><span>→</span></span>
         </a>
@@ -668,6 +696,26 @@
         </a>
       </div>
       <p class="connection-note"><i></i>Schnittstellen, Automatisierung und Datenverbindungen gehören dazu, wenn sie die Lösung besser machen — nicht als Selbstzweck.</p>
+    </div>
+  </section>
+
+  <section class="print-service" id="print">
+    <div class="wrap">
+      <article class="print-shell reveal">
+        <div class="print-copy">
+          <p class="eyebrow">Print &amp; Geschäftsausstattung</p>
+          <h2>Vom Entwurf bis zum fertigen Druckprodukt.</h2>
+          <p>Ein stimmiger Unternehmensauftritt hört nicht bei der Website auf. Wir gestalten Visitenkarten, Flyer und Faltblätter im passenden Erscheinungsbild, erstellen die druckfertigen Daten und kümmern uns auf Wunsch auch um Papierauswahl, Auflage, Veredelung und Herstellung.</p>
+          <div class="print-list" aria-label="Print-Leistungen"><span>Visitenkarten</span><span>Flyer &amp; Faltblätter</span><span>Druckdaten &amp; Produktion</span></div>
+          <a class="button primary" href="mailto:info@auto-lackierzentrum.de?subject=Anfrage%20Visitenkarten%20und%20Flyer">Print-Projekt besprechen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <p class="print-note">Gestaltung · Korrekturschleife · Druckfreigabe · Herstellung</p>
+        </div>
+        <div class="print-visual" role="img" aria-label="Gestaltungsbeispiele für einen Flyer und eine Visitenkarte im TOMORROWWORKS-Stil">
+          <div class="print-status">Bereit für den Druck</div>
+          <div class="print-flyer"><small>Digital Studio</small><b>Websites.<br>Apps.<br>KI-Einstieg.</b><span>Ein klarer Auftritt für Unternehmen – digital und gedruckt.</span><i></i></div>
+          <div class="print-card"><strong>tomorrow<em>works.</em></strong><span>T</span><p>Ihr Ansprechpartner<br>Digital Studio · Mosbach</p></div>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -778,7 +826,7 @@
       <p class="eyebrow light">Kostenloses Erstgespräch</p>
       <h2>Was möchten Sie digital <span>voranbringen?</span></h2>
       <p class="contact-lead">Erzählen Sie uns kurz von Ihrem Vorhaben. Sie sprechen direkt mit einem unserer Ansprechpartner und klären gemeinsam Ziel, sinnvollen Umfang und den nächsten Schritt.</p>
-      <div class="contact-topics"><span>Mein Projekt:</span><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20Neue%20Website">Neue Website</a><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20Individuelle%20App">Individuelle App</a><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20KI-Einstieg">KI-Einstieg</a><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20Bestehende%20L%C3%B6sung">Bestehende Lösung</a></div>
+      <div class="contact-topics"><span>Mein Projekt:</span><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20Neue%20Website">Neue Website</a><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20Individuelle%20App">Individuelle App</a><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20KI-Einstieg">KI-Einstieg</a><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20Visitenkarten%20und%20Flyer">Visitenkarten &amp; Flyer</a><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20Bestehende%20L%C3%B6sung">Bestehende Lösung</a></div>
       <div class="contact-actions">
         <a class="button primary" href="mailto:info@auto-lackierzentrum.de?subject=Kostenloses%20Erstgespr%C3%A4ch%20anfragen">Erstgespräch vereinbaren <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="button secondary" href="https://wa.me/4915227706694?text=Hallo!%20Ich%20m%C3%B6chte%20ein%20digitales%20Projekt%20besprechen." target="_blank" rel="noopener">Per WhatsApp schreiben</a>
