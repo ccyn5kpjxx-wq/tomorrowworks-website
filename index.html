@@ -452,6 +452,7 @@
   .print-list{display:flex;gap:8px;flex-wrap:wrap;margin:27px 0 34px}
   .print-list span{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:#565a5d;font-size:10px;font-weight:760}
   .print-copy .button{width:max-content}
+  .print-actions{display:flex;gap:10px;flex-wrap:wrap}
   .print-note{margin-top:14px;color:#888c8f;font-size:11px}
   .print-visual{position:relative;min-height:530px;border-radius:24px;overflow:hidden;background:#171a1f;color:#fff}
   .print-visual::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:42px 42px}
@@ -550,7 +551,7 @@
     .brand-sub{font-size:6px}.studio-stage{min-height:500px;margin:0 -5px}.studio-window{padding:9px;border-radius:23px;transform:none}.studio-canvas{min-height:405px;padding:15px}.studio-tabs{display:none}
     .web-preview{width:92%}.web-preview img{height:220px}.app-preview{width:137px;right:8px;bottom:13px;padding:6px;border-radius:16px}.app-preview img{height:170px;border-radius:11px}.app-preview p{font-size:8px}.ai-preview{left:16px;bottom:14px;width:210px;padding:12px}.ai-preview p{font-size:9px}
     .services,.delivery,.why{padding:92px 0}.service-card{min-height:auto;padding:25px;border-radius:23px}.service-top{margin-bottom:38px}.service-card h3{font-size:32px}.service-card > p{font-size:14px}
-    .print-service{padding-bottom:92px}.print-shell{padding:10px;border-radius:25px}.print-copy{padding:28px 17px 32px}.print-copy h2{font-size:40px}.print-copy>p{font-size:16px}.print-copy .button{width:100%}.print-visual{min-height:430px;border-radius:19px}.print-flyer{left:29px;top:36px;width:225px;padding:23px}.print-flyer b{font-size:26px;margin-top:49px}.print-flyer i{left:23px;right:23px;bottom:23px}.print-card{right:22px;bottom:43px;width:264px;height:151px;padding:21px 23px}.print-card p{left:23px;bottom:21px}.print-card span{right:21px;top:21px}.print-status{right:18px;top:17px}
+    .print-service{padding-bottom:92px}.print-shell{padding:10px;border-radius:25px}.print-copy{padding:28px 17px 32px}.print-copy h2{font-size:40px}.print-copy>p{font-size:16px}.print-actions{display:grid}.print-copy .button{width:100%}.print-visual{min-height:430px;border-radius:19px}.print-flyer{left:29px;top:36px;width:225px;padding:23px}.print-flyer b{font-size:26px;margin-top:49px}.print-flyer i{left:23px;right:23px;bottom:23px}.print-card{right:22px;bottom:43px;width:264px;height:151px;padding:21px 23px}.print-card p{left:23px;bottom:21px}.print-card span{right:21px;top:21px}.print-status{right:18px;top:17px}
     .delivery-grid{grid-template-columns:1fr}.delivery-step{border-right:0;border-bottom:1px solid #dcd9d2;min-height:215px}.delivery-step:last-child{border-bottom:0}.delivery-step:nth-child(-n+2){border-bottom:1px solid #dcd9d2}.delivery-step > span{margin-bottom:28px}
     .why-grid{grid-template-columns:1fr}.why-card{min-height:auto}.ai-spotlight{padding-bottom:92px}.ai-spotlight-card > *{min-width:0}.ai-spotlight-copy,.ai-route{padding:27px}.ai-spotlight-copy h2{font-size:40px;overflow-wrap:anywhere}.ai-route-item{grid-template-columns:38px minmax(0,1fr)}.ai-route-item b:first-child{width:38px;height:38px}
     .price-bridge{padding:80px 0}.price-bridge-card{padding:27px 23px;border-radius:23px}.price-bridge-card .button{width:100%}
@@ -705,9 +706,9 @@
         <div class="print-copy">
           <p class="eyebrow">Print &amp; Geschäftsausstattung</p>
           <h2>Vom Entwurf bis zum fertigen Druckprodukt.</h2>
-          <p>Ein stimmiger Unternehmensauftritt hört nicht bei der Website auf. Wir gestalten Visitenkarten, Flyer und Faltblätter im passenden Erscheinungsbild, erstellen die druckfertigen Daten und kümmern uns auf Wunsch auch um Papierauswahl, Auflage, Veredelung und Herstellung.</p>
+          <p>Ein stimmiger Unternehmensauftritt hört nicht bei der Website auf. Visitenkarten können Sie bei uns direkt selbst konfigurieren oder vollständig gestalten lassen. Auf Wunsch übernehmen wir auch Flyer, Faltblätter, Druckdaten und die gesamte Produktion.</p>
           <div class="print-list" aria-label="Print-Leistungen"><span>Visitenkarten</span><span>Flyer &amp; Faltblätter</span><span>Druckdaten &amp; Produktion</span></div>
-          <a class="button primary" href="mailto:info@auto-lackierzentrum.de?subject=Anfrage%20Visitenkarten%20und%20Flyer">Print-Projekt besprechen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <div class="print-actions"><a class="button primary" href="visitenkarten.html">Visitenkarte selbst gestalten <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="button secondary" href="visitenkarten.html#komplettservice">Komplettservice</a></div>
           <p class="print-note">Gestaltung · Korrekturschleife · Druckfreigabe · Herstellung</p>
         </div>
         <div class="print-visual" role="img" aria-label="Gestaltungsbeispiele für einen Flyer und eine Visitenkarte im TOMORROWWORKS-Stil">

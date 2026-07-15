@@ -3,7 +3,7 @@
   <!-- Bei einer eigenen Domain sämtliche loc-Angaben aktualisieren. -->
   <url>
     <loc>https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -28,6 +28,12 @@
   <url>
     <loc>https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/preise.html</loc>
     <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/visitenkarten.html</loc>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
