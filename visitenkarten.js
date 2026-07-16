@@ -84,6 +84,19 @@
   const downloadButton = byId('download-preview');
   const sideTabs = Array.from(document.querySelectorAll('.side-tab'));
   const templateInputs = Array.from(document.querySelectorAll('input[name="template"]'));
+  const workflowInputs = Array.from(document.querySelectorAll('input[name="workflow-mode"]'));
+  const uploadWorkflow = byId('upload-workflow');
+  const templateWorkflow = byId('template-workflow');
+  const preflightList = byId('preflight-list');
+  const wizardSteps = Array.from(document.querySelectorAll('.wizard-step'));
+  const progressButtons = Array.from(document.querySelectorAll('.progress-item[data-step-target]'));
+  const wizardBack = byId('wizard-back');
+  const wizardNext = byId('wizard-next');
+  const wizardTotalPrice = byId('wizard-total-price');
+  const copyInquiryButton = byId('copy-inquiry');
+  const previewJump = byId('show-preview-mobile');
+  let wizardStep = 1;
+  let maxStepReached = 1;
   let activeSide = 'front';
   let logoDataUrl = '';
   let logoFileName = '';
@@ -98,7 +111,9 @@
     pageCount: 0,
     processing: false,
     revision: 0,
-    loadingTask: null
+    loadingTask: null,
+    preflight: [],
+    formatLabel: ''
   };
   const customFiles = {
     front: {
@@ -125,9 +140,10 @@
 
   const fallback = (value, replacement) => value.trim() || replacement;
   const selectedText = select => select.options[select.selectedIndex].text;
-  const templateValue = () => templateInputs.find(input => input.checked)?.value || 'klar';
+  const workflowValue = () => workflowInputs.find(input => input.checked)?.value || '';
+  const templateValue = () => workflowValue() === 'upload' ? 'eigen' : templateInputs.find(input => input.checked)?.value || 'klar';
   const templateLabels = { klar: 'Klar', dunkel: 'Dunkel', akzent: 'Akzent', eigen: 'Eigene Datei' };
-  const hasUploadedAsset = () => Boolean(logoDataUrl || (templateValue() === 'eigen' && customSource.fileName));
+  const hasUploadedAsset = () => Boolean((workflowValue() === 'template' && logoDataUrl) || (workflowValue() === 'upload' && customSource.fileName));
   const PRICE_VERSION = '2026-07-13';
   const PRICE_TABLE = {
     production: { 100: 3090, 250: 3290, 500: 3590, 1000: 4090 },
@@ -184,13 +200,20 @@
     element.className = `file-status${element.classList.contains('template-file-status') ? ' template-file-status' : ''}${type ? ` ${type}` : ''}`;
   };
 
+  const setControlsDisabled = (container, disabled) => {
+    if (!container) return;
+    container.querySelectorAll('input, select, textarea, button').forEach(control => {
+      control.disabled = disabled;
+    });
+  };
+
   const updateRightsRequirement = () => {
     fields.rights.required = hasUploadedAsset();
     if (!hasUploadedAsset() || fields.rights.checked) fields.rights.setCustomValidity('');
   };
 
   const updateAttachmentReminder = () => {
-    const ownTemplate = templateValue() === 'eigen';
+    const ownTemplate = workflowValue() === 'upload';
     const files = [
       logoFileName ? `Logo: ${logoFileName}` : '',
       ownTemplate && customSource.fileName ? `Druckdatei: ${customSource.fileName}` : ''
@@ -219,34 +242,39 @@
   const updateDownloadAction = () => {
     if (templateValue() !== 'eigen') {
       downloadButton.disabled = false;
-      downloadButton.textContent = 'Aktuelle Seite herunterladen';
+      downloadButton.textContent = 'Vorschau herunterladen';
       return;
     }
     const asset = customFiles[activeSide];
     const available = asset.kind === 'image' && Boolean(asset.objectUrl);
     downloadButton.disabled = !available;
     downloadButton.textContent = available
-      ? 'Aktuelle Seite herunterladen'
+      ? 'Vorschau herunterladen'
       : activeSide === 'front' ? 'Druckdatei zuerst hochladen' : 'Keine Rückseite erkannt';
   };
 
   const updateTemplateMode = () => {
-    const ownTemplate = templateValue() === 'eigen';
-    templateUploadPanel.hidden = !ownTemplate;
-    form.classList.toggle('own-template-mode', ownTemplate);
+    const mode = workflowValue();
+    const ownTemplate = mode === 'upload';
+    form.dataset.mode = mode;
+    if (uploadWorkflow) uploadWorkflow.hidden = !ownTemplate;
+    if (templateWorkflow) templateWorkflow.hidden = mode !== 'template';
+    setControlsDisabled(uploadWorkflow, !ownTemplate);
+    setControlsDisabled(templateWorkflow, mode !== 'template');
     fields.templateFile.required = ownTemplate;
     fields.sides.disabled = ownTemplate;
-    fields.orientation.disabled = ownTemplate;
+    fields.orientation.disabled = mode !== 'template';
+    fields.safeArea.disabled = mode !== 'template';
     sidesAutoHint.hidden = !ownTemplate;
     if (ownTemplate) {
       fields.sides.value = customSource.pageCount === 2 ? 'double' : 'single';
     } else {
       fields.sides.value = standardSidesValue;
     }
-    fields.company.required = !ownTemplate;
-    fields.cardName.required = !ownTemplate;
-    fields.company.setAttribute('aria-required', String(!ownTemplate));
-    fields.cardName.setAttribute('aria-required', String(!ownTemplate));
+    fields.company.required = mode === 'template';
+    fields.cardName.required = mode === 'template';
+    fields.company.setAttribute('aria-required', String(mode === 'template'));
+    fields.cardName.setAttribute('aria-required', String(mode === 'template'));
     if (!ownTemplate || customSource.fileName) fields.templateFile.setCustomValidity('');
     const backDisabled = ownTemplate && customSource.pageCount < 2;
     const backTab = sideTabs.find(tab => tab.dataset.side === 'back');
@@ -254,7 +282,11 @@
       backTab.disabled = backDisabled;
       backTab.setAttribute('aria-disabled', String(backDisabled));
     }
-    if (backDisabled && activeSide === 'back') setSide('front');
+    if (backDisabled && activeSide === 'back') {
+      const returnFocus = document.activeElement === backTab;
+      setSide('front');
+      if (returnFocus) sideTabs.find(tab => tab.dataset.side === 'front')?.focus();
+    }
     updateCustomLayer('front');
     updateCustomLayer('back');
     updateDownloadAction();
@@ -302,14 +334,26 @@
   };
 
   const updatePrice = () => {
+    if (!workflowValue()) {
+      summary.priceBreakdown.replaceChildren();
+      summary.priceEstimate.classList.add('unavailable');
+      summary.totalPrice.textContent = 'Weg wählen';
+      wizardTotalPrice.textContent = 'Weg wählen';
+      return;
+    }
     const calculation = calculatePrice();
     summary.priceBreakdown.replaceChildren();
     summary.priceEstimate.classList.toggle('unavailable', !calculation.valid);
     if (!calculation.valid) {
       summary.totalPrice.textContent = 'Preis wird geprüft';
+      wizardTotalPrice.textContent = 'Preis wird geprüft';
       return;
     }
-    summary.totalPrice.textContent = formatPrice(calculation.total);
+    const priceText = workflowValue() === 'upload' && !customSource.pageCount
+      ? `ab ${formatPrice(calculation.total)}`
+      : formatPrice(calculation.total);
+    summary.totalPrice.textContent = priceText;
+    wizardTotalPrice.textContent = priceText;
     calculation.items.forEach(item => {
       const row = document.createElement('div');
       const label = document.createElement('span');
@@ -322,8 +366,11 @@
   };
 
   const updateSummary = () => {
-    summary.template.textContent = templateLabels[templateValue()] || templateValue();
-    summary.format.textContent = fields.orientation.value === 'portrait' ? '55 × 85 mm' : '85 × 55 mm';
+    const mode = workflowValue();
+    summary.template.textContent = mode === 'upload' ? 'Eigene Druckdatei' : mode === 'template' ? templateLabels[templateValue()] : 'Noch nicht gewählt';
+    summary.format.textContent = mode === 'upload' && customSource.formatLabel
+      ? customSource.formatLabel
+      : fields.orientation.value === 'portrait' ? '55 × 85 mm' : '85 × 55 mm';
     summary.quantity.textContent = `${fields.quantity.value} Stück`;
     summary.paper.textContent = selectedText(fields.paper);
     summary.sides.textContent = selectedText(fields.sides);
@@ -364,10 +411,15 @@
     activeSide = side === 'back' ? 'back' : 'front';
     preview.front.classList.toggle('active', activeSide === 'front');
     preview.back.classList.toggle('active', activeSide === 'back');
+    preview.front.hidden = activeSide !== 'front';
+    preview.back.hidden = activeSide !== 'back';
+    preview.front.setAttribute('aria-hidden', String(activeSide !== 'front'));
+    preview.back.setAttribute('aria-hidden', String(activeSide !== 'back'));
     sideTabs.forEach(tab => {
       const active = tab.dataset.side === activeSide;
       tab.classList.toggle('active', active);
       tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
     });
     updateDownloadAction();
   };
@@ -409,6 +461,7 @@
     customSource.processing = processing;
     fields.templateFile.setAttribute('aria-busy', String(processing));
     submitButton.disabled = processing;
+    wizardNext.disabled = processing;
   };
 
   const clearCustomTemplate = (message = 'Noch keine Druckdatei gewählt', type = '', clearInput = true) => {
@@ -418,10 +471,13 @@
     customSource.fileName = '';
     customSource.kind = '';
     customSource.pageCount = 0;
+    customSource.preflight = [];
+    customSource.formatLabel = '';
     if (clearInput) fields.templateFile.value = '';
     fields.templateFile.setCustomValidity('');
     templateDetection.hidden = true;
     templateDetectionText.textContent = '';
+    preflightList.replaceChildren();
     setFileStatus(customSource.status, message, type);
     setTemplateProcessing(false);
     if (templateValue() === 'eigen') fields.sides.value = 'single';
@@ -447,9 +503,44 @@
   };
 
   const selectOwnTemplate = () => {
-    const ownInput = templateInputs.find(input => input.value === 'eigen');
-    if (ownInput) ownInput.checked = true;
+    const uploadInput = workflowInputs.find(input => input.value === 'upload');
+    if (uploadInput) uploadInput.checked = true;
     fields.sides.value = customSource.pageCount === 2 ? 'double' : 'single';
+  };
+
+  const roundMillimeters = value => Math.round(value * 10) / 10;
+  const millimetersFromPoints = points => points * 25.4 / 72;
+  const closeTo = (value, target, tolerance = .65) => Math.abs(value - target) <= tolerance;
+
+  const classifyPrintedSize = (width, height) => {
+    const long = Math.max(width, height);
+    const short = Math.min(width, height);
+    const label = `${roundMillimeters(width).toLocaleString('de-DE')} × ${roundMillimeters(height).toLocaleString('de-DE')} mm`;
+    if (closeTo(long, 89) && closeTo(short, 59)) {
+      return { status: 'good', label, detail: 'Seitenformat enthält 2 mm Beschnitt rund um 85 × 55 mm.', bleed: true };
+    }
+    if (closeTo(long, 85) && closeTo(short, 55)) {
+      return { status: 'warn', label, detail: 'Endformat 85 × 55 mm erkannt; zusätzlicher Beschnitt fehlt.', bleed: false };
+    }
+    return { status: 'warn', label, detail: 'Format weicht vom Endformat 85 × 55 mm beziehungsweise Beschnittformat 89 × 59 mm ab.', bleed: false };
+  };
+
+  const renderPreflight = (checks, summaryText, formatLabel) => {
+    customSource.preflight = checks;
+    customSource.formatLabel = formatLabel || '';
+    preflightList.replaceChildren();
+    checks.forEach(check => {
+      const item = document.createElement('li');
+      item.className = check.status || '';
+      const text = document.createElement('span');
+      const title = document.createElement('strong');
+      title.textContent = `${check.label}: `;
+      text.append(title, check.detail);
+      item.append(text);
+      preflightList.append(item);
+    });
+    templateDetectionText.textContent = summaryText;
+    templateDetection.hidden = false;
   };
 
   const loadPdfJs = async () => {
@@ -503,15 +594,14 @@
     asset.statusNote = statusNote;
   };
 
-  const finishCustomTemplate = ({ file, kind, pageCount, orientation, status, statusType = 'good', detection }) => {
+  const finishCustomTemplate = ({ file, kind, pageCount, orientation, status, statusType = 'good', detection, checks = [], formatLabel = '' }) => {
     customSource.fileName = file.name;
     customSource.kind = kind;
     customSource.pageCount = pageCount;
     fields.orientation.value = orientation;
     fields.sides.value = pageCount === 2 ? 'double' : 'single';
     fields.templateFile.setCustomValidity('');
-    templateDetectionText.textContent = detection;
-    templateDetection.hidden = false;
+    renderPreflight(checks, detection, formatLabel);
     setFileStatus(customSource.status, status, statusType);
     setTemplateProcessing(false);
     setSide('front');
@@ -542,9 +632,12 @@
     customSource.fileName = '';
     customSource.kind = '';
     customSource.pageCount = 0;
+    customSource.preflight = [];
+    customSource.formatLabel = '';
     selectOwnTemplate();
     templateDetection.hidden = true;
     templateDetectionText.textContent = '';
+    preflightList.replaceChildren();
     fields.templateFile.setCustomValidity('Die Druckdatei wird noch geprüft.');
     setTemplateProcessing(true);
     setFileStatus(customSource.status, 'Datei wird lokal geprüft …');
@@ -564,9 +657,29 @@
           URL.revokeObjectURL(objectUrl);
           return;
         }
+        const pixelCount = testImage.naturalWidth * testImage.naturalHeight;
+        if (pixelCount > 50_000_000) throw new Error('image-too-large');
         const longEdge = Math.max(testImage.naturalWidth, testImage.naturalHeight);
         const shortEdge = Math.min(testImage.naturalWidth, testImage.naturalHeight);
-        const lowResolution = longEdge < 1000 || shortEdge < 650;
+        const imageRatio = longEdge / shortEdge;
+        const bleedRatio = 89 / 59;
+        const trimRatio = 85 / 55;
+        const usesBleedRatio = Math.abs(imageRatio - bleedRatio) <= Math.abs(imageRatio - trimRatio);
+        const targetLongMm = usesBleedRatio ? 89 : 85;
+        const targetShortMm = usesBleedRatio ? 59 : 55;
+        const effectiveDpi = Math.round(Math.min(longEdge / (targetLongMm / 25.4), shortEdge / (targetShortMm / 25.4)));
+        const ratioDifference = Math.min(Math.abs(imageRatio - bleedRatio) / bleedRatio, Math.abs(imageRatio - trimRatio) / trimRatio);
+        const ratioStatus = ratioDifference <= .025 ? 'good' : 'warn';
+        const dpiStatus = effectiveDpi >= 300 ? 'good' : 'warn';
+        const lowResolution = effectiveDpi < 300;
+        const hasRasterWarning = lowResolution || ratioStatus === 'warn';
+        const formatLabel = `${testImage.naturalWidth} × ${testImage.naturalHeight} px`;
+        const checks = [
+          { status: 'good', label: 'Seiten', detail: '1 Seite erkannt · Vorderseite · einseitiger Druck.' },
+          { status: ratioStatus, label: 'Format', detail: ratioStatus === 'good' ? `Seitenverhältnis passt zum ${usesBleedRatio ? 'Beschnittformat 89 × 59 mm' : 'Endformat 85 × 55 mm'}.` : 'Seitenverhältnis weicht vom üblichen Visitenkartenformat ab.' },
+          { status: dpiStatus, label: 'Auflösung', detail: `etwa ${effectiveDpi} dpi bei ${targetLongMm} × ${targetShortMm} mm${effectiveDpi >= 300 ? ' · passend für den Druck.' : ' · bitte persönlich prüfen lassen.'}` },
+          { status: 'info', label: 'Beschnitt', detail: usesBleedRatio ? 'Dateiverhältnis passt zum Beschnittformat; der tatsächliche Randinhalt wird persönlich geprüft.' : 'Im Endformat ist kein zusätzlicher Beschnittrand erkennbar.' }
+        ];
         setPreviewAsset('front', objectUrl, file.name, 'Vorderseite aus Ihrer Druckdatei');
         objectUrl = '';
         finishCustomTemplate({
@@ -574,13 +687,15 @@
           kind,
           pageCount: 1,
           orientation: testImage.naturalWidth >= testImage.naturalHeight ? 'landscape' : 'portrait',
-          status: lowResolution ? '1 Seite erkannt · Auflösung bitte prüfen' : '1 Seite erkannt · Vorschau bereit',
-          statusType: lowResolution ? 'warn' : 'good',
-          detection: 'Vorderseite · einseitiger Druck'
+          status: hasRasterWarning ? '1 Seite erkannt · Basisprüfung mit Hinweis' : '1 Seite erkannt · Basisprüfung abgeschlossen',
+          statusType: hasRasterWarning ? 'warn' : 'good',
+          detection: `1 Seite · ${formatLabel}`,
+          checks,
+          formatLabel
         });
-      } catch (_) {
+      } catch (error) {
         if (objectUrl) URL.revokeObjectURL(objectUrl);
-        if (isCurrentCustomFile(file, revision)) clearCustomTemplate('Bilddatei konnte nicht gelesen werden', 'warn');
+        if (isCurrentCustomFile(file, revision)) clearCustomTemplate(error?.message === 'image-too-large' ? 'Bild ist für die Browserprüfung zu groß' : 'Bilddatei konnte nicht gelesen werden', 'error');
       }
       return;
     }
@@ -627,19 +742,29 @@
       }
       setPreviewAsset('front', renderedPages[0].objectUrl, `${file.name} · Seite 1`, 'Seite 1 · Vorderseite');
       if (pageCount === 2) setPreviewAsset('back', renderedPages[1].objectUrl, `${file.name} · Seite 2`, 'Seite 2 · Rückseite');
+      const pageSizes = renderedPages.map(page => ({ width: millimetersFromPoints(page.width), height: millimetersFromPoints(page.height) }));
+      const firstSize = classifyPrintedSize(pageSizes[0].width, pageSizes[0].height);
       const sameFormat = pageCount === 1 || (
-        Math.abs((renderedPages[0].width / renderedPages[0].height) - (renderedPages[1].width / renderedPages[1].height)) < .02
-        && Math.abs(renderedPages[0].width - renderedPages[1].width) / renderedPages[0].width < .02
-        && Math.abs(renderedPages[0].height - renderedPages[1].height) / renderedPages[0].height < .02
+        Math.abs(pageSizes[0].width - pageSizes[1].width) <= .5
+        && Math.abs(pageSizes[0].height - pageSizes[1].height) <= .5
       );
+      const checks = [
+        { status: 'good', label: 'Seiten', detail: pageCount === 2 ? '2 Seiten · Seite 1 vorne, Seite 2 hinten.' : '1 Seite · Vorderseite · einseitiger Druck.' },
+        { status: firstSize.status, label: 'Format', detail: `${firstSize.label} · ${firstSize.detail}` },
+        ...(pageCount === 2 ? [{ status: sameFormat ? 'good' : 'warn', label: 'Seitengleichheit', detail: sameFormat ? 'Vorder- und Rückseite haben das gleiche Seitenformat.' : 'Vorder- und Rückseite haben unterschiedliche Abmessungen.' }] : []),
+        { status: 'info', label: 'PDF-Inhalte', detail: 'Bildauflösung, Farbraum, Schriften und Transparenzen werden persönlich geprüft.' }
+      ];
+      const hasWarning = checks.some(check => check.status === 'warn' || check.status === 'error');
       finishCustomTemplate({
         file,
         kind,
         pageCount,
         orientation: renderedPages[0].width >= renderedPages[0].height ? 'landscape' : 'portrait',
-        status: pageCount === 2 ? '2 PDF-Seiten erkannt · Vorschau bereit' : '1 PDF-Seite erkannt · Vorschau bereit',
-        statusType: sameFormat ? 'good' : 'warn',
-        detection: pageCount === 2 ? `Seite 1 vorne · Seite 2 hinten${sameFormat ? '' : ' · Formate prüfen'}` : 'Seite 1 · einseitiger Druck'
+        status: pageCount === 2 ? '2 PDF-Seiten erkannt · Basisprüfung abgeschlossen' : '1 PDF-Seite erkannt · Basisprüfung abgeschlossen',
+        statusType: hasWarning ? 'warn' : 'good',
+        detection: `${pageCount} ${pageCount === 1 ? 'Seite' : 'Seiten'} · ${firstSize.label}`,
+        checks,
+        formatLabel: firstSize.label
       });
     } catch (error) {
       if (pdfDocument) await pdfDocument.destroy().catch(() => {});
@@ -653,7 +778,7 @@
           : error?.message === 'invalid-pdf'
             ? 'Keine gültige PDF-Datei'
             : 'PDF konnte nicht gelesen oder dargestellt werden';
-      clearCustomTemplate(message, 'warn');
+      clearCustomTemplate(message, 'error');
     }
   };
 
@@ -719,16 +844,137 @@
     }
   });
 
+  const localDateValue = date => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+  fields.requestDate.min = localDateValue(new Date());
+
+  const validateRequestDate = () => {
+    fields.requestDate.setCustomValidity(fields.requestDate.value && fields.requestDate.value < fields.requestDate.min
+      ? 'Bitte wählen Sie heute oder einen späteren Wunschtermin.'
+      : '');
+  };
+
+  const setWizardStep = (requestedStep, { focus = false, scroll = false } = {}) => {
+    const target = Math.max(1, Math.min(3, requestedStep));
+    if (target > maxStepReached) return;
+    wizardStep = target;
+    wizardSteps.forEach(step => {
+      const active = Number(step.dataset.step) === target;
+      step.hidden = !active;
+      step.classList.toggle('is-active', active);
+    });
+    progressButtons.forEach(button => {
+      const stepNumber = Number(button.dataset.stepTarget);
+      const active = stepNumber === target;
+      const completed = stepNumber < target;
+      button.classList.toggle('active', active);
+      button.classList.toggle('completed', completed);
+      if (active) button.setAttribute('aria-current', 'step');
+      else button.removeAttribute('aria-current');
+      button.disabled = stepNumber > maxStepReached;
+      button.setAttribute('aria-disabled', String(stepNumber > maxStepReached));
+    });
+    wizardBack.hidden = target === 1;
+    wizardNext.hidden = target === 3;
+    submitButton.hidden = target !== 3;
+    formStatus.textContent = target === 1
+      ? 'Wählen Sie zuerst, ob Sie eine fertige Datei hochladen oder eine Vorlage gestalten möchten.'
+      : target === 2
+        ? workflowValue() === 'upload'
+          ? 'Laden Sie genau eine Druckdatei für Vorder- und Rückseite hoch.'
+          : 'Tragen Sie die Kartendaten ein und wählen Sie eine Gestaltung.'
+        : 'Prüfen Sie Druckoptionen und Kontaktangaben. Danach wird Ihre unverbindliche Anfrage vorbereitet.';
+    if (focus) {
+      const activeStep = wizardSteps.find(step => Number(step.dataset.step) === target);
+      activeStep?.querySelector('input:not(:disabled), select:not(:disabled), textarea:not(:disabled), button:not(:disabled)')?.focus({ preventScroll: true });
+    }
+    if (scroll) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const setStepFileValidity = () => {
+    const uploadMode = workflowValue() === 'upload';
+    fields.templateFile.setCustomValidity(uploadMode && customSource.processing
+      ? 'Bitte warten Sie, bis die Druckdatei vollständig geprüft wurde.'
+      : uploadMode && !customSource.fileName
+        ? 'Bitte laden Sie eine ein- oder zweiseitige Druckdatei hoch.'
+        : '');
+  };
+
+  const controlsForStep = stepNumber => {
+    const step = wizardSteps.find(candidate => Number(candidate.dataset.step) === stepNumber);
+    return step ? Array.from(step.querySelectorAll('input, select, textarea')).filter(control => !control.disabled) : [];
+  };
+
+  const validateStep = stepNumber => {
+    setStepFileValidity();
+    validateRequestDate();
+    const invalid = controlsForStep(stepNumber).find(control => !control.checkValidity());
+    if (!invalid) return true;
+    invalid.reportValidity();
+    formError.textContent = stepNumber === 1
+      ? 'Bitte wählen Sie einen der beiden Wege.'
+      : 'Bitte prüfen Sie die markierten Pflichtfelder in diesem Schritt.';
+    formError.classList.add('visible');
+    return false;
+  };
+
+  const advanceWizard = () => {
+    if (!validateStep(wizardStep)) return;
+    maxStepReached = Math.max(maxStepReached, Math.min(3, wizardStep + 1));
+    setWizardStep(wizardStep + 1, { focus: true, scroll: true });
+    formError.classList.remove('visible');
+  };
+
+  workflowInputs.forEach(input => input.addEventListener('change', () => {
+    maxStepReached = Math.max(maxStepReached, 2);
+    updateTemplateMode();
+    updatePreview();
+    formStatus.textContent = input.value === 'upload'
+      ? 'Im nächsten Schritt laden Sie genau eine Druckdatei für Vorder- und Rückseite hoch.'
+      : 'Im nächsten Schritt tragen Sie die Kartendaten ein und wählen eine Gestaltung.';
+  }));
+
+  wizardNext.addEventListener('click', advanceWizard);
+  wizardBack.addEventListener('click', () => setWizardStep(wizardStep - 1, { focus: true, scroll: true }));
+  progressButtons.forEach(button => button.addEventListener('click', () => {
+    const target = Number(button.dataset.stepTarget);
+    if (target > maxStepReached || (target > wizardStep && !validateStep(wizardStep))) return;
+    setWizardStep(target, { focus: true, scroll: true });
+  }));
+
   form.addEventListener('input', event => {
     if (![fields.logo, fields.templateFile, fields.accentHex].includes(event.target)) updatePreview();
     formError.classList.remove('visible');
   });
-  form.addEventListener('change', updatePreview);
+  form.addEventListener('change', event => {
+    if (event.target === fields.requestDate) validateRequestDate();
+    updatePreview();
+  });
   fields.sides.addEventListener('change', () => {
     if (templateValue() !== 'eigen') standardSidesValue = fields.sides.value;
   });
   templateInputs.forEach(input => input.addEventListener('change', updatePreview));
   sideTabs.forEach(tab => tab.addEventListener('click', () => setSide(tab.dataset.side)));
+  sideTabs.forEach(tab => tab.addEventListener('keydown', event => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    const enabledTabs = sideTabs.filter(candidate => !candidate.disabled);
+    const currentIndex = enabledTabs.indexOf(tab);
+    const targetIndex = event.key === 'Home'
+      ? 0
+      : event.key === 'End'
+        ? enabledTabs.length - 1
+        : event.key === 'ArrowRight'
+          ? (currentIndex + 1) % enabledTabs.length
+          : (currentIndex - 1 + enabledTabs.length) % enabledTabs.length;
+    const targetTab = enabledTabs[targetIndex];
+    setSide(targetTab.dataset.side);
+    targetTab.focus();
+  }));
 
   const fitText = (context, value, maxWidth, startSize, weight = 700) => {
     let size = startSize;
@@ -913,26 +1159,27 @@
   };
 
   downloadButton.addEventListener('click', downloadPreview);
-  byId('go-inquiry').addEventListener('click', () => byId('request-block').scrollIntoView({ behavior: 'smooth', block: 'start' }));
-
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    formError.classList.remove('visible');
-    const ownTemplate = templateValue() === 'eigen';
-    fields.templateFile.setCustomValidity(ownTemplate && customSource.processing
-      ? 'Bitte warten Sie, bis die Druckdatei vollständig geprüft wurde.'
-      : ownTemplate && !customSource.fileName
-        ? 'Bitte laden Sie eine ein- oder zweiseitige Druckdatei hoch.'
-        : '');
-    fields.rights.setCustomValidity(hasUploadedAsset() && !fields.rights.checked ? 'Bitte bestätigen Sie die Nutzungsrechte an Logo und Vorlagendateien.' : '');
-    if (!form.reportValidity()) {
-      formError.textContent = 'Bitte prüfen Sie die markierten Pflichtfelder und Bestätigungen.';
-      formError.classList.add('visible');
+  previewJump.addEventListener('click', () => byId('card-preview').scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  byId('go-inquiry').addEventListener('click', () => {
+    if (!workflowValue()) {
+      setWizardStep(1, { focus: true, scroll: true });
+      formStatus.textContent = 'Wählen Sie zuerst Ihren Weg zur Visitenkarte.';
       return;
     }
+    setStepFileValidity();
+    const stepTwoReady = controlsForStep(2).every(control => control.checkValidity());
+    maxStepReached = Math.max(maxStepReached, stepTwoReady ? 3 : 2);
+    setWizardStep(stepTwoReady ? 3 : 2, { focus: true, scroll: true });
+    if (!stepTwoReady) formStatus.textContent = 'Bitte vervollständigen Sie zunächst die Gestaltung beziehungsweise Druckdatei.';
+  });
 
-    const company = fallback(fields.company.value, 'ohne Firmenangabe');
-    const filesToAttach = [logoFileName, ownTemplate ? customSource.fileName : ''].filter(Boolean);
+  const buildInquiry = () => {
+    const ownTemplate = workflowValue() === 'upload';
+    const company = fallback(fields.company.value, ownTemplate ? 'in Druckdatei enthalten' : 'ohne Firmenangabe');
+    const filesToAttach = [
+      !ownTemplate && logoFileName ? logoFileName : '',
+      ownTemplate ? customSource.fileName : ''
+    ].filter(Boolean);
     const priceCalculation = calculatePrice();
     const priceMailLines = priceCalculation.valid
       ? [
@@ -943,21 +1190,25 @@
           ''
         ]
       : ['', 'Voraussichtlicher Gesamtpreis: wird nach Prüfung ermittelt', ''];
+    const preflightLines = ownTemplate && customSource.preflight.length
+      ? ['', 'Lokale Basisprüfung:', ...customSource.preflight.map(check => `  - ${check.label}: ${check.detail}`)]
+      : [];
     const lines = [
       'Guten Tag,',
       '',
       'ich möchte die folgende Visitenkarten-Konfiguration unverbindlich prüfen und anbieten lassen:',
       '',
+      `Weg: ${ownTemplate ? 'fertige Druckdatei' : 'Gestaltung mit Vorlage'}`,
       `Firma: ${company}`,
-      `Name auf der Karte: ${fields.cardName.value || (ownTemplate ? 'bereits in eigener Vorlage enthalten' : '—')}`,
+      `Name auf der Karte: ${fields.cardName.value || (ownTemplate ? 'in eigener Druckdatei enthalten' : '—')}`,
       `Position: ${fields.role.value || '—'}`,
       `Telefon auf der Karte: ${fields.phone.value || '—'}`,
       `E-Mail auf der Karte: ${fields.cardEmail.value || '—'}`,
       `Website: ${fields.website.value || '—'}`,
       `Adresse: ${fields.address.value || '—'}`,
-      `Vorlage: ${templateLabels[templateValue()] || templateValue()}`,
-      `Format: ${fields.orientation.value === 'portrait' ? '55 × 85 mm (hoch)' : '85 × 55 mm (quer)'}`,
-      `Akzentfarbe: ${normalizeHex(fields.accentHex.value) || fields.accentColor.value}`,
+      `Vorlage: ${ownTemplate ? 'eigene Druckdatei' : templateLabels[templateValue()] || templateValue()}`,
+      `Format: ${ownTemplate && customSource.formatLabel ? customSource.formatLabel : fields.orientation.value === 'portrait' ? '55 × 85 mm (hoch)' : '85 × 55 mm (quer)'}`,
+      ...(!ownTemplate ? [`Akzentfarbe: ${normalizeHex(fields.accentHex.value) || fields.accentColor.value}`] : []),
       `Auflage: ${fields.quantity.value} Stück`,
       `Papier: ${selectedText(fields.paper)}`,
       `Seiten: ${selectedText(fields.sides)}`,
@@ -966,11 +1217,12 @@
       `Übergabe: ${selectedText(fields.delivery)}`,
       `Wunschtermin: ${fields.requestDate.value || 'offen'}`,
       ...priceMailLines,
-      `Logo gewählt: ${logoFileName ? `Ja (${logoFileName})` : 'Nein'}`,
+      ...preflightLines,
+      `Logo gewählt: ${!ownTemplate && logoFileName ? `Ja (${logoFileName})` : 'Nein'}`,
       `Eigene Druckdatei: ${ownTemplate ? customSource.fileName || 'fehlt' : 'nicht ausgewählt'}`,
       `Erkannte Seiten: ${ownTemplate ? customSource.pageCount || 'nicht erkannt' : 'nicht zutreffend'}`,
       `Zuordnung: ${ownTemplate ? (customSource.pageCount === 2 ? 'Seite 1 = Vorderseite · Seite 2 = Rückseite' : 'Seite 1 = Vorderseite · einseitig') : 'nicht zutreffend'}`,
-      ...(filesToAttach.length ? [`WICHTIG – bitte diese Dateien an die E-Mail anhängen: ${filesToAttach.join(', ')}`] : []),
+      ...(filesToAttach.length ? [`WICHTIG – diese Originaldateien gehören zur Anfrage: ${filesToAttach.join(', ')}`] : []),
       `Kontakt-E-Mail: ${fields.contactEmail.value}`,
       `Anmerkungen: ${fields.notes.value || '—'}`,
       '',
@@ -978,14 +1230,151 @@
       '',
       'Freundliche Grüße'
     ];
-    const subject = `Visitenkarten-Anfrage · ${company}`;
-    const mailto = `mailto:info@auto-lackierzentrum.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+    return {
+      ownTemplate,
+      company,
+      filesToAttach,
+      priceCalculation,
+      subject: `Visitenkarten-Anfrage · ${company}`,
+      text: lines.join('\n'),
+      config: {
+        mode: workflowValue(),
+        template: templateValue(),
+        company,
+        cardName: fields.cardName.value,
+        role: fields.role.value,
+        phone: fields.phone.value,
+        cardEmail: fields.cardEmail.value,
+        website: fields.website.value,
+        address: fields.address.value,
+        format: ownTemplate && customSource.formatLabel ? customSource.formatLabel : selectedText(fields.orientation),
+        quantity: fields.quantity.value,
+        paper: fields.paper.value,
+        sides: fields.sides.value,
+        finish: fields.finish.value,
+        corners: fields.corners.value,
+        delivery: fields.delivery.value,
+        requestDate: fields.requestDate.value,
+        contactEmail: fields.contactEmail.value,
+        notes: fields.notes.value,
+        preflight: customSource.preflight,
+        estimatedPriceCents: priceCalculation.valid ? priceCalculation.total : null,
+        priceVersion: PRICE_VERSION
+      }
+    };
+  };
+
+  const copyInquiryText = async () => {
+    const inquiry = buildInquiry();
+    try {
+      await navigator.clipboard.writeText(inquiry.text);
+      formStatus.textContent = 'Der vollständige Anfragetext wurde kopiert.';
+    } catch (_) {
+      const helper = document.createElement('textarea');
+      helper.value = inquiry.text;
+      helper.setAttribute('readonly', '');
+      helper.style.position = 'fixed';
+      helper.style.opacity = '0';
+      document.body.append(helper);
+      helper.select();
+      const copied = document.execCommand('copy');
+      helper.remove();
+      formStatus.textContent = copied ? 'Der vollständige Anfragetext wurde kopiert.' : 'Der Anfragetext konnte nicht automatisch kopiert werden.';
+    }
+  };
+  copyInquiryButton.addEventListener('click', copyInquiryText);
+
+  const submitToConfiguredEndpoint = async inquiry => {
+    const endpoint = form.dataset.submitEndpoint?.trim();
+    if (!endpoint) return null;
+    const body = new FormData();
+    body.append('configuration', JSON.stringify(inquiry.config));
+    const logoFile = workflowValue() === 'template' ? fields.logo.files?.[0] : null;
+    const templateFile = workflowValue() === 'upload' ? fields.templateFile.files?.[0] : null;
+    if (logoFile) body.append('logo', logoFile, logoFile.name);
+    if (templateFile) body.append('printFile', templateFile, templateFile.name);
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'X-Requested-With': 'TOMORROWWORKS-Configurator' },
+      body
+    });
+    if (!response.ok) throw new Error(`submission-failed-${response.status}`);
+    return response.json();
+  };
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    formError.classList.remove('visible');
+    setStepFileValidity();
+    validateRequestDate();
+    fields.rights.setCustomValidity(hasUploadedAsset() && !fields.rights.checked ? 'Bitte bestätigen Sie die Nutzungsrechte an Logo und Vorlagendateien.' : '');
+    const invalidEntry = [1, 2, 3].map(stepNumber => ({
+      stepNumber,
+      control: controlsForStep(stepNumber).find(control => !control.checkValidity())
+    })).find(entry => entry.control);
+    if (invalidEntry) {
+      maxStepReached = Math.max(maxStepReached, invalidEntry.stepNumber);
+      setWizardStep(invalidEntry.stepNumber, { scroll: true });
+      requestAnimationFrame(() => invalidEntry.control.reportValidity());
+      formError.textContent = 'Bitte prüfen Sie die markierten Pflichtfelder und Bestätigungen.';
+      formError.classList.add('visible');
+      return;
+    }
+
+    const inquiry = buildInquiry();
     submitButton.disabled = true;
-    formStatus.textContent = filesToAttach.length
-      ? `Ihr E-Mail-Programm wird geöffnet. Bitte dort noch anhängen: ${filesToAttach.join(', ')}.`
-      : 'Ihr E-Mail-Programm wird mit der ausgefüllten Anfrage geöffnet.';
-    window.location.href = mailto;
-    setTimeout(() => { submitButton.disabled = false; }, 1200);
+    formStatus.textContent = 'Die Anfrage wird vorbereitet …';
+    try {
+      const onlineResult = await submitToConfiguredEndpoint(inquiry);
+      if (onlineResult) {
+        const reference = onlineResult.reference || onlineResult.id || '';
+        formStatus.textContent = reference
+          ? `Anfrage ${reference} wurde sicher übertragen. Eine Bestätigung folgt per E-Mail.`
+          : 'Die Anfrage wurde sicher übertragen. Eine Bestätigung folgt per E-Mail.';
+        return;
+      }
+
+      const shareFiles = [
+        workflowValue() === 'template' ? fields.logo.files?.[0] : null,
+        workflowValue() === 'upload' ? fields.templateFile.files?.[0] : null
+      ].filter(Boolean);
+      let canShareFiles = false;
+      if (form.dataset.forceMail !== 'true'
+        && shareFiles.length > 0
+        && typeof navigator.share === 'function'
+        && typeof navigator.canShare === 'function') {
+        try {
+          canShareFiles = navigator.canShare({ files: shareFiles });
+        } catch (_) {
+          canShareFiles = false;
+        }
+      }
+      if (canShareFiles) {
+        try {
+          await navigator.share({ title: inquiry.subject, text: inquiry.text, files: shareFiles });
+          formStatus.textContent = 'Die Anfrage wurde an die gewählte App übergeben. Bitte Empfänger und Versand dort noch prüfen.';
+          return;
+        } catch (error) {
+          if (error?.name === 'AbortError') {
+            form.dataset.forceMail = 'true';
+            formStatus.textContent = 'Teilen wurde abgebrochen. Beim nächsten Klick wird stattdessen ein E-Mail-Entwurf geöffnet.';
+            return;
+          }
+        }
+      }
+
+      const mailto = `mailto:info@auto-lackierzentrum.de?subject=${encodeURIComponent(inquiry.subject)}&body=${encodeURIComponent(inquiry.text)}`;
+      formStatus.textContent = inquiry.filesToAttach.length
+        ? `Ihr E-Mail-Entwurf wird geöffnet. Bitte dort noch anhängen: ${inquiry.filesToAttach.join(', ')}.`
+        : 'Ihr E-Mail-Programm wird mit der ausgefüllten Anfrage geöffnet.';
+      window.location.href = mailto;
+    } catch (_) {
+      formError.textContent = 'Die direkte Übertragung ist momentan nicht erreichbar. Ihre Eingaben und Dateien bleiben erhalten; bitte versuchen Sie es erneut.';
+      formError.classList.add('visible');
+      formStatus.textContent = 'Es wurden keine Daten verworfen.';
+    } finally {
+      setTimeout(() => { submitButton.disabled = false; }, 1200);
+    }
   });
 
   window.addEventListener('beforeunload', () => {
@@ -1019,6 +1408,8 @@
   }
 
   clearLogo();
+  updateTemplateMode();
   updatePreview();
   setSide('front');
+  setWizardStep(1);
 })();
