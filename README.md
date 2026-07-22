@@ -1,27 +1,38 @@
-# TOMORROWWORKS · AI Solutions — Website
+# TOMORROWWORKS · Digital Studio — Website
 
-Statische Website für TOMORROWWORKS („Wir bauen intelligente Unternehmen") — ein Angebot der Gärtner GmbH Karosserie + Lack, Mosbach.
+Statische Website für TOMORROWWORKS — Websites, individuelle Web-Apps, KI-Einstieg und ergänzende Printleistungen für Unternehmen. TOMORROWWORKS ist das Digital Studio der Gärtner GmbH Karosserie + Lack in Mosbach.
 
 ## Aufbau
 
 | Datei/Ordner | Inhalt |
 |---|---|
-| `index.html` | Startseite (One-Pager: Bühne, Branchen, Projekte, Leistungen, Über uns, Zukunfts-Zeitpfad, Erstberatung) |
+| `index.html` | Startseite mit Leistungen, Praxisbelegen, Team, FAQ und Projektanfrage |
+| `websites.html`, `apps.html`, `ki-einstieg.html` | Leistungsseiten |
+| `projekte.html` | Projekt- und Referenzübersicht |
+| `preise.html` | Budgetorientierung und Angebotsablauf |
+| `visitenkarten.html` | Lokaler Visitenkarten-Konfigurator mit Preisvorschau |
 | `impressum.html` | Impressum |
 | `datenschutz.html` | Datenschutzerklärung |
-| `bilder/` | Alle Bilder (lizenzfreie Unsplash-Fotos, lokal eingebunden) |
+| `bilder/` | Bilder und optimierte Projektansichten |
 
 ## Eigenschaften
 
-- Reines HTML/CSS/JS in je einer Datei — **kein Build-Schritt, keine externen Abhängigkeiten** (keine CDNs, keine Webfonts, kein Tracking, keine Cookies).
+- Reines HTML/CSS/JS — **kein Build-Schritt und kein Tracking**.
 - Läuft offline: `index.html` doppelklicken oder beliebigen statischen Server auf den Ordner zeigen.
 - Responsiv (Mobil bis Desktop), `prefers-reduced-motion` wird respektiert.
-- `?shot=1` an die URL anhängen = Capture-Modus für Ganzseiten-Screenshots (fixiert die Bühnenhöhe).
+
+## Kontaktformular
+
+Die Projektanfrage auf der Startseite arbeitet im lokalen/GitHub-Pages-Stand bewusst ohne stillen Versand. Ohne konfigurierten Endpunkt bereitet sie eine strukturierte Anfrage für E-Mail oder WhatsApp vor und sagt ausdrücklich, dass noch nichts versendet wurde.
+
+Für einen optionalen serverseitigen Versand in `index.html` am Formularattribut `data-endpoint` einen HTTPS-Endpunkt eintragen. Der Endpunkt muss JSON-POSTs annehmen und mit einem erfolgreichen HTTP-Status antworten. Vor Aktivierung Datenschutzerklärung, Auftragsverarbeitung, Spam-Schutz und Ziel-Mailbox prüfen.
+
+Die eingerichtete Markenadresse für Website-Anfragen ist `info@tomorrowworks-agentur.de`.
 
 ## Deployment
 
-Beliebiges statisches Hosting: Ordnerinhalt 1:1 hochladen (z. B. IONOS/Webjoker `/public`, GitHub Pages, Render Static Site).
+Die Website wird über GitHub Pages unter `https://www.tomorrowworks-agentur.de` veröffentlicht. Der Ordnerinhalt wird ohne Build-Schritt bereitgestellt.
 
 ## Status
 
-Entwurf — vor Veröffentlichung: finale Namens-/Domain-Freigabe, juristische Prüfung von Impressum/Datenschutz.
+Domain und Marken-Mailbox sind eingerichtet. Das Kontaktformular nutzt transparent E-Mail oder WhatsApp; ein direkter Serverversand ist derzeit nicht aktiviert. Impressum und Datenschutz sollten bei inhaltlichen oder technischen Änderungen erneut juristisch geprüft werden.

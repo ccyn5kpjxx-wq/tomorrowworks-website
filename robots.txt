@@ -2,6 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /tomorrowworks-website/Archiv_v1_hell_verworfen.html
 
-Sitemap: https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/sitemap.xml
+Sitemap: https://www.tomorrowworks-agentur.de/sitemap.xml
 
 # Bei einer eigenen Domain müssen Sitemap-URL und projektbezogene Pfade angepasst werden.

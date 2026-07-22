@@ -8,14 +8,14 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Visitenkarten gestalten — TOMORROWWORKS">
 <meta property="og:description" content="Druckdatei hochladen, Vorlage gestalten oder den kompletten Service nutzen.">
-<meta property="og:url" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/visitenkarten.html">
-<meta property="og:image" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/bilder/og_vorschau.jpg">
+<meta property="og:url" content="https://www.tomorrowworks-agentur.de/visitenkarten.html">
+<meta property="og:image" content="https://www.tomorrowworks-agentur.de/bilder/og_vorschau.jpg">
 <meta property="og:locale" content="de_DE">
 <meta name="theme-color" content="#f3f1eb">
-<link rel="canonical" href="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/visitenkarten.html">
+<link rel="canonical" href="https://www.tomorrowworks-agentur.de/visitenkarten.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="unterseite.css">
-<link rel="stylesheet" href="visitenkarten.css?v=14">
+<link rel="stylesheet" href="visitenkarten.css?v=15">
 <script>document.documentElement.classList.add('js');</script>
 <script type="application/ld+json">
 {
@@ -25,7 +25,7 @@
   "provider":{"@type":"Organization","name":"TOMORROWWORKS · Digital Studio"},
   "areaServed":"Deutschland",
   "serviceType":"Visitenkartendesign, Druckdaten und Produktion",
-  "url":"https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/visitenkarten.html"
+  "url":"https://www.tomorrowworks-agentur.de/visitenkarten.html"
 }
 </script>
 </head>
@@ -43,7 +43,7 @@
       <a href="websites.html">Websites</a>
       <a href="apps.html">Apps</a>
       <a href="ki-einstieg.html">KI-Einstieg</a>
-      <a href="visitenkarten.html" aria-current="page">Visitenkarten</a>
+      <a href="projekte.html">Projekte</a>
       <a href="preise.html">Preise</a>
     </nav>
     <a class="nav-cta" href="#komplettservice">Komplettservice <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -107,7 +107,7 @@
                   <span class="mode-icon" aria-hidden="true">↑</span>
                   <span class="mode-badge">Schnellster Weg</span>
                   <strong>Fertige Druckdatei hochladen</strong>
-                  <small>Eine PDF oder ein Bild. Vorder- und Rückseite werden automatisch erkannt.</small>
+                  <small>Zweiseitige PDF oder einseitige Bilddatei. PDF-Seiten werden automatisch zugeordnet.</small>
                 </span>
               </label>
               <label class="mode-option">
@@ -131,7 +131,7 @@
             <div class="upload-only" id="upload-workflow" hidden>
               <div class="upload-intro">
                 <div><span class="section-number">A</span><h4>Eine Druckdatei genügt</h4></div>
-                <p>Bei einer zweiseitigen PDF wird Seite 1 vorne und Seite 2 hinten angezeigt.</p>
+                <p>Bei einer zweiseitigen PDF wird Seite 1 vorne und Seite 2 hinten angezeigt. Eine einzelne Bilddatei gilt als einseitige Vorderseite.</p>
               </div>
               <div class="template-upload-panel" id="template-upload-panel">
                 <label class="upload-dropzone" for="template-file-upload">
@@ -148,7 +148,13 @@
                   <p>Farbraum, Schriften, Transparenzen und der tatsächliche Beschnittinhalt werden vor der Produktion persönlich geprüft.</p>
                 </div>
 
-                <p class="template-upload-note" id="template-upload-note"><strong>Eine Datei für alles:</strong> Eine Seite wird einseitig angelegt. Bei zwei PDF-Seiten wird Seite 2 automatisch zur Rückseite. PDFs mit mehr als zwei Seiten werden nicht übernommen.</p>
+                <div class="print-specs" aria-label="Anforderungen an Ihre Druckdatei">
+                  <div><strong>Zweiseitige Karte</strong><span>Eine PDF mit genau zwei Seiten: Seite 1 vorne, Seite 2 hinten.</span></div>
+                  <div><strong>Bilddatei</strong><span>PNG, JPG oder WebP wird als einseitige Vorderseite übernommen.</span></div>
+                  <div><strong>Beschnitt</strong><span>Ideal: 89 × 59 mm inklusive 2 mm Beschnitt rund um das Endformat 85 × 55 mm.</span></div>
+                  <div><strong>Sicherheitsabstand</strong><span>Texte und Logos mindestens 4 mm innerhalb der späteren Schnittkante platzieren.</span></div>
+                </div>
+                <p class="template-upload-note" id="template-upload-note"><strong>Eine Datei für alles:</strong> Eine PDF-Seite wird einseitig angelegt. Bei zwei PDF-Seiten wird Seite 2 automatisch zur Rückseite. PDFs mit mehr als zwei Seiten werden nicht übernommen.</p>
                 <p class="local-note">Die Datei bleibt zunächst nur in Ihrem Browser. Beim Abschluss können Sie die Anfrage samt Originaldatei auf unterstützten Geräten direkt teilen.</p>
               </div>
             </div>
@@ -181,7 +187,7 @@
                 <div class="field"><label for="orientation">Ausrichtung</label><select id="orientation" name="orientation"><option value="landscape">Querformat · 85 × 55 mm</option><option value="portrait">Hochformat · 55 × 85 mm</option></select></div>
                 <div class="field"><label for="accent-hex">Akzentfarbe</label><div class="color-control"><input id="accent-color" type="color" value="#ff641a" aria-label="Akzentfarbe auswählen"><input id="accent-hex" type="text" value="#ff641a" maxlength="7" inputmode="text" aria-label="Akzentfarbe als Hex-Wert"></div></div>
               </div>
-              <label class="check-line"><input id="safe-area" type="checkbox">Drucksicheren Innenbereich in der Vorschau anzeigen</label>
+              <label class="check-line"><input id="safe-area" type="checkbox">Sicherheitsbereich anzeigen – Texte und Logos innerhalb der Markierung halten</label>
             </div>
           </section>
 
@@ -191,6 +197,10 @@
               <h3 id="step-3-title">Druck und Anfrage</h3>
               <p>Wählen Sie die Produktion und geben Sie eine Kontaktadresse für Rückfragen und den Korrekturabzug an.</p>
             </div>
+            <div class="production-window" aria-live="polite">
+              <span aria-hidden="true">↗</span>
+              <div><strong id="production-window-text">Zeitplanung wird anhand Ihrer Auswahl berechnet.</strong><p id="production-window-note">Produktion beginnt erst nach Ihrer schriftlichen Druckfreigabe.</p></div>
+            </div>
             <div class="field-grid">
               <div class="field"><label for="quantity">Auflage</label><select id="quantity" name="quantity"><option value="100">100 Stück</option><option value="250" selected>250 Stück</option><option value="500">500 Stück</option><option value="1000">1.000 Stück</option></select></div>
               <div class="field"><label for="paper">Papier</label><select id="paper" name="paper"><option value="matte" selected>350 g/m² matt</option><option value="recycling">Recyclingpapier</option><option value="premium">Premiumkarton</option></select></div>
@@ -198,7 +208,7 @@
               <div class="field"><label for="finish">Veredelung</label><select id="finish" name="finish"><option value="none" selected>keine</option><option value="matte-lamination">matte Folierung</option><option value="soft-touch">Soft-Touch</option></select></div>
               <div class="field"><label for="corners">Ecken</label><select id="corners" name="corners"><option value="classic" selected>klassisch</option><option value="rounded">abgerundet</option></select></div>
               <div class="field"><label for="delivery">Übergabe</label><select id="delivery" name="delivery"><option value="shipping" selected>Versand</option><option value="pickup">Abholung in Mosbach</option></select></div>
-              <div class="field"><label for="request-date">Wunschtermin</label><input id="request-date" name="request-date" type="date"><span class="field-hint" id="delivery-estimate">Der Termin wird nach Prüfung und Druckfreigabe bestätigt.</span></div>
+              <div class="field"><label for="request-date">Gewünschter Erhaltstermin</label><input id="request-date" name="request-date" type="date"><span class="field-hint" id="delivery-estimate">Der frühestmögliche Termin wird anhand Ihrer Auswahl berechnet.</span></div>
               <div class="field"><label for="contact-email">Kontakt-E-Mail <span>*</span></label><input id="contact-email" name="contact-email" type="email" placeholder="ihre@email.de" maxlength="80" autocomplete="email" required></div>
               <div class="field full"><label for="notes">Anmerkungen</label><textarea id="notes" name="notes" maxlength="800" placeholder="Zum Beispiel besondere Farbwünsche oder weitere Mitarbeitende"></textarea></div>
             </div>
@@ -217,8 +227,9 @@
 
             <div class="handoff-note">
               <span aria-hidden="true">i</span>
-              <p><strong>Noch keine Bestellung:</strong> Wir prüfen Ihre Angaben persönlich und senden Ihnen anschließend Angebot und Korrekturabzug.</p>
+              <p><strong>Noch keine Bestellung und kein automatischer Versand:</strong> Diese statische Website speichert Ihre Anfrage nicht. Beim nächsten Klick wird – je nach Gerät – das Teilen-Menü oder ein E-Mail-Entwurf geöffnet. Erst wenn Sie dort selbst senden, erhalten wir Ihre Angaben und Dateien.</p>
             </div>
+            <p class="manual-handoff">Falls sich kein E-Mail-Programm öffnet: Anfragetext kopieren und zusammen mit den Originaldateien an <a href="mailto:info@tomorrowworks-agentur.de">info@tomorrowworks-agentur.de</a> senden.</p>
             <button class="text-action" id="copy-inquiry" type="button">Anfragetext kopieren</button>
           </section>
 
@@ -228,9 +239,9 @@
           <div class="wizard-actions">
             <button class="button secondary wizard-back" id="wizard-back" type="button" hidden>Zurück</button>
             <div class="wizard-price"><span>Voraussichtlicher Preis</span><strong id="wizard-total-price">Weg wählen</strong></div>
-            <button class="text-action preview-jump" id="show-preview-mobile" type="button">Vorschau</button>
+            <button class="text-action preview-jump" id="show-preview-mobile" type="button">Vorschau öffnen</button>
             <button class="button primary wizard-next" id="wizard-next" type="button">Weiter <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <button class="button primary editor-submit" id="submit-inquiry" type="submit" hidden>Anfrage abschließen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <button class="button primary editor-submit" id="submit-inquiry" type="submit" hidden>Anfrage vorbereiten <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           </div>
         </form>
 
@@ -246,14 +257,14 @@
             <div class="preview-stage">
               <div class="business-card template-klar" id="business-card">
                 <div class="card-face active" id="card-front" role="tabpanel" aria-labelledby="front-tab" aria-hidden="false" tabindex="0">
-                  <div class="preview-logo"><span class="preview-logo-mark" id="preview-logo-mark"><img id="preview-logo-image" alt=""><span id="preview-initials">MG</span></span><span id="preview-company-front">Musterwerk GmbH</span></div>
-                  <div class="card-person"><strong id="preview-name">Anna Beispiel</strong><span id="preview-role">Geschäftsführung</span></div>
+                  <div class="preview-logo"><span class="preview-logo-mark" id="preview-logo-mark"><img id="preview-logo-image" alt=""><span id="preview-initials">TW</span></span><span class="preview-placeholder" id="preview-company-front">Unternehmen</span></div>
+                  <div class="card-person"><strong class="preview-placeholder" id="preview-name">Ihr Name</strong><span id="preview-role" hidden></span></div>
                   <i class="card-accent-line"></i>
                   <div class="custom-template-layer" id="custom-template-front" aria-hidden="true"><img id="custom-template-front-image" alt=""><div class="custom-template-placeholder"><span>Vorderseite</span><strong id="custom-template-front-title">Eigene Vorlage hochladen</strong><small id="custom-template-front-note">PNG, JPG, WebP oder PDF</small></div></div>
                 </div>
                 <div class="card-face" id="card-back" role="tabpanel" aria-labelledby="back-tab" aria-hidden="true" tabindex="0" hidden>
-                  <strong class="card-back-company" id="preview-company-back">Musterwerk GmbH</strong>
-                  <div class="card-contact-list"><span><i></i><b id="preview-phone">+49 6261 000000</b></span><span><i></i><b id="preview-email">hallo@musterwerk.de</b></span><span><i></i><b id="preview-website">www.musterwerk.de</b></span><span><i></i><b id="preview-address">Musterstraße 1 · 74821 Mosbach</b></span></div>
+                  <strong class="card-back-company preview-placeholder" id="preview-company-back">Unternehmen</strong>
+                  <div class="card-contact-list"><span hidden><i></i><b id="preview-phone"></b></span><span hidden><i></i><b id="preview-email"></b></span><span hidden><i></i><b id="preview-website"></b></span><span hidden><i></i><b id="preview-address"></b></span><em id="preview-contact-empty">Optionale Kontaktdaten erscheinen hier</em></div>
                   <i class="card-accent-line"></i>
                   <div class="custom-template-layer" id="custom-template-back" aria-hidden="true"><img id="custom-template-back-image" alt=""><div class="custom-template-placeholder"><span>Rückseite</span><strong id="custom-template-back-title">Eigene Rückseite hochladen</strong><small id="custom-template-back-note">Wird aus PDF-Seite 2 erkannt</small></div></div>
                 </div>
@@ -265,7 +276,7 @@
           </div>
           <div class="order-summary">
             <b>Ihre aktuelle Auswahl</b>
-            <div class="summary-grid"><span>Weg</span><span id="summary-template">Noch nicht gewählt</span><span>Format</span><span id="summary-format">85 × 55 mm</span><span>Auflage</span><span id="summary-quantity">250 Stück</span><span>Papier</span><span id="summary-paper">350 g/m² matt</span><span>Seiten</span><span id="summary-sides">beidseitig</span><span>Veredelung</span><span id="summary-finish">keine</span><span>Ecken</span><span id="summary-corners">klassisch</span><span>Übergabe</span><span id="summary-delivery">Versand</span></div>
+            <div class="summary-grid"><span>Weg</span><span id="summary-template">Noch nicht gewählt</span><span>Format</span><span id="summary-format">85 × 55 mm</span><span>Auflage</span><span id="summary-quantity">250 Stück</span><span>Papier</span><span id="summary-paper">350 g/m² matt</span><span>Seiten</span><span id="summary-sides">beidseitig</span><span>Veredelung</span><span id="summary-finish">keine</span><span>Ecken</span><span id="summary-corners">klassisch</span><span>Übergabe</span><span id="summary-delivery">Versand</span><span>Zeitplanung</span><span id="summary-production">nach Auswahl</span></div>
             <div class="price-estimate" id="price-estimate" aria-live="polite">
               <div class="price-total"><span>Voraussichtlicher Gesamtpreis<small>inkl. 19 % MwSt.</small></span><strong id="summary-total-price">Weg wählen</strong></div>
               <div class="price-breakdown" id="price-breakdown" aria-label="Preisaufschlüsselung"></div>
@@ -285,7 +296,7 @@
           <h2>Sie geben uns die Aufgabe. Wir kümmern uns um den Rest.</h2>
           <p>Sie senden uns Logo, Kontaktdaten und eine kurze Stilrichtung. Wir entwickeln den Entwurf, stimmen Korrekturen mit Ihnen ab, erstellen die Druckdaten und organisieren die Herstellung.</p>
           <div class="service-price"><span>Individuelle Gestaltung</span><strong>ab 119,00&nbsp;€</strong><small>inkl. 19 % MwSt. · zuzüglich Produktion</small></div>
-          <a class="button primary" href="mailto:info@auto-lackierzentrum.de?subject=Visitenkarten%20Komplettservice&amp;body=Guten%20Tag%2C%0A%0Aich%20m%C3%B6chte%20Gestaltung%20und%20Produktion%20meiner%20Visitenkarten%20komplett%20anfragen.%0A%0AFirma%3A%0AAnsprechpartner%3A%0ASt%C3%BCckzahl%3A%0AGew%C3%BCnschter%20Stil%3A%0AWunschtermin%3A%0A%0AFreundliche%20Gr%C3%BC%C3%9Fe">Gestaltung &amp; Druck anfragen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="button primary" href="mailto:info@tomorrowworks-agentur.de?subject=Visitenkarten%20Komplettservice&amp;body=Guten%20Tag%2C%0A%0Aich%20m%C3%B6chte%20Gestaltung%20und%20Produktion%20meiner%20Visitenkarten%20komplett%20anfragen.%0A%0AFirma%3A%0AAnsprechpartner%3A%0ASt%C3%BCckzahl%3A%0AGew%C3%BCnschter%20Stil%3A%0AWunschtermin%3A%0A%0AFreundliche%20Gr%C3%BC%C3%9Fe">Gestaltung &amp; Druck anfragen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <small>Unverbindlich · Angebot vor Auftrag · Produktion erst nach Druckfreigabe</small>
         </div>
         <div class="service-process" aria-label="Ablauf des Komplettservices">
@@ -302,10 +313,10 @@
 <footer>
   <div class="wrap footer-inner">
     <div><p class="footer-brand">tomorrowworks. · Digital Studio</p><p>© 2026 TOMORROWWORKS — ein Angebot der Gärtner GmbH Karosserie + Lack</p></div>
-    <nav class="footer-links" aria-label="Navigation im Seitenfuß"><a href="websites.html">Websites</a><a href="apps.html">Apps</a><a href="ki-einstieg.html">KI-Einstieg</a><a href="visitenkarten.html">Visitenkarten</a><a href="preise.html">Preise</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+    <nav class="footer-links" aria-label="Navigation im Seitenfuß"><a href="websites.html">Websites</a><a href="apps.html">Apps</a><a href="ki-einstieg.html">KI-Einstieg</a><a href="projekte.html">Projekte</a><a href="preise.html">Preise</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   </div>
 </footer>
 
-<script src="visitenkarten.js?v=14" defer></script>
+<script src="visitenkarten.js?v=15" defer></script>
 </body>
 </html>

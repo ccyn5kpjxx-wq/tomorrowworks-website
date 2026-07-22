@@ -8,24 +8,25 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="TOMORROWWORKS — Websites, Apps &amp; KI für Unternehmen">
 <meta property="og:description" content="Websites, Apps und ein verständlicher KI-Einstieg für Mittelstand, Handwerk und Dienstleister — persönlich entwickelt in Mosbach.">
-<meta property="og:url" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/">
-<meta property="og:image" content="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/bilder/og_vorschau.jpg">
+<meta property="og:url" content="https://www.tomorrowworks-agentur.de/">
+<meta property="og:image" content="https://www.tomorrowworks-agentur.de/bilder/og_vorschau.jpg">
 <meta property="og:locale" content="de_DE">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f3f1eb">
-<link rel="canonical" href="https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/">
+<link rel="canonical" href="https://www.tomorrowworks-agentur.de/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kontakt.css?v=1">
 <script>document.documentElement.classList.add('js');</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "TOMORROWWORKS · Digital Studio",
-  "url": "https://ccyn5kpjxx-wq.github.io/tomorrowworks-website/",
+  "url": "https://www.tomorrowworks-agentur.de/",
   "description": "Digitalstudio für Firmenwebsites, individuelle Unternehmens-Apps und den praxisnahen Einstieg in KI für Mittelstand, Handwerk und Dienstleister.",
   "knowsAbout": ["Webdesign", "Webentwicklung", "App-Entwicklung", "KI-Beratung", "Schnittstellen"],
   "telephone": "+49 1522 7706694",
-  "email": "info@auto-lackierzentrum.de",
+  "email": "info@tomorrowworks-agentur.de",
   "areaServed": "Deutschland",
   "parentOrganization": {"@type": "Organization", "name": "Gärtner GmbH Karosserie + Lack"},
   "address": {
@@ -98,7 +99,7 @@
   .menu-button[aria-expanded="true"]::after{transform:translateY(-7px) rotate(-45deg)}
 
   /* Hero */
-  .hero{position:relative;min-height:900px;padding:150px 0 92px;overflow:hidden}
+  .hero{position:relative;min-height:830px;padding:132px 0 72px;overflow:hidden}
   .hero::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:rgba(255,100,26,.08);filter:blur(3px);right:-280px;top:-270px;pointer-events:none}
   .hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(17,19,21,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(17,19,21,.035) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,#000,transparent 84%);pointer-events:none}
   .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,.92fr) minmax(500px,1.08fr);align-items:center;gap:72px}
@@ -164,15 +165,18 @@
   .practice-card p{padding:9px 6px 4px;font-size:11px;line-height:1.35;font-weight:700}
   .practice-card p span{display:block;color:var(--muted);font-weight:520;margin-top:2px}
 
-  /* Proof strip */
-  .proof-strip{position:relative;z-index:5;background:var(--ink);color:#fff}
-  .proof-grid{min-height:91px;display:grid;grid-template-columns:repeat(3,1fr);align-items:center}
-  .proof-item{display:flex;align-items:center;gap:14px;padding:18px 34px;border-right:1px solid rgba(255,255,255,.12)}
-  .proof-item:first-child{padding-left:0}
-  .proof-item:last-child{border-right:0}
-  .proof-number{font-size:13px;color:var(--orange);font-weight:800}
-  .proof-item b{display:block;font-size:14px;letter-spacing:-.015em}
-  .proof-item span:last-child{display:block;color:#989ea4;font-size:12px;margin-top:2px}
+  /* Direkter Praxisbeweis */
+  .practice-proof{position:relative;z-index:5;background:var(--ink);color:#fff;padding:31px 0}
+  .practice-proof-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr);gap:48px;align-items:center}
+  .practice-proof-copy{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+  .practice-proof-no{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:rgba(255,100,26,.16);color:#ff9b6a;font-size:12px;font-weight:850}
+  .practice-proof-kicker{color:#ff9b6a;font-size:12px;font-weight:820;letter-spacing:.08em;text-transform:uppercase}
+  .practice-proof h2{font-size:clamp(24px,2.4vw,36px);margin:7px 0 8px}
+  .practice-proof p{color:#b6bcc1;font-size:14px;max-width:720px}
+  .practice-proof-actions{display:flex;justify-content:flex-end;align-items:center;gap:13px;flex-wrap:wrap}
+  .practice-proof .button.secondary{color:#fff;background:#21252a;border-color:#3a4046}
+  .practice-proof-facts{display:flex;gap:8px;flex-wrap:wrap}
+  .practice-proof-facts span{padding:8px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:#cbd0d4;font-size:11px;font-weight:680}
 
   /* Problem */
   .problem{padding:132px 0}
@@ -249,6 +253,21 @@
   .case-small-content h3{font-size:26px;margin:12px 0 13px}
   .case-small-content p{font-size:13px;color:#9ea4aa;line-height:1.55}
   .case-small-content .text-link{margin-top:20px}
+  .case-reference{grid-column:1/-1;grid-template-columns:minmax(360px,.88fr) minmax(0,1.12fr)}
+  .case-reference picture{min-height:320px;max-height:320px;background:#24282b;overflow:hidden}
+  .case-reference>picture img{object-position:center 58%;transform:scale(1.08);transform-origin:center bottom}
+  .case-reference .case-small-content{padding:38px 40px;justify-content:center}
+  .case-reference .case-small-content h3{font-size:32px;max-width:680px}
+  .case-reference .case-small-content p{font-size:15px;max-width:690px}
+  .case-reference-rizzato{grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr)}
+  .case-reference-rizzato .case-small-content{order:1}
+  .case-reference-rizzato .reference-duo{order:2}
+  .reference-duo{position:relative;min-height:340px;overflow:hidden;background:#e9e5dc}
+  .reference-duo figure{margin:0}
+  .reference-main{position:absolute;inset:0}
+  .reference-main img{height:calc(100% + 34px);object-position:center top}
+  .reference-inset{position:absolute;right:18px;bottom:18px;width:59%;height:48%;overflow:hidden;border:5px solid #fff;border-radius:14px;box-shadow:0 18px 42px rgba(14,18,22,.36)}
+  .reference-inset img{object-position:top center}
 
   /* Flow */
   .flow{padding:132px 0;background:#fff}
@@ -348,7 +367,7 @@
   .method-item > b{color:var(--orange);font-size:13px;letter-spacing:.06em}
   .method-item h3{font-size:23px;margin-bottom:7px}
   .method-item p{color:var(--muted);font-size:14px}
-  .founder{padding:80px 0 132px;background:var(--paper-2)}
+  .founder{padding:72px 0 104px;background:var(--paper-2)}
   .founder-head{display:grid;grid-template-columns:minmax(0,.92fr) minmax(300px,.78fr);align-items:end;gap:70px;margin-bottom:38px}
   .founder-head>.eyebrow{grid-column:1 / -1;margin-bottom:-45px}
   .founder-heading{font-size:clamp(39px,4.7vw,62px);font-weight:710;letter-spacing:-.045em;line-height:1.04;max-width:680px}
@@ -363,7 +382,7 @@
   .team-portrait.marcel img{object-position:center 18%}
   .team-body{display:flex;flex:1;flex-direction:column;justify-content:flex-start;padding:25px 19px 23px}
   .team-body h3{font-size:27px;margin-bottom:6px}
-  .team-role{font-size:10px;color:var(--orange);font-weight:800;text-transform:uppercase;letter-spacing:.09em}
+  .team-role{font-size:11px;color:#b5450e;font-weight:820;text-transform:uppercase;letter-spacing:.075em}
   .team-bio{font-size:14px;color:var(--muted);margin-top:19px;padding-top:18px;border-top:1px solid var(--line);line-height:1.65}
   .analysis-result{background:var(--paper-2);padding:0 0 110px}
   .analysis-card{background:var(--orange);border-radius:32px;padding:45px;display:grid;grid-template-columns:.72fr 1.28fr;gap:55px;color:var(--ink)}
@@ -375,7 +394,7 @@
   .deliverable p{font-size:11px;color:#713316;line-height:1.5}
 
   /* FAQ */
-  .faq{background:#fff;padding:120px 0}
+  .faq{background:#fff;padding:92px 0}
   .faq-grid{display:grid;grid-template-columns:.68fr 1.32fr;gap:90px;align-items:start}
   .faq h2{font-size:clamp(42px,5vw,66px);margin:18px 0 20px}
   .faq-intro{color:var(--muted);font-size:17px;max-width:420px}
@@ -431,69 +450,45 @@
   .ai-preview-head{display:flex;align-items:center;justify-content:space-between;color:#949ba1;font-size:8px;text-transform:uppercase;letter-spacing:.08em;font-weight:780}.ai-preview-head i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(98,213,139,.1)}
   .ai-preview p{font-size:11px;line-height:1.45;margin-top:12px;color:#d8dcdf}.ai-preview strong{color:var(--orange)}
 
-  .services{padding:132px 0}
+  .services{padding:104px 0}
   .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .service-card{position:relative;min-height:555px;border-radius:29px;padding:32px;display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(17,19,21,.08);transition:transform .25s,box-shadow .25s}
+  .service-card{position:relative;min-height:480px;border-radius:29px;padding:30px;display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(17,19,21,.08);transition:transform .25s,box-shadow .25s}
   .service-card:hover{transform:translateY(-5px);box-shadow:0 24px 58px rgba(22,24,26,.11)}
   .service-card.website{background:#fff}.service-card.app{background:var(--night);color:#fff}.service-card.ai{background:var(--orange);color:var(--ink)}
-  .service-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:55px}.service-no{font-size:10px;font-weight:820;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}.service-card.ai .service-no{color:#72300f}.service-card.app .service-no{color:#a5abb1}
+  .service-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:34px}.service-no{font-size:12px;font-weight:820;letter-spacing:.08em;text-transform:uppercase;color:#b5450e}.service-card.ai .service-no{color:#672709}.service-card.app .service-no{color:#c0c6cb}
   .service-icon{width:43px;height:43px;border-radius:14px;background:var(--paper);display:grid;place-items:center;font-size:15px;font-weight:830}.service-card.app .service-icon{background:#24282d;color:var(--orange)}.service-card.ai .service-icon{background:rgba(255,255,255,.35)}
   .service-card h3{font-size:37px;margin-bottom:18px}.service-card > p{color:var(--muted);font-size:15px}.service-card.app > p{color:#aeb4ba}.service-card.ai > p{color:#713316}
-  .service-points{list-style:none;display:grid;gap:9px;margin:27px 0 34px}.service-points li{font-size:12px;display:flex;align-items:center;gap:9px}.service-points li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);flex:none}.service-card.ai .service-points li::before{background:var(--ink)}
+  .service-points{list-style:none;display:grid;gap:8px;margin:22px 0 27px}.service-points li{font-size:12px;display:flex;align-items:center;gap:9px}.service-points li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);flex:none}.service-card.ai .service-points li::before{background:var(--ink)}
   .service-link{margin-top:auto;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(17,19,21,.12);padding-top:19px;font-size:13px;font-weight:760}.service-card.app .service-link{border-color:rgba(255,255,255,.12)}.service-link span:last-child{font-size:19px;color:var(--orange)}.service-card.ai .service-link span:last-child{color:var(--ink)}
   .connection-note{margin-top:22px;display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;color:var(--muted);font-size:12px}.connection-note i{width:8px;height:8px;border-radius:50%;background:var(--orange)}
 
-  /* Print & Geschäftsausstattung */
-  .print-service{padding:0 0 132px;background:var(--paper)}
-  .print-shell{display:grid;grid-template-columns:minmax(0,.88fr) minmax(470px,1.12fr);gap:20px;padding:18px;background:#fff;border:1px solid rgba(17,19,21,.08);border-radius:32px;box-shadow:0 24px 70px rgba(17,19,21,.08);overflow:hidden}
-  .print-copy{display:flex;flex-direction:column;justify-content:center;padding:46px 35px}
-  .print-copy h2{font-size:clamp(42px,4.8vw,64px);margin:19px 0 23px}
-  .print-copy>p{color:var(--muted);font-size:17px;line-height:1.68}
-  .print-list{display:flex;gap:8px;flex-wrap:wrap;margin:27px 0 34px}
-  .print-list span{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:#565a5d;font-size:10px;font-weight:760}
-  .print-copy .button{width:max-content}
-  .print-actions{display:flex;gap:10px;flex-wrap:wrap}
-  .print-note{margin-top:14px;color:#888c8f;font-size:11px}
-  .print-visual{position:relative;min-height:530px;border-radius:24px;overflow:hidden;background:#171a1f;color:#fff}
-  .print-visual::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:42px 42px}
-  .print-visual::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;right:-115px;top:-125px;background:rgba(255,100,26,.22);filter:blur(18px)}
-  .print-flyer,.print-card{position:absolute;z-index:2;box-shadow:0 28px 60px rgba(0,0,0,.33)}
-  .print-flyer{left:62px;top:43px;width:278px;aspect-ratio:.707;background:#f2efe7;color:var(--ink);border-radius:8px;padding:28px;transform:rotate(-6deg)}
-  .print-flyer small{display:block;color:var(--orange);font-size:8px;font-weight:830;letter-spacing:.12em;text-transform:uppercase}
-  .print-flyer b{display:block;font-size:31px;line-height:1.02;letter-spacing:-.04em;margin:64px 0 20px}
-  .print-flyer span{display:block;color:#6b6e70;font-size:10px;line-height:1.5}
-  .print-flyer i{position:absolute;left:28px;right:28px;bottom:28px;height:7px;border-radius:99px;background:var(--orange)}
-  .print-card{right:42px;bottom:54px;width:312px;height:178px;border-radius:12px;padding:25px 27px;background:var(--ink);border:1px solid rgba(255,255,255,.13);transform:rotate(7deg)}
-  .print-card strong{font-size:18px;letter-spacing:-.03em}.print-card strong em{color:var(--orange);font-style:normal}
-  .print-card p{position:absolute;left:27px;bottom:25px;color:#b7bcc1;font-size:10px;line-height:1.5}
-  .print-card span{position:absolute;right:25px;top:25px;width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:var(--orange);color:var(--ink);font-size:15px;font-weight:850}
-  .print-status{position:absolute;z-index:3;right:28px;top:26px;display:flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(17,19,21,.72);color:#e6e8ea;font-size:8px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(8px)}
-  .print-status::before{content:"";width:7px;height:7px;border-radius:50%;background:#62d58b}
+  /* Print als ergänzende Leistung */
+  .print-service{padding:0 0 88px;background:var(--paper-2)}
+  .print-shell{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:42px;align-items:center;padding:34px 38px;background:#fff;border:1px solid rgba(17,19,21,.08);border-radius:25px;box-shadow:0 18px 55px rgba(17,19,21,.06)}
+  .print-copy h2{font-size:clamp(31px,3.4vw,46px);margin:13px 0 13px}
+  .print-copy>p{color:var(--muted);font-size:15px;line-height:1.62;max-width:780px}
+  .print-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:19px}
+  .print-list span{padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:#565a5d;font-size:11px;font-weight:760}
+  .print-actions{display:grid;gap:9px;min-width:245px}
+  .print-actions .button{width:100%}
+  .print-note{margin-top:12px;color:#7c8083;font-size:12px}
 
   .project-type{display:inline-flex;width:max-content;border-radius:999px;padding:7px 10px;background:rgba(255,100,26,.14);border:1px solid rgba(255,100,26,.25);color:#ff9b6c;font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
   .case-copy .project-type{margin-bottom:4px}
 
-  .delivery{padding:132px 0;background:#fff}
+  .delivery{padding:104px 0;background:#fff}
   .delivery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid #dcd9d2;border-bottom:1px solid #dcd9d2}
-  .delivery-step{position:relative;padding:30px 27px 34px;border-right:1px solid #dcd9d2;min-height:255px}.delivery-step:last-child{border-right:0}.delivery-step > span{display:block;color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.09em;margin-bottom:45px}.delivery-step h3{font-size:25px;margin-bottom:12px}.delivery-step p{color:var(--muted);font-size:13px}.delivery-note{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}
+  .delivery-step{position:relative;padding:27px 25px 29px;border-right:1px solid #dcd9d2;min-height:205px}.delivery-step:last-child{border-right:0}.delivery-step > span{display:block;color:#b5450e;font-size:12px;font-weight:820;letter-spacing:.08em;margin-bottom:27px}.delivery-step h3{font-size:24px;margin-bottom:10px}.delivery-step p{color:var(--muted);font-size:13px}.delivery-note{text-align:center;color:var(--muted);font-size:12px;margin-top:20px}
+  .delivery-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:27px}
+  .delivery-trust span{padding:14px 16px;border-radius:14px;background:var(--paper-2);border:1px solid rgba(17,19,21,.07);color:#55595c;font-size:12px;font-weight:690;text-align:center}
 
-  .why{padding:132px 0;background:var(--paper-2)}
-  .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  .why-card{background:#fff;border-radius:24px;padding:30px;border:1px solid rgba(17,19,21,.07);min-height:210px}.why-card.dark{background:var(--night);color:#fff}.why-card .why-no{color:var(--orange);font-size:10px;font-weight:820;letter-spacing:.09em}.why-card h3{font-size:28px;margin:32px 0 10px}.why-card p{color:var(--muted);font-size:14px;max-width:500px}.why-card.dark p{color:#aeb4ba}
-
-  .ai-spotlight{padding:0 0 132px;background:var(--paper-2)}
-  .ai-spotlight-card{display:grid;grid-template-columns:.85fr 1.15fr;background:var(--night);color:#fff;border-radius:33px;overflow:hidden}
-  .ai-spotlight-copy{padding:53px}.ai-spotlight-copy h2{font-size:clamp(40px,5vw,62px);margin:20px 0 22px}.ai-spotlight-copy > p{color:#aeb4ba;font-size:16px}.ai-spotlight-copy .text-link{margin-top:31px}
-  .ai-route{background:#1b1f24;border-left:1px solid rgba(255,255,255,.08);padding:42px;display:grid;align-content:center;gap:12px}
-  .ai-route-item{display:grid;grid-template-columns:43px 1fr;gap:14px;align-items:center;background:#23272c;border:1px solid rgba(255,255,255,.08);border-radius:15px;padding:14px}.ai-route-item b:first-child{width:43px;height:43px;border-radius:12px;background:#30353b;color:var(--orange);display:grid;place-items:center;font-size:11px}.ai-route-item h3{font-size:15px;margin-bottom:3px}.ai-route-item p{color:#92999f;font-size:11px}.ai-route-item.accent{border-color:rgba(255,100,26,.42);background:#291f1b}
-
-  .price-bridge{padding:105px 0;background:#fff}.price-bridge-card{display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px;border-radius:28px;background:var(--orange-soft);border:1px solid #ffd8c5;padding:42px}.price-bridge-card h2{font-size:clamp(35px,4.5vw,53px);margin:14px 0 10px}.price-bridge-card p{color:#7e4b34;font-size:14px;max-width:700px}
+  .price-bridge{padding:78px 0;background:var(--paper-2)}.price-bridge-card{display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px;border-radius:28px;background:var(--orange-soft);border:1px solid #ffd8c5;padding:38px}.price-bridge-card h2{font-size:clamp(34px,4vw,49px);margin:13px 0 9px}.price-bridge-card p{color:#71412b;font-size:14px;max-width:700px}
 
   @media (max-width:1080px){
     .desktop-nav{gap:17px}.desktop-nav a:nth-child(3){display:none}
     .hero-grid{grid-template-columns:minmax(0,.9fr) minmax(460px,1.1fr);gap:36px}.hero h1{font-size:61px}
     .practice-card{right:0}
-    .case-small{grid-template-columns:180px 1fr}
+    .case-small{grid-template-columns:180px 1fr}.case-reference{grid-template-columns:minmax(310px,.84fr) minmax(0,1.16fr)}
     .bento{grid-template-columns:1fr 1fr}.bento-card.large{grid-row:span 2}.bento-card:last-child{grid-column:2}
   }
   @media (max-width:860px){
@@ -509,7 +504,7 @@
     .section-head{grid-template-columns:1fr;gap:20px}.section-head > p{max-width:590px}
     .problem-grid,.method-grid{grid-template-columns:1fr;gap:55px}
     .case-feature{grid-template-columns:1fr}.browser-frame{min-height:430px}.cockpit-photo,.cockpit-photo img{min-height:430px}.case-copy{padding:25px 10px 10px}
-    .case-small-grid{grid-template-columns:1fr}.case-small{grid-template-columns:230px 1fr}
+    .case-small-grid{grid-template-columns:1fr}.case-small{grid-template-columns:230px 1fr}.case-reference{grid-template-columns:1fr}.case-reference picture{min-height:280px;max-height:280px}.case-reference-rizzato .reference-duo{order:1}.case-reference-rizzato .case-small-content{order:2}.reference-duo{min-height:310px}
     .flow-board{grid-template-columns:1fr;gap:12px}.flow-connector{transform:rotate(90deg);height:35px}.flow-step{min-height:240px}
     .scenario-grid{grid-template-columns:1fr;gap:11px}.scenario-arrow{height:28px;transform:rotate(90deg)}.scenario-column{min-height:auto}.scenario-top{align-items:flex-start}
     .bento{grid-template-columns:1fr 1fr}.bento-card.large{grid-column:1 / -1;grid-row:auto;min-height:470px}.bento-card:last-child{grid-column:auto}
@@ -523,9 +518,9 @@
     .nav-shell{min-height:68px;gap:9px}.brand-mark{width:28px;height:28px}.brand-name{font-size:15px}.nav-shell > .nav-cta{min-height:40px;padding:0 12px;font-size:11px;white-space:nowrap}.menu-button{width:40px;height:40px}
     .hero{padding:106px 0 62px}.hero::after{background-size:38px 38px}.hero-copy{text-align:left}.hero .eyebrow{justify-content:flex-start;font-size:11px}.hero h1{font-size:clamp(44px,12.8vw,52px);margin:20px 0}.hero-lead{font-size:17px}.hero-actions{justify-content:flex-start;display:grid}.button{width:100%;min-height:51px}.hero-note{text-align:center}.hero-proof{justify-content:flex-start;gap:11px 18px;margin-top:32px}.hero-proof span{font-size:11px}
     .hero-proof{display:none}.product-stage{min-height:490px;margin:0 -6px}.console{padding:10px;border-radius:24px;transform:none}.console-body{grid-template-columns:1fr;min-height:384px}.console-side{display:none}.console-main{padding:20px 17px}.console-title .ui-heading{font-size:19px}.incoming{padding:13px}.automation-line{grid-template-columns:1fr 22px 1fr}.auto-card{padding:10px}.practice-card{width:158px;right:-3px;bottom:-28px;padding:7px}.practice-card img{height:75px}.practice-card p{font-size:9px}
-    .proof-grid{grid-template-columns:1fr}.proof-item,.proof-item:first-child{padding:16px 0;border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}.proof-item:last-child{border:0}
+    .practice-proof{padding:28px 0}.practice-proof-copy{grid-template-columns:36px 1fr;gap:13px}.practice-proof-no{width:36px;height:36px}.practice-proof h2{font-size:27px}.practice-proof-actions{display:grid}.practice-proof-actions .button{width:100%}.practice-proof-facts{gap:6px}.practice-proof-facts span{font-size:10px}
     .problem,.flow,.capabilities,.method{padding:92px 0}.problem-grid{gap:45px}.problem h2,.section-head h2,.method h2{font-size:42px}.problem-copy{font-size:17px}.friction{grid-template-columns:42px 1fr;padding:14px}.friction i{width:39px;height:39px}
-    .cases{padding:92px 0;border-radius:30px 30px 0 0}.section-head{margin-bottom:38px}.section-head > p{font-size:16px}.case-feature{padding:10px;border-radius:24px}.browser-frame{min-height:290px}.cockpit-photo{min-height:0;aspect-ratio:16/10;border-radius:17px}.cockpit-photo img{min-height:0}.cockpit-visual-note{left:10px;bottom:10px;font-size:7px}.cockpit-map{min-height:auto;padding:14px}.cockpit-tools{grid-template-columns:repeat(2,1fr)}.cockpit-network{grid-template-columns:1fr;padding-top:13px}.cockpit-network::before{display:none}.cockpit-node{min-height:0}.cockpit-node::before{display:none}.cockpit-caption{padding-top:10px}.case-copy{padding:22px 12px 16px}.case-copy h3{font-size:36px}.case-small{grid-template-columns:1fr}.case-small picture{min-height:210px;max-height:230px}.case-small-content{padding:24px}.case-small-content h3{font-size:25px}
+    .cases{padding:92px 0;border-radius:30px 30px 0 0}.section-head{margin-bottom:38px}.section-head > p{font-size:16px}.case-feature{padding:10px;border-radius:24px}.browser-frame{min-height:290px}.cockpit-photo{min-height:0;aspect-ratio:16/10;border-radius:17px}.cockpit-photo img{min-height:0}.cockpit-visual-note{left:10px;bottom:10px;font-size:7px}.cockpit-map{min-height:auto;padding:14px}.cockpit-tools{grid-template-columns:repeat(2,1fr)}.cockpit-network{grid-template-columns:1fr;padding-top:13px}.cockpit-network::before{display:none}.cockpit-node{min-height:0}.cockpit-node::before{display:none}.cockpit-caption{padding-top:10px}.case-copy{padding:22px 12px 16px}.case-copy h3{font-size:36px}.case-small{grid-template-columns:1fr}.case-small picture{min-height:210px;max-height:230px}.case-small-content{padding:24px}.case-small-content h3{font-size:25px}.case-reference picture{min-height:230px;max-height:250px}.case-reference .case-small-content{padding:27px 24px}.case-reference .case-small-content h3{font-size:27px}.reference-duo{min-height:290px}.reference-inset{right:10px;bottom:10px;width:65%;height:46%;border-width:3px;border-radius:10px}
     .flow-step{min-height:230px;padding:25px}.flow-icon{margin-bottom:33px}
     .scenario-board{padding:10px;border-radius:24px}.scenario-top{display:grid;padding:9px 9px 18px}.scenario-facts{justify-content:flex-start}.scenario-column{padding:20px;border-radius:17px}.scenario-column h3{font-size:23px}.scenario-safety{margin:12px 2px 2px}
     .bento{grid-template-columns:1fr}.bento-card,.bento-card.large{grid-column:auto;min-height:250px}.bento-card.large{min-height:440px}.bento-card:last-child{grid-column:auto}
@@ -542,21 +537,21 @@
   }
   @media (max-width:860px){
     .studio-stage{min-height:610px}.service-grid{grid-template-columns:1fr}.service-card.ai{grid-column:auto}.service-card{min-height:470px}
-    .print-shell{grid-template-columns:1fr}.print-visual{min-height:500px}.print-copy{padding:38px 30px}
+    .practice-proof-grid{grid-template-columns:1fr;gap:24px}.practice-proof-actions{justify-content:flex-start}
+    .print-shell{grid-template-columns:1fr}.print-actions{display:flex;min-width:0;flex-wrap:wrap}.print-actions .button{width:auto}
     .delivery-grid{grid-template-columns:1fr 1fr}.delivery-step:nth-child(2){border-right:0}.delivery-step:nth-child(-n+2){border-bottom:1px solid #dcd9d2}
-    .ai-spotlight-card{grid-template-columns:1fr}.ai-route{border-left:0;border-top:1px solid rgba(255,255,255,.08)}
     .price-bridge-card{grid-template-columns:1fr}.price-bridge-card .button{width:max-content}
   }
   @media (max-width:600px){
     .brand-sub{font-size:6px}.studio-stage{min-height:500px;margin:0 -5px}.studio-window{padding:9px;border-radius:23px;transform:none}.studio-canvas{min-height:405px;padding:15px}.studio-tabs{display:none}
     .web-preview{width:92%}.web-preview img{height:220px}.app-preview{width:137px;right:8px;bottom:13px;padding:6px;border-radius:16px}.app-preview img{height:170px;border-radius:11px}.app-preview p{font-size:8px}.ai-preview{left:16px;bottom:14px;width:210px;padding:12px}.ai-preview p{font-size:9px}
-    .services,.delivery,.why{padding:92px 0}.service-card{min-height:auto;padding:25px;border-radius:23px}.service-top{margin-bottom:38px}.service-card h3{font-size:32px}.service-card > p{font-size:14px}
-    .print-service{padding-bottom:92px}.print-shell{padding:10px;border-radius:25px}.print-copy{padding:28px 17px 32px}.print-copy h2{font-size:40px}.print-copy>p{font-size:16px}.print-actions{display:grid}.print-copy .button{width:100%}.print-visual{min-height:430px;border-radius:19px}.print-flyer{left:29px;top:36px;width:225px;padding:23px}.print-flyer b{font-size:26px;margin-top:49px}.print-flyer i{left:23px;right:23px;bottom:23px}.print-card{right:22px;bottom:43px;width:264px;height:151px;padding:21px 23px}.print-card p{left:23px;bottom:21px}.print-card span{right:21px;top:21px}.print-status{right:18px;top:17px}
+    .services,.delivery{padding:84px 0}.service-card{min-height:auto;padding:25px;border-radius:23px}.service-top{margin-bottom:28px}.service-card h3{font-size:32px}.service-card > p{font-size:14px}
+    .print-service{padding-bottom:72px}.print-shell{padding:27px 22px;border-radius:23px;gap:28px}.print-copy h2{font-size:34px}.print-copy>p{font-size:15px}.print-actions{display:grid}.print-actions .button{width:100%}
     .delivery-grid{grid-template-columns:1fr}.delivery-step{border-right:0;border-bottom:1px solid #dcd9d2;min-height:215px}.delivery-step:last-child{border-bottom:0}.delivery-step:nth-child(-n+2){border-bottom:1px solid #dcd9d2}.delivery-step > span{margin-bottom:28px}
-    .why-grid{grid-template-columns:1fr}.why-card{min-height:auto}.ai-spotlight{padding-bottom:92px}.ai-spotlight-card > *{min-width:0}.ai-spotlight-copy,.ai-route{padding:27px}.ai-spotlight-copy h2{font-size:40px;overflow-wrap:anywhere}.ai-route-item{grid-template-columns:38px minmax(0,1fr)}.ai-route-item b:first-child{width:38px;height:38px}
+    .delivery-trust{grid-template-columns:1fr}
     .price-bridge{padding:80px 0}.price-bridge-card{padding:27px 23px;border-radius:23px}.price-bridge-card .button{width:100%}
   }
-  @media (max-width:350px){.nav-shell > .nav-cta{display:none}.hero h1{font-size:43px}.section-head h2,.problem h2,.method h2{font-size:36px}.ai-spotlight-copy,.ai-route{padding-inline:22px}.ai-spotlight-copy h2{font-size:34px}.contact h2{font-size:40px;overflow-wrap:anywhere}.console-main{padding-inline:12px}.demo-label{display:none}}
+  @media (max-width:350px){.nav-shell > .nav-cta{display:none}.hero h1{font-size:43px}.section-head h2,.problem h2,.method h2{font-size:36px}.contact h2{font-size:40px;overflow-wrap:anywhere}.console-main{padding-inline:12px}.demo-label{display:none}}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}.console{transform:none}}
 </style>
 </head>
@@ -573,10 +568,10 @@
       <a href="websites.html">Websites</a>
       <a href="apps.html">Apps</a>
       <a href="ki-einstieg.html">KI-Einstieg</a>
-      <a href="#projekte">Projekte</a>
+      <a href="projekte.html">Projekte</a>
       <a href="preise.html">Preise</a>
     </nav>
-    <a class="nav-cta" href="#kontakt">Erstgespräch <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="nav-cta" href="#kontakt">Erstgespräch · 20 Min. <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Navigation öffnen"><i></i></button>
   </div>
 </header>
@@ -587,10 +582,10 @@
       <div class="hero-copy reveal is-visible">
         <p class="eyebrow">Für Mittelstand, Handwerk &amp; Dienstleister</p>
         <h1>Wir entwickeln Websites und Apps. <em>Wir begleiten Ihren KI-Einstieg.</em></h1>
-        <p class="hero-lead">TOMORROWWORKS plant, gestaltet und programmiert Firmenwebsites und individuelle Unternehmens-Apps, die zu Ihrem Betrieb passen. <strong>Beim KI-Einstieg finden wir gemeinsam einen konkreten, überschaubaren Anwendungsfall.</strong></p>
+        <p class="hero-lead">TOMORROWWORKS plant, gestaltet und programmiert Firmenwebsites, individuelle Unternehmens-Apps und einen nachvollziehbaren Einstieg in KI — passend zu Ihrem Betrieb.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#kontakt">Projekt kostenlos besprechen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="button secondary" href="#projekte">Projekte ansehen</a>
+          <a class="button primary" href="#kontakt">Kostenloses Erstgespräch · 20 Min. <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="button secondary" href="projekte.html">Echte Projekte ansehen</a>
         </div>
         <p class="hero-note">Persönlich in Mosbach oder online · passend zu Ihrem Betrieb</p>
         <div class="hero-proof" role="group" aria-label="Leistungsversprechen">
@@ -624,45 +619,15 @@
     </div>
   </section>
 
-  <section class="proof-strip" aria-label="Die drei Leistungsbereiche">
-    <div class="wrap proof-grid">
-      <div class="proof-item"><span class="proof-number">01</span><span><b>Websites</b><span>professioneller Auftritt und klare Anfragen</span></span></div>
-      <div class="proof-item"><span class="proof-number">02</span><span><b>Individuelle Apps</b><span>digitale Werkzeuge für Ihre Abläufe</span></span></div>
-      <div class="proof-item"><span class="proof-number">03</span><span><b>KI-Einstieg</b><span>verständlich beginnen und sinnvoll umsetzen</span></span></div>
-    </div>
-  </section>
-
-  <section class="cases" id="projekte">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div><p class="eyebrow light">Unser größtes Projekt · Im realen Betrieb</p><h2>Gebaut, eingesetzt und weiterentwickelt.</h2></div>
-        <p>Unser Werkstattcockpit ist unser größtes eigenes Digitalprojekt: eine eingesetzte Web-App, die interne Werkstattarbeit, das Autohausportal, den persönlichen Kundenstatus und die Ersatzmobilität miteinander verbindet. Daneben zeigen wir weitere Websites und Apps aus konkreten Anforderungen.</p>
+  <section class="practice-proof" aria-labelledby="praxisbeweis-title">
+    <div class="wrap practice-proof-grid">
+      <div class="practice-proof-copy">
+        <span class="practice-proof-no" aria-hidden="true">01</span>
+        <div><p class="practice-proof-kicker">Im eigenen Betrieb entwickelt und eingesetzt</p><h2 id="praxisbeweis-title">Unser Werkstattcockpit verbindet den gesamten Vorgang.</h2><p>Werkstatt, Autohäuser, Kunden, Dokumente, Termine und Ersatzmobilität arbeiten in einem gemeinsamen digitalen Ablauf.</p></div>
       </div>
-      <article class="case-feature reveal">
-        <figure class="cockpit-photo">
-          <picture>
-            <source srcset="bilder/werkstattcockpit-touchscreen.webp" type="image/webp">
-            <img src="bilder/werkstattcockpit-touchscreen.jpg" alt="Zwei Werkstattmitarbeiter planen Fahrzeuge an einem großen digitalen Werkstattcockpit und verschieben eine Fahrzeugkarte im Arbeitsablauf" width="1672" height="941" loading="lazy" decoding="async">
-          </picture>
-          <figcaption class="cockpit-visual-note">Konzeptvisualisierung · keine Kundendaten</figcaption>
-        </figure>
-        <div class="case-copy">
-          <span class="project-type">Werkstattcockpit · Eigener Betrieb</span>
-          <h3>Ein Cockpit, das Betrieb, Partner, Kunden und Mobilität verbindet.</h3>
-          <p>Im Betrieb ersetzt das digitale Werkstattboard die alte Pinnwand: Mitarbeiter verschieben Fahrzeuge durch die Arbeitsschritte und sehen Termine, Angebote, Dokumente und Status an einem Ort. Autohäuser und Privatkunden greifen über ihre eigenen Zugänge auf den gemeinsamen Vorgang zu.</p>
-          <ul class="case-list"><li>Fahrzeuge im Werkstattablauf digital planen und verschieben</li><li>Aufträge, Angebote, Termine und Dokumente zentral bearbeiten</li><li>Autohausportal, Kundenstatus und Ersatzmobilität verbinden</li></ul>
-          <a class="text-link" href="projekt-terminportal.html">Werkstattcockpit im Detail ansehen</a>
-        </div>
-      </article>
-      <div class="case-small-grid">
-        <a class="case-small reveal" href="projekt-mietwagen-website.html">
-          <picture><source srcset="bilder/screenshots/landing_mietwagen.webp" type="image/webp"><img src="bilder/screenshots/landing_mietwagen.jpg" alt="Entwickelte Mietwagen-Website" width="1280" height="800" loading="lazy" decoding="async"></picture>
-          <div class="case-small-content"><small>Website &amp; Buchung · Eigenes System</small><h3>Autovermietung als Teil des Gesamtsystems</h3><p>Website, Fahrzeugauswahl und Buchungsanfrage ergänzen Werkstattcockpit und Ersatzmobilität.</p><span class="text-link">Website-Projekt ansehen</span></div>
-        </a>
-        <a class="case-small reveal" href="projekt-zeiterfassung.html">
-          <picture><source srcset="bilder/screenshots/app_zeiterfassung.webp" type="image/webp"><img src="bilder/screenshots/app_zeiterfassung.jpg" alt="Zeiterfassungs-App mit Demo-Daten" width="1280" height="800" loading="lazy" decoding="async"></picture>
-          <div class="case-small-content"><small>App · Kundenprojekt</small><h3>Digitale Zeiterfassung</h3><p>Arbeitszeiten, Pausenhinweise und Tagesübersichten verständlich gebündelt.</p><span class="text-link">App-Projekt ansehen</span></div>
-        </a>
+      <div class="practice-proof-actions">
+        <div class="practice-proof-facts" aria-label="Bereiche des Werkstattcockpits"><span>Werkstattboard</span><span>Partnerportal</span><span>Kundenstatus</span></div>
+        <a class="button secondary" href="projekt-terminportal.html">Praxisprojekt ansehen</a>
       </div>
     </div>
   </section>
@@ -700,31 +665,11 @@
     </div>
   </section>
 
-  <section class="print-service" id="print">
-    <div class="wrap">
-      <article class="print-shell reveal">
-        <div class="print-copy">
-          <p class="eyebrow">Print &amp; Geschäftsausstattung</p>
-          <h2>Vom Entwurf bis zum fertigen Druckprodukt.</h2>
-          <p>Ein stimmiger Unternehmensauftritt hört nicht bei der Website auf. Visitenkarten können Sie bei uns direkt selbst konfigurieren oder vollständig gestalten lassen. Auf Wunsch übernehmen wir auch Flyer, Faltblätter, Druckdaten und die gesamte Produktion.</p>
-          <div class="print-list" aria-label="Print-Leistungen"><span>Visitenkarten</span><span>Flyer &amp; Faltblätter</span><span>Druckdaten &amp; Produktion</span></div>
-          <div class="print-actions"><a class="button primary" href="visitenkarten.html">Visitenkarte selbst gestalten <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="button secondary" href="visitenkarten.html#komplettservice">Komplettservice</a></div>
-          <p class="print-note">Gestaltung · Korrekturschleife · Druckfreigabe · Herstellung</p>
-        </div>
-        <div class="print-visual" role="img" aria-label="Gestaltungsbeispiele für einen Flyer und eine Visitenkarte im TOMORROWWORKS-Stil">
-          <div class="print-status">Bereit für den Druck</div>
-          <div class="print-flyer"><small>Digital Studio</small><b>Websites.<br>Apps.<br>KI-Einstieg.</b><span>Ein klarer Auftritt für Unternehmen – digital und gedruckt.</span><i></i></div>
-          <div class="print-card"><strong>tomorrow<em>works.</em></strong><span>T</span><p>Ihr Ansprechpartner<br>Digital Studio · Mosbach</p></div>
-        </div>
-      </article>
-    </div>
-  </section>
-
   <section class="delivery" id="vorgehen">
     <div class="wrap">
       <div class="section-head reveal">
-        <div><p class="eyebrow">Ein gemeinsamer Weg</p><h2>Von der Idee bis zum laufenden Produkt.</h2></div>
-        <p>Die Schritte bleiben nachvollziehbar — egal ob wir eine Website, eine App oder einen ersten KI-Baustein entwickeln.</p>
+        <div><p class="eyebrow">Ein gemeinsamer Weg</p><h2>Vier klare Schritte. Ein direkter Ansprechpartner.</h2></div>
+        <p>Website, App oder KI-Pilot: Wir halten Umfang, Entscheidungen und nächsten Schritt jederzeit nachvollziehbar.</p>
       </div>
       <div class="delivery-grid reveal">
         <article class="delivery-step"><span>01</span><h3>Verstehen</h3><p>Ziel, Nutzer, Inhalte und Anforderungen gemeinsam klären.</p></article>
@@ -732,48 +677,15 @@
         <article class="delivery-step"><span>03</span><h3>Umsetzen</h3><p>Transparent und in nachvollziehbaren Schritten gestalten, entwickeln und testen.</p></article>
         <article class="delivery-step"><span>04</span><h3>Einführen</h3><p>Veröffentlichen, erklären und auf Wunsch dauerhaft weiterbetreuen.</p></article>
       </div>
-      <p class="delivery-note reveal">Sie wissen jederzeit, was als Nächstes entsteht und welche Entscheidungen anstehen.</p>
-    </div>
-  </section>
-
-  <section class="why" id="ueber-uns">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">Warum TOMORROWWORKS</p><h2>Technik verständlich. Umsetzung persönlich.</h2></div>
-        <p>Gestaltung, Entwicklung und betriebliche Praxis kommen bei uns zusammen — ohne Übergabe zwischen anonymer Agentur und wechselnden Dienstleistern.</p>
-      </div>
-      <div class="why-grid">
-        <article class="why-card reveal"><span class="why-no">01</span><h3>Ein persönlicher Ansprechpartner</h3><p>Von der ersten Idee bis zur Weiterentwicklung sprechen Sie direkt mit demjenigen, der Ihr Projekt versteht und verantwortet.</p></article>
-        <article class="why-card dark reveal"><span class="why-no">02</span><h3>Gestaltung und Entwicklung aus einer Hand</h3><p>Eine gute Lösung soll nicht nur funktionieren, sondern verständlich aussehen und sich einfach bedienen lassen.</p></article>
-        <article class="why-card reveal"><span class="why-no">03</span><h3>Passend statt unnötig groß</h3><p>Wir definieren einen nachvollziehbaren Leistungsumfang und bauen nur, was für das Ziel tatsächlich gebraucht wird.</p></article>
-        <article class="why-card reveal"><span class="why-no">04</span><h3>Vernetzt, wenn es sinnvoll ist</h3><p>Bestehende Systeme, Schnittstellen und Automatisierung binden wir dort ein, wo sie Website, App oder KI-Lösung wirklich besser machen.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="ai-spotlight" aria-labelledby="ki-spotlight-title">
-    <div class="wrap">
-      <div class="ai-spotlight-card reveal">
-        <div class="ai-spotlight-copy">
-          <p class="eyebrow light">KI als drittes Angebot</p>
-          <h2 id="ki-spotlight-title">Ein verständlicher Einstieg statt eines großen KI-Versprechens.</h2>
-          <p>Wir starten mit Ihren Zielen und einem realen Anwendungsfall. Erst danach entscheiden wir gemeinsam, ob Beratung, ein kleiner Prototyp oder ein Pilot sinnvoll ist.</p>
-          <a class="text-link" href="ki-einstieg.html">So begleiten wir den KI-Einstieg</a>
-        </div>
-        <div class="ai-route">
-          <article class="ai-route-item"><b>01</b><div><h3>Orientierung</h3><p>Begriffe, Möglichkeiten und Grenzen verständlich einordnen.</p></div></article>
-          <article class="ai-route-item"><b>02</b><div><h3>Passenden Anwendungsfall finden</h3><p>Nutzen, Datenlage und Verantwortung gemeinsam bewerten.</p></div></article>
-          <article class="ai-route-item accent"><b>03</b><div><h3>Überschaubar ausprobieren</h3><p>Einen klaren Pilot bauen, prüfen und mit dem Team weiterentwickeln.</p></div></article>
-        </div>
-      </div>
+      <div class="delivery-trust reveal" aria-label="So arbeiten wir"><span>Gestaltung und Entwicklung aus einer Hand</span><span>Passender Umfang statt unnötig großer Lösung</span><span>Schnittstellen nur dort, wo sie Nutzen bringen</span></div>
     </div>
   </section>
 
   <section class="price-bridge" aria-labelledby="preis-hinweis">
     <div class="wrap">
       <div class="price-bridge-card reveal">
-        <div><p class="eyebrow">Transparenter Rahmen</p><h2 id="preis-hinweis">Erst den Umfang verstehen. Dann nachvollziehbar anbieten.</h2><p>Website, App und KI-Projekt benötigen unterschiedliche Leistungen. Unsere Preisseite erklärt, wie wir den Aufwand einordnen und welche Kosten zusätzlich entstehen können.</p></div>
-        <a class="button secondary" href="preise.html">Preise &amp; Vorgehen ansehen</a>
+        <div><p class="eyebrow">Transparenter Rahmen</p><h2 id="preis-hinweis">Erst verstehen. Dann nachvollziehbar anbieten.</h2><p>Unsere Preisseite zeigt, wie wir Umfang und mögliche Zusatzkosten einordnen.</p></div>
+        <a class="button secondary" href="preise.html">Preisrahmen ansehen</a>
       </div>
     </div>
   </section>
@@ -783,26 +695,26 @@
       <div class="founder-head reveal">
         <p class="eyebrow">Ihre Ansprechpartner</p>
         <h2 class="founder-heading" id="founder-title">Unternehmerische Praxis. <em>Digitale Umsetzung.</em></h2>
-        <p class="founder-intro">Persönlich erreichbar und direkt an der Umsetzung beteiligt. Bei TOMORROWWORKS sprechen Sie mit den Menschen, die Ihr Projekt begleiten.</p>
+        <p class="founder-intro"><strong>TOMORROWWORKS ist das Digital Studio der Gärtner GmbH Karosserie + Lack.</strong> Entstanden ist es aus digitalen Lösungen für den eigenen Werkstattbetrieb. Heute begleiten wir damit auch andere Unternehmen.</p>
       </div>
       <div class="team-grid">
         <article class="team-card reveal">
           <figure class="team-portrait">
             <picture><source srcset="bilder/christopher-gaertner-portrait.webp" type="image/webp"><img src="bilder/christopher-gaertner-portrait.jpg" alt="Christopher Gärtner, Gründer und Geschäftsführer von TOMORROWWORKS" width="1000" height="1250" loading="lazy" decoding="async"></picture>
           </figure>
-          <div class="team-body"><h3>Christopher Gärtner</h3><p class="team-role">Gründer &amp; Geschäftsführer</p><p class="team-bio">Christopher verbindet die Erfahrung aus dem eigenen Betrieb mit Gestaltung und Entwicklung.</p></div>
+          <div class="team-body"><h3>Christopher Gärtner</h3><p class="team-role">Gründer &amp; Geschäftsführer</p><p class="team-bio">Verbindet Anforderungen aus dem eigenen Betrieb mit Konzeption, Gestaltung und technischer Umsetzung.</p></div>
         </article>
         <article class="team-card reveal">
           <figure class="team-portrait flavio">
             <picture><source srcset="bilder/flavio-rizzato-portrait.webp" type="image/webp"><img src="bilder/flavio-rizzato-portrait.jpg" alt="Flavio Rizzato, Mitarbeiter und Ansprechpartner bei TOMORROWWORKS" width="941" height="1672" loading="lazy" decoding="async"></picture>
           </figure>
-          <div class="team-body"><h3>Flavio Rizzato</h3><p class="team-role">Mitarbeiter &amp; Ansprechpartner</p><p class="team-bio">Flavio ist als Mitarbeiter und direkter Ansprechpartner Teil unseres Teams.</p></div>
+          <div class="team-body"><h3>Flavio Rizzato</h3><p class="team-role">Mitarbeiter &amp; Ansprechpartner</p><p class="team-bio">Ist im Team einer Ihrer direkten Kontakte für Fragen und die persönliche Abstimmung.</p></div>
         </article>
         <article class="team-card reveal">
           <figure class="team-portrait marcel">
             <picture><source srcset="bilder/marcel-gaertner-portrait.webp" type="image/webp"><img src="bilder/marcel-gaertner-portrait.jpg" alt="Marcel Gärtner, Ansprechpartner bei TOMORROWWORKS" width="1122" height="1402" loading="lazy" decoding="async"></picture>
           </figure>
-          <div class="team-body"><h3>Marcel Gärtner</h3><p class="team-role">Ansprechpartner</p><p class="team-bio">Marcel ist als direkter Ansprechpartner Teil unseres Teams.</p></div>
+          <div class="team-body"><h3>Marcel Gärtner</h3><p class="team-role">Ansprechpartner im Team</p><p class="team-bio">Steht Ihnen als direkter Kontakt für Fragen und die persönliche Abstimmung zur Verfügung.</p></div>
         </article>
       </div>
     </div>
@@ -822,18 +734,72 @@
     </div>
   </section>
 
+  <section class="print-service" id="print">
+    <div class="wrap">
+      <article class="print-shell reveal">
+        <div class="print-copy">
+          <p class="eyebrow">Ergänzend zum digitalen Auftritt</p>
+          <h2>Visitenkarten, Flyer und Druckprodukte.</h2>
+          <p>Passend zur Website gestalten wir Ihre Geschäftsausstattung und begleiten auf Wunsch auch Druckdaten, Freigabe und Herstellung.</p>
+          <div class="print-list" aria-label="Print-Leistungen"><span>Visitenkarten</span><span>Flyer &amp; Faltblätter</span><span>Gestaltung bis Produktion</span></div>
+          <p class="print-note">Selbst konfigurieren oder vollständig durch uns gestalten lassen.</p>
+        </div>
+        <div class="print-actions"><a class="button primary" href="visitenkarten.html">Visitenkarte selbst gestalten <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="button secondary" href="visitenkarten.html#komplettservice">Komplettservice ansehen</a></div>
+      </article>
+    </div>
+  </section>
+
   <section class="contact" id="kontakt">
     <div class="wrap contact-inner reveal">
-      <p class="eyebrow light">Kostenloses Erstgespräch</p>
+      <p class="eyebrow light">Kostenloses Erstgespräch · 20 Minuten</p>
       <h2>Was möchten Sie digital <span>voranbringen?</span></h2>
-      <p class="contact-lead">Erzählen Sie uns kurz von Ihrem Vorhaben. Sie sprechen direkt mit einem unserer Ansprechpartner und klären gemeinsam Ziel, sinnvollen Umfang und den nächsten Schritt.</p>
-      <div class="contact-topics"><span>Mein Projekt:</span><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20Neue%20Website">Neue Website</a><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20Individuelle%20App">Individuelle App</a><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20KI-Einstieg">KI-Einstieg</a><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20Visitenkarten%20und%20Flyer">Visitenkarten &amp; Flyer</a><a href="mailto:info@auto-lackierzentrum.de?subject=Erstgespr%C3%A4ch%3A%20Bestehende%20L%C3%B6sung">Bestehende Lösung</a></div>
-      <div class="contact-actions">
-        <a class="button primary" href="mailto:info@auto-lackierzentrum.de?subject=Kostenloses%20Erstgespr%C3%A4ch%20anfragen">Erstgespräch vereinbaren <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="button secondary" href="https://wa.me/4915227706694?text=Hallo!%20Ich%20m%C3%B6chte%20ein%20digitales%20Projekt%20besprechen." target="_blank" rel="noopener">Per WhatsApp schreiben</a>
+      <p class="contact-lead">Beschreiben Sie kurz Ihr Ziel. Danach wissen Sie, ob wir zusammenpassen und welcher erste Schritt sinnvoll ist.</p>
+      <div class="contact-layout">
+        <div class="contact-intro">
+          <h3>Persönlich einordnen, bevor Aufwand entsteht.</h3>
+          <p>Sie brauchen keine technische Beschreibung. Ein verständlicher Überblick über Ihr Unternehmen, das heutige Problem und das gewünschte Ergebnis reicht.</p>
+          <ul class="contact-expect">
+            <li>20 Minuten, kostenlos und unverbindlich</li>
+            <li>Direkter Ansprechpartner statt anonymer Vertrieb</li>
+            <li>Klare Einschätzung zu Lösung, Umfang und Budgetrahmen</li>
+          </ul>
+          <div class="contact-actions">
+            <a class="button secondary" href="tel:+4915227706694">Direkt anrufen</a>
+            <a class="button secondary" href="https://wa.me/4915227706694?text=Hallo!%20Ich%20m%C3%B6chte%20ein%20kostenloses%2020-Minuten-Erstgespr%C3%A4ch%20anfragen." target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <form class="inquiry-form" data-project-inquiry data-endpoint="" novalidate>
+          <div class="inquiry-grid">
+            <div class="inquiry-field full">
+              <label for="inquiry-project">Worum geht es? *</label>
+              <select id="inquiry-project" name="projektart" required>
+                <option value="">Bitte auswählen</option>
+                <option>Neue Website oder Relaunch</option>
+                <option>Individuelle App oder Portal</option>
+                <option>KI-Einstieg oder Automatisierung</option>
+                <option>Visitenkarten oder Flyer</option>
+                <option>Bestehende Lösung weiterentwickeln</option>
+                <option>Noch nicht sicher</option>
+              </select>
+            </div>
+            <div class="inquiry-field"><label for="inquiry-name">Name *</label><input id="inquiry-name" name="name" type="text" autocomplete="name" maxlength="80" required></div>
+            <div class="inquiry-field"><label for="inquiry-company">Unternehmen</label><input id="inquiry-company" name="firma" type="text" autocomplete="organization" maxlength="100"></div>
+            <div class="inquiry-field"><label for="inquiry-email">E-Mail *</label><input id="inquiry-email" name="email" type="email" autocomplete="email" maxlength="100" required></div>
+            <div class="inquiry-field"><label for="inquiry-phone">Telefon</label><input id="inquiry-phone" name="telefon" type="tel" autocomplete="tel" maxlength="40"></div>
+            <div class="inquiry-field full"><label for="inquiry-message">Was möchten Sie verbessern? *</label><textarea id="inquiry-message" name="nachricht" maxlength="1200" placeholder="Zum Beispiel: Unsere Website ist veraltet und Anfragen kommen noch unstrukturiert per Telefon …" required></textarea></div>
+            <div class="inquiry-honeypot" aria-hidden="true"><label for="inquiry-website">Website</label><input id="inquiry-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <label class="inquiry-consent"><input name="datenschutz" type="checkbox" required><span>Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und möchte meine Anfrage bewusst über einen der angebotenen Kontaktwege senden. *</span></label>
+            <div class="inquiry-submit"><button class="button primary" type="submit">Anfrage vorbereiten <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="inquiry-submit-note">Nach dem Prüfen wählen Sie E-Mail oder WhatsApp zum Versenden.</span></div>
+            <p class="inquiry-status" data-inquiry-status aria-live="polite"></p>
+            <div class="inquiry-result" data-inquiry-result role="status">
+              <h4 data-result-title>Ihre Anfrage ist vorbereitet.</h4>
+              <p data-result-text></p>
+              <div class="inquiry-result-actions"><a class="primary" data-result-mail href="#">E-Mail öffnen</a><a data-result-whatsapp href="#" target="_blank" rel="noopener">WhatsApp öffnen</a><button data-result-copy type="button">Text kopieren</button></div>
+            </div>
+          </div>
+        </form>
       </div>
-      <p class="contact-note">Direkter Ansprechpartner · unverbindlich · online oder vor Ort</p>
-      <div class="contact-options"><a href="tel:+4915227706694">0152&nbsp;27706694</a><a href="mailto:info@auto-lackierzentrum.de">info@auto-lackierzentrum.de</a><span>Mosbach · Baden-Württemberg</span></div>
+      <div class="contact-options"><a href="tel:+4915227706694">0152&nbsp;27706694</a><span>TOMORROWWORKS · Digital Studio der Gärtner GmbH</span><span>Mosbach · Baden-Württemberg</span></div>
     </div>
   </section>
 </main>
@@ -841,7 +807,7 @@
 <footer>
   <div class="wrap footer-inner">
     <div><p class="footer-brand">tomorrowworks. · Digital Studio</p><p>© 2026 TOMORROWWORKS — ein Angebot der Gärtner GmbH Karosserie + Lack</p></div>
-    <nav class="footer-links" aria-label="Navigation im Seitenfuß"><a href="websites.html">Websites</a><a href="apps.html">Apps</a><a href="ki-einstieg.html">KI-Einstieg</a><a href="#projekte">Projekte</a><a href="preise.html">Preise</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+    <nav class="footer-links" aria-label="Navigation im Seitenfuß"><a href="websites.html">Websites</a><a href="apps.html">Apps</a><a href="ki-einstieg.html">KI-Einstieg</a><a href="projekte.html">Projekte</a><a href="preise.html">Preise</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   </div>
 </footer>
 
@@ -859,6 +825,19 @@
   document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
   window.addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 18), {passive:true});
   const reveal = document.querySelectorAll('.reveal:not(.is-visible)');
+  const revealHashTarget = () => {
+    if (!location.hash) return;
+    const target = document.querySelector(location.hash);
+    if (!target) return;
+    target.classList.add('is-visible');
+    target.querySelectorAll('.reveal').forEach(element => element.classList.add('is-visible'));
+    requestAnimationFrame(() => target.scrollIntoView({behavior:'instant',block:'start'}));
+  };
+  revealHashTarget();
+  if (document.readyState === 'complete') revealHashTarget();
+  else window.addEventListener('load', revealHashTarget, {once:true});
+  setTimeout(revealHashTarget, 450);
+  window.addEventListener('hashchange', revealHashTarget);
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
@@ -868,5 +847,6 @@
     reveal.forEach(element => element.classList.add('is-visible'));
   }
 </script>
+<script src="kontakt.js?v=1" defer></script>
 </body>
 </html>

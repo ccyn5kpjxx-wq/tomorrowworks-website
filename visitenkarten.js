@@ -42,6 +42,7 @@
     email: byId('preview-email'),
     website: byId('preview-website'),
     address: byId('preview-address'),
+    contactEmpty: byId('preview-contact-empty'),
     initials: byId('preview-initials'),
     logoMark: byId('preview-logo-mark'),
     logoImage: byId('preview-logo-image'),
@@ -66,6 +67,7 @@
     finish: byId('summary-finish'),
     corners: byId('summary-corners'),
     delivery: byId('summary-delivery'),
+    production: byId('summary-production'),
     totalPrice: byId('summary-total-price'),
     priceBreakdown: byId('price-breakdown'),
     priceEstimate: byId('price-estimate')
@@ -95,6 +97,9 @@
   const wizardTotalPrice = byId('wizard-total-price');
   const copyInquiryButton = byId('copy-inquiry');
   const previewJump = byId('show-preview-mobile');
+  const deliveryEstimate = byId('delivery-estimate');
+  const productionWindowText = byId('production-window-text');
+  const productionWindowNote = byId('production-window-note');
   let wizardStep = 1;
   let maxStepReached = 1;
   let activeSide = 'front';
@@ -191,8 +196,20 @@
     return luminance > .42 ? '#111315' : '#ffffff';
   };
 
-  const setPreviewText = (element, value, replacement) => {
-    if (element) element.textContent = fallback(value, replacement);
+  const setPreviewText = (element, value, placeholder = '') => {
+    if (!element) return;
+    const cleanValue = value.trim();
+    element.textContent = cleanValue || placeholder;
+    element.hidden = !cleanValue && !placeholder;
+    element.classList.toggle('preview-placeholder', !cleanValue && Boolean(placeholder));
+  };
+
+  const setOptionalPreviewText = (element, value) => {
+    if (!element) return;
+    const cleanValue = value.trim();
+    element.textContent = cleanValue;
+    const row = element.closest('span');
+    if (row) row.hidden = !cleanValue;
   };
 
   const setFileStatus = (element, message, type = '') => {
@@ -377,11 +394,13 @@
     summary.finish.textContent = selectedText(fields.finish);
     summary.corners.textContent = selectedText(fields.corners);
     summary.delivery.textContent = selectedText(fields.delivery);
+    updateProductionWindow();
     updatePrice();
   };
 
   const updatePreview = () => {
-    const company = fallback(fields.company.value, 'Musterwerk GmbH');
+    const companyValue = fields.company.value.trim();
+    const company = companyValue || 'Unternehmen';
     const accent = normalizeHex(fields.accentHex.value) || fields.accentColor.value || '#ff641a';
     const template = templateValue();
     updateTemplateMode();
@@ -391,15 +410,18 @@
     fields.accentColor.value = accent;
     if (document.activeElement !== fields.accentHex) fields.accentHex.value = accent;
 
-    setPreviewText(preview.companyFront, company, 'Musterwerk GmbH');
-    setPreviewText(preview.companyBack, company, 'Musterwerk GmbH');
-    setPreviewText(preview.name, fields.cardName.value, 'Anna Beispiel');
-    setPreviewText(preview.role, fields.role.value, 'Geschäftsführung');
-    setPreviewText(preview.phone, fields.phone.value, '+49 6261 000000');
-    setPreviewText(preview.email, fields.cardEmail.value, 'hallo@musterwerk.de');
-    setPreviewText(preview.website, fields.website.value, 'www.musterwerk.de');
-    setPreviewText(preview.address, fields.address.value, 'Musterstraße 1 · 74821 Mosbach');
-    preview.initials.textContent = initialsFor(company);
+    setPreviewText(preview.companyFront, companyValue, 'Unternehmen');
+    setPreviewText(preview.companyBack, companyValue, 'Unternehmen');
+    setPreviewText(preview.name, fields.cardName.value, 'Ihr Name');
+    setOptionalPreviewText(preview.role, fields.role.value);
+    setOptionalPreviewText(preview.phone, fields.phone.value);
+    setOptionalPreviewText(preview.email, fields.cardEmail.value);
+    setOptionalPreviewText(preview.website, fields.website.value);
+    setOptionalPreviewText(preview.address, fields.address.value);
+    const hasContactDetails = [fields.phone, fields.cardEmail, fields.website, fields.address].some(field => field.value.trim());
+    preview.contactEmpty.hidden = hasContactDetails;
+    preview.initials.textContent = companyValue ? initialsFor(companyValue) : '–';
+    preview.logoMark.classList.toggle('is-placeholder', !companyValue && !logoDataUrl);
     updateRightsRequirement();
     updateAttachmentReminder();
     updateSummary();
@@ -476,6 +498,7 @@
     if (clearInput) fields.templateFile.value = '';
     fields.templateFile.setCustomValidity('');
     templateDetection.hidden = true;
+    templateDetection.classList.remove('has-warning', 'has-error');
     templateDetectionText.textContent = '';
     preflightList.replaceChildren();
     setFileStatus(customSource.status, message, type);
@@ -540,6 +563,8 @@
       preflightList.append(item);
     });
     templateDetectionText.textContent = summaryText;
+    templateDetection.classList.toggle('has-error', checks.some(check => check.status === 'error'));
+    templateDetection.classList.toggle('has-warning', !checks.some(check => check.status === 'error') && checks.some(check => check.status === 'warn'));
     templateDetection.hidden = false;
   };
 
@@ -636,6 +661,7 @@
     customSource.formatLabel = '';
     selectOwnTemplate();
     templateDetection.hidden = true;
+    templateDetection.classList.remove('has-warning', 'has-error');
     templateDetectionText.textContent = '';
     preflightList.replaceChildren();
     fields.templateFile.setCustomValidity('Die Druckdatei wird noch geprüft.');
@@ -850,11 +876,70 @@
     const day = String(date.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
   };
-  fields.requestDate.min = localDateValue(new Date());
+
+  const addBusinessDays = (date, days) => {
+    const result = new Date(date);
+    result.setHours(12, 0, 0, 0);
+    let remaining = Math.max(0, days);
+    while (remaining > 0) {
+      result.setDate(result.getDate() + 1);
+      const weekday = result.getDay();
+      if (weekday !== 0 && weekday !== 6) remaining -= 1;
+    }
+    return result;
+  };
+
+  const productionPlan = () => {
+    const preparationDays = workflowValue() === 'template' ? 3 : 1;
+    const productionDays = 5;
+    const finishingDays = fields.finish.value === 'none' ? 0 : 2;
+    const cornerDays = fields.corners.value === 'rounded' ? 1 : 0;
+    const deliveryDays = fields.delivery.value === 'shipping' ? 2 : 0;
+    return {
+      preparationDays,
+      productionDays,
+      finishingDays,
+      cornerDays,
+      deliveryDays,
+      totalDays: preparationDays + productionDays + finishingDays + cornerDays + deliveryDays
+    };
+  };
+
+  const formatLongDate = date => new Intl.DateTimeFormat('de-DE', {
+    weekday: 'long',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  }).format(date);
+
+  const updateProductionWindow = () => {
+    if (!workflowValue()) {
+      fields.requestDate.removeAttribute('min');
+      productionWindowText.textContent = 'Zeitplanung wird anhand Ihrer Auswahl berechnet.';
+      productionWindowNote.textContent = 'Produktion beginnt erst nach Ihrer schriftlichen Druckfreigabe.';
+      deliveryEstimate.textContent = 'Der frühestmögliche Termin wird anhand Ihrer Auswahl berechnet.';
+      summary.production.textContent = 'nach Auswahl';
+      return;
+    }
+    const plan = productionPlan();
+    const earliestDate = addBusinessDays(new Date(), plan.totalDays);
+    fields.requestDate.min = localDateValue(earliestDate);
+    const components = [
+      `${plan.preparationDays} ${plan.preparationDays === 1 ? 'Werktag' : 'Werktage'} ${workflowValue() === 'template' ? 'Gestaltung & Prüfung' : 'Datenprüfung'}`,
+      `${plan.productionDays} Werktage Produktion`,
+      ...(plan.finishingDays ? [`${plan.finishingDays} Werktage Veredelung`] : []),
+      ...(plan.cornerDays ? [`${plan.cornerDays} Werktag Sonderverarbeitung`] : []),
+      ...(plan.deliveryDays ? [`${plan.deliveryDays} Werktage Versand`] : [])
+    ];
+    productionWindowText.textContent = `Frühester realistischer Erhalt: ${formatLongDate(earliestDate)}`;
+    productionWindowNote.textContent = `Ca. ${plan.totalDays} Werktage (${components.join(' + ')}). Voraussetzung sind vollständige Daten und eine schnelle schriftliche Druckfreigabe.`;
+    deliveryEstimate.textContent = `Frühestens ${formatLongDate(earliestDate)} · der Termin bleibt bis zur Druckfreigabe unverbindlich.`;
+    summary.production.textContent = `ca. ${plan.totalDays} Werktage`;
+  };
 
   const validateRequestDate = () => {
     fields.requestDate.setCustomValidity(fields.requestDate.value && fields.requestDate.value < fields.requestDate.min
-      ? 'Bitte wählen Sie heute oder einen späteren Wunschtermin.'
+      ? `Bitte wählen Sie den ${formatLongDate(new Date(`${fields.requestDate.min}T12:00:00`))} oder einen späteren Termin.`
       : '');
   };
 
@@ -904,6 +989,12 @@
         : '');
   };
 
+  const setRequiredTextValidity = () => {
+    const templateMode = workflowValue() === 'template';
+    fields.company.setCustomValidity(templateMode && !fields.company.value.trim() ? 'Bitte geben Sie Ihr Unternehmen ein.' : '');
+    fields.cardName.setCustomValidity(templateMode && !fields.cardName.value.trim() ? 'Bitte geben Sie den Namen für die Visitenkarte ein.' : '');
+  };
+
   const controlsForStep = stepNumber => {
     const step = wizardSteps.find(candidate => Number(candidate.dataset.step) === stepNumber);
     return step ? Array.from(step.querySelectorAll('input, select, textarea')).filter(control => !control.disabled) : [];
@@ -911,6 +1002,7 @@
 
   const validateStep = stepNumber => {
     setStepFileValidity();
+    setRequiredTextValidity();
     validateRequestDate();
     const invalid = controlsForStep(stepNumber).find(control => !control.checkValidity());
     if (!invalid) return true;
@@ -947,6 +1039,7 @@
   }));
 
   form.addEventListener('input', event => {
+    if (event.target === fields.company || event.target === fields.cardName) setRequiredTextValidity();
     if (![fields.logo, fields.templateFile, fields.accentHex].includes(event.target)) updatePreview();
     formError.classList.remove('visible');
   });
@@ -1060,6 +1153,12 @@
   };
 
   const downloadPreview = async () => {
+    if (templateValue() !== 'eigen' && (!fields.company.value.trim() || !fields.cardName.value.trim())) {
+      maxStepReached = Math.max(maxStepReached, 2);
+      setWizardStep(2, { focus: true, scroll: true });
+      formStatus.textContent = 'Bitte tragen Sie Unternehmen und Namen ein, bevor Sie die Vorschau herunterladen.';
+      return;
+    }
     if (templateValue() === 'eigen') {
       const asset = customFiles[activeSide];
       if (asset.kind !== 'image' || !asset.objectUrl) {
@@ -1083,7 +1182,7 @@
     const detailAccent = template === 'akzent' ? accentInk : accent;
     const marginX = Math.round(width * .087);
     const marginY = Math.round(height * .1);
-    const company = fallback(fields.company.value, 'Musterwerk GmbH');
+    const company = fields.company.value.trim() || 'Unternehmen';
 
     if (template === 'eigen') {
       await drawCustomTemplatePage(context, customFiles[activeSide], width, height, activeSide);
@@ -1100,25 +1199,25 @@
       context.fillText(companyText.text, marginX + Math.round(height * .13), marginY + Math.round(height * .08));
 
       if (activeSide === 'front') {
-        const name = fallback(fields.cardName.value, 'Anna Beispiel');
+        const name = fields.cardName.value.trim() || 'Ihr Name';
         const fittedName = fitText(context, name, width - marginX * 2, portrait ? 50 : 62, 750);
         context.font = `750 ${fittedName.size}px "Segoe UI", Arial, sans-serif`;
         context.fillStyle = foreground;
         context.fillText(fittedName.text, marginX, height * .72);
-        context.font = `${portrait ? 24 : 27}px "Segoe UI", Arial, sans-serif`;
-        context.fillStyle = muted;
-        context.fillText(fallback(fields.role.value, 'Geschäftsführung'), marginX, height * .79, width - marginX * 2);
+        const role = fields.role.value.trim();
+        if (role) {
+          context.font = `${portrait ? 24 : 27}px "Segoe UI", Arial, sans-serif`;
+          context.fillStyle = muted;
+          context.fillText(role, marginX, height * .79, width - marginX * 2);
+        }
         context.fillStyle = detailAccent;
         context.beginPath();
         context.roundRect(marginX, height * .88, width - marginX * 2, Math.max(8, height * .025), 10);
         context.fill();
       } else {
-        const details = [
-          fallback(fields.phone.value, '+49 6261 000000'),
-          fallback(fields.cardEmail.value, 'hallo@musterwerk.de'),
-          fallback(fields.website.value, 'www.musterwerk.de'),
-          fallback(fields.address.value, 'Musterstraße 1 · 74821 Mosbach')
-        ];
+        const details = [fields.phone.value, fields.cardEmail.value, fields.website.value, fields.address.value]
+          .map(value => value.trim())
+          .filter(Boolean);
         context.font = `${portrait ? 22 : 25}px "Segoe UI", Arial, sans-serif`;
         details.forEach((value, index) => {
           const y = height * (.56 + index * .075);
@@ -1181,6 +1280,8 @@
       ownTemplate ? customSource.fileName : ''
     ].filter(Boolean);
     const priceCalculation = calculatePrice();
+    const timing = productionPlan();
+    const earliestDate = addBusinessDays(new Date(), timing.totalDays);
     const priceMailLines = priceCalculation.valid
       ? [
           '',
@@ -1216,6 +1317,7 @@
       `Ecken: ${selectedText(fields.corners)}`,
       `Übergabe: ${selectedText(fields.delivery)}`,
       `Wunschtermin: ${fields.requestDate.value || 'offen'}`,
+      `Zeitplanung: ca. ${timing.totalDays} Werktage · frühestens ${formatLongDate(earliestDate)} bei vollständigen Daten und schneller Druckfreigabe`,
       ...priceMailLines,
       ...preflightLines,
       `Logo gewählt: ${!ownTemplate && logoFileName ? `Ja (${logoFileName})` : 'Nein'}`,
@@ -1255,6 +1357,8 @@
         corners: fields.corners.value,
         delivery: fields.delivery.value,
         requestDate: fields.requestDate.value,
+        estimatedBusinessDays: timing.totalDays,
+        earliestEstimatedDate: localDateValue(earliestDate),
         contactEmail: fields.contactEmail.value,
         notes: fields.notes.value,
         preflight: customSource.preflight,
@@ -1306,6 +1410,7 @@
     event.preventDefault();
     formError.classList.remove('visible');
     setStepFileValidity();
+    setRequiredTextValidity();
     validateRequestDate();
     fields.rights.setCustomValidity(hasUploadedAsset() && !fields.rights.checked ? 'Bitte bestätigen Sie die Nutzungsrechte an Logo und Vorlagendateien.' : '');
     const invalidEntry = [1, 2, 3].map(stepNumber => ({
@@ -1363,7 +1468,7 @@
         }
       }
 
-      const mailto = `mailto:info@auto-lackierzentrum.de?subject=${encodeURIComponent(inquiry.subject)}&body=${encodeURIComponent(inquiry.text)}`;
+      const mailto = `mailto:info@tomorrowworks-agentur.de?subject=${encodeURIComponent(inquiry.subject)}&body=${encodeURIComponent(inquiry.text)}`;
       formStatus.textContent = inquiry.filesToAttach.length
         ? `Ihr E-Mail-Entwurf wird geöffnet. Bitte dort noch anhängen: ${inquiry.filesToAttach.join(', ')}.`
         : 'Ihr E-Mail-Programm wird mit der ausgefüllten Anfrage geöffnet.';
